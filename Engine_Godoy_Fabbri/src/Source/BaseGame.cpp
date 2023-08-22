@@ -5,10 +5,12 @@ namespace ToToEng
 	BaseGame::BaseGame()
 	{
 		window = new Window();
+		renderer = new Renderer();
 	}
 
 	BaseGame::~BaseGame()
 	{
+		delete renderer;
 		delete window;
 	}
 
@@ -16,7 +18,7 @@ namespace ToToEng
 	{
 		while (!window->shouldClose())
 		{
-			window->updateWindow();
+			renderer->draw(window);
 		}
 	}
 }

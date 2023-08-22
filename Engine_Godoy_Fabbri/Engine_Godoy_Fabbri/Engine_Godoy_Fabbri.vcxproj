@@ -20,12 +20,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Source\BaseGame.cpp" />
+    <ClCompile Include="..\src\Source\Game.cpp" />
     <ClCompile Include="..\src\Source\Renderer.cpp" />
-    <ClCompile Include="..\src\Source\Test.cpp" />
+    <ClCompile Include="..\src\Source\Source.cpp" />
     <ClCompile Include="..\src\Source\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Headers\BaseGame.h" />
+    <ClInclude Include="..\src\Headers\Game.h" />
     <ClInclude Include="..\src\Headers\Renderer.h" />
     <ClInclude Include="..\src\Headers\Window.h" />
   </ItemGroup>

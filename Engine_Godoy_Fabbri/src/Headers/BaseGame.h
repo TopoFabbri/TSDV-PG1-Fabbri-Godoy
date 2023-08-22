@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Window.h"
+#include "Renderer.h"
 
 namespace ToToEng
 {
@@ -8,6 +9,7 @@ namespace ToToEng
 	{
 	private:
 		Window* window;
+		Renderer* renderer;
 
 	public:
 		BaseGame();

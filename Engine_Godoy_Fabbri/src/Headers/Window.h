@@ -17,7 +17,7 @@ namespace ToToEng
 		Window(int width, int height, const char* title);
 		~Window();
 
-		void updateWindow();
+		GLFWwindow* getWindow();
 		bool shouldClose();
 	};
 }
