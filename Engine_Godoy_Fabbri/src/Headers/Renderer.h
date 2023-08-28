@@ -7,7 +7,7 @@ namespace ToToEng
 	class Renderer
 	{
 	private:
-
+		unsigned int VBO;
 
 	public:
 		Renderer();

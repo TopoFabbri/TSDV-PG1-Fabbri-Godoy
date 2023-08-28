@@ -14,6 +14,14 @@ namespace ToToEng
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
 
+		glBegin(GL_TRIANGLES);
+
+		glVertex2f(-.5f, -.5f);
+		glVertex2f(0.f, .5f);
+		glVertex2f(.5f, -.5f);
+
+		glEnd();
+
 		glfwSwapBuffers(window->getWindow());
 
 		glfwPollEvents();
