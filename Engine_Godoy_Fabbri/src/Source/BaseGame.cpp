@@ -4,7 +4,7 @@ namespace ToToEng
 {
 	BaseGame::BaseGame()
 	{
-		window = new Window();
+		window = new Window(500, 500, "Example");
 		renderer = new Renderer();
 	}
 

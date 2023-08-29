@@ -20,8 +20,7 @@ namespace ToToEng
 			delete this;
 			return;
 		}
-
-		/* Make the window's context current */
+		
 		glfwMakeContextCurrent(window);
 	}
 
@@ -40,12 +39,14 @@ namespace ToToEng
 
 		if (!window)
 		{
-			delete this;
+			glfwTerminate();
 			return;
 		}
 
-		/* Make the window's context current */
 		glfwMakeContextCurrent(window);
+
+		if (glewInit() != GLEW_OK)
+			std::cout << "An error has occurred while starting glew.";
 	}
 
 	Window::~Window()

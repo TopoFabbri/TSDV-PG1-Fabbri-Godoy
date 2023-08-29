@@ -4,6 +4,20 @@ namespace ToToEng
 {
 	Renderer::Renderer()
 	{
+		float vertices[9] =
+		{
+			0.f, .5f, 0.f,
+			-.5f, -.5f, 0.f,
+			.5f, -.5f, 0.f
+		};
+
+		glGenBuffers(1, &VBO);
+		glBindBuffer(GL_ARRAY_BUFFER, VBO);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+		std::cout << glGetString(GL_VERSION) << std::endl;
 	}
 
 	Renderer::~Renderer()
@@ -14,13 +28,7 @@ namespace ToToEng
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		glBegin(GL_TRIANGLES);
-
-		glVertex2f(-.5f, -.5f);
-		glVertex2f(0.f, .5f);
-		glVertex2f(.5f, -.5f);
-
-		glEnd();
+		glDrawArrays(GL_TRIANGLES, 0, 3);
 
 		glfwSwapBuffers(window->getWindow());
 

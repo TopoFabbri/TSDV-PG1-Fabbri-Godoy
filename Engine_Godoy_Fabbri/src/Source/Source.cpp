@@ -1,5 +1,3 @@
-#include <glfw3.h>
-
 #include "Game.h"
 
 int main(void)
