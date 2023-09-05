@@ -18,6 +18,9 @@ namespace ToToEng
 		unsigned int VBO;
 		Attribute vertexAttrib;
 
+		static unsigned int CompileShader(unsigned int type, const char* source);
+		static unsigned int CreateShader(const char* vShader, const char* fShader);
+
 	public:
 		Renderer();
 		~Renderer();

@@ -7,9 +7,9 @@ namespace ToToEng
 		float vertices[8] =
 		{
 			-.5f, -.5f,
-		    .5f, -.5f,
+			.5f, -.5f,
 			-.5f, .5f,
-		    .5f, .5f
+			.5f, .5f
 		};
 
 		vertexAttrib = { 0, 2, sizeof(float) * 2, 0 };
@@ -21,9 +21,26 @@ namespace ToToEng
 		glEnableVertexAttribArray(0);
 		glVertexAttribPointer(vertexAttrib.index, vertexAttrib.size, GL_FLOAT, GL_FALSE, vertexAttrib.stride, 0);
 
-		glBindBuffer(GL_ARRAY_BUFFER, 0);
+		std::string vShader =
+			"#version 330 core\n"
+			"layout(location = 0) in vec4 position;"
+			"void main()"
+			"{"
+			"	gl_Position = position;"
+			"}";
+
+		std::string fShader =
+			"#version 330 core\n"
+			"layout(location = 0) out vec4 color;"
+			"void main()"
+			"{"
+			"	color = vec4(0.0, 1.0, 0.0, 1.0);"
+			"}";
 
 		std::cout << glGetString(GL_VERSION) << std::endl;
+
+		unsigned int shader = CreateShader(vShader.c_str(), fShader.c_str());
+		glUseProgram(shader);
 	}
 
 	Renderer::~Renderer()
@@ -40,5 +57,48 @@ namespace ToToEng
 		glfwSwapBuffers(window->getWindow());
 
 		glfwPollEvents();
+	}
+
+	unsigned int Renderer::CompileShader(unsigned int type, const char* source)
+	{
+		unsigned int id = glCreateShader(type);
+		glShaderSource(id, 1, &source, nullptr);
+		glCompileShader(id);
+
+		int result;
+		glGetShaderiv(id, GL_COMPILE_STATUS, &result);
+
+		if (!result)
+		{
+			int length;
+			glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length);
+			char* message = new char[length];
+			glGetShaderInfoLog(id, length, &length, message);
+
+			std::cout << "Failed to compile " << (type == GL_VERTEX_SHADER ? "vertex" : "fragment") << " shader" << std::endl;
+			std::cout << message << std::endl;
+
+			glDeleteShader(id);
+			return 0;
+		}
+
+		return id;
+	}
+
+	unsigned int Renderer::CreateShader(const char* vShader, const char* fShader)
+	{
+		unsigned int program = glCreateProgram();
+		unsigned int vs = CompileShader(GL_VERTEX_SHADER, vShader);
+		unsigned int fs = CompileShader(GL_VERTEX_SHADER, fShader);
+
+		glAttachShader(program, vs);
+		glAttachShader(program, fs);
+		glLinkProgram(program);
+		glValidateProgram(program);
+
+		glDeleteShader(vs);
+		glDeleteShader(fs);
+
+		return program;
 	}
 }

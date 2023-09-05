@@ -22,6 +22,7 @@
     <ClCompile Include="..\src\Source\BaseGame.cpp" />
     <ClCompile Include="..\src\Source\Game.cpp" />
     <ClCompile Include="..\src\Source\Renderer.cpp" />
+    <ClCompile Include="..\src\Source\Shader.cpp" />
     <ClCompile Include="..\src\Source\Source.cpp" />
     <ClCompile Include="..\src\Source\Window.cpp" />
   </ItemGroup>
@@ -29,6 +30,7 @@
     <ClInclude Include="..\src\Headers\BaseGame.h" />
     <ClInclude Include="..\src\Headers\Game.h" />
     <ClInclude Include="..\src\Headers\Renderer.h" />
+    <ClInclude Include="..\src\Headers\Shader.h" />
     <ClInclude Include="..\src\Headers\Window.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
