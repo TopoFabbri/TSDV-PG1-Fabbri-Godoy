@@ -1,5 +1,9 @@
 #pragma once
 
+#include <fstream>
+#include <string>
+#include <sstream>
+
 #include "Window.h"
 
 namespace ToToEng
@@ -15,11 +19,19 @@ namespace ToToEng
 			const GLvoid* pointer;
 		};
 
+		struct ShaderProgramSource
+		{
+			std::string vertexSource;
+			std::string fragmentSource;
+		};
+
 		unsigned int VBO;
+		unsigned int shader;
 		Attribute vertexAttrib;
 
-		static unsigned int CompileShader(unsigned int type, const char* source);
-		static unsigned int CreateShader(const char* vShader, const char* fShader);
+		static unsigned int compileShader(unsigned int type, const char* source);
+		static unsigned int createShader(const char* vShader, const char* fShader);
+		static ShaderProgramSource parseShader(const std::string& filepath);
 
 	public:
 		Renderer();

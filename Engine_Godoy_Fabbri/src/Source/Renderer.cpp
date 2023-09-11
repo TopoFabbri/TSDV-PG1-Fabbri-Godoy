@@ -21,30 +21,18 @@ namespace ToToEng
 		glEnableVertexAttribArray(0);
 		glVertexAttribPointer(vertexAttrib.index, vertexAttrib.size, GL_FLOAT, GL_FALSE, vertexAttrib.stride, 0);
 
-		std::string vShader =
-			"#version 330 core\n"
-			"layout(location = 0) in vec4 position;"
-			"void main()"
-			"{"
-			"	gl_Position = position;"
-			"}";
-
-		std::string fShader =
-			"#version 330 core\n"
-			"layout(location = 0) out vec4 color;"
-			"void main()"
-			"{"
-			"	color = vec4(0.0, 1.0, 0.0, 1.0);"
-			"}";
+		ShaderProgramSource shaderSource = parseShader("res/shaders/Basic.shader");
 
 		std::cout << glGetString(GL_VERSION) << std::endl;
 
-		unsigned int shader = CreateShader(vShader.c_str(), fShader.c_str());
+		shader = createShader(shaderSource.vertexSource.c_str(), shaderSource.fragmentSource.c_str());
+
 		glUseProgram(shader);
 	}
 
 	Renderer::~Renderer()
 	{
+		glDeleteProgram(shader);
 	}
 
 	void Renderer::draw(Window* window)
@@ -59,7 +47,7 @@ namespace ToToEng
 		glfwPollEvents();
 	}
 
-	unsigned int Renderer::CompileShader(unsigned int type, const char* source)
+	unsigned int Renderer::compileShader(unsigned int type, const char* source)
 	{
 		unsigned int id = glCreateShader(type);
 		glShaderSource(id, 1, &source, nullptr);
@@ -85,11 +73,11 @@ namespace ToToEng
 		return id;
 	}
 
-	unsigned int Renderer::CreateShader(const char* vShader, const char* fShader)
+	unsigned int Renderer::createShader(const char* vShader, const char* fShader)
 	{
 		unsigned int program = glCreateProgram();
-		unsigned int vs = CompileShader(GL_VERTEX_SHADER, vShader);
-		unsigned int fs = CompileShader(GL_VERTEX_SHADER, fShader);
+		unsigned int vs = compileShader(GL_VERTEX_SHADER, vShader);
+		unsigned int fs = compileShader(GL_FRAGMENT_SHADER, fShader);
 
 		glAttachShader(program, vs);
 		glAttachShader(program, fs);
@@ -100,5 +88,38 @@ namespace ToToEng
 		glDeleteShader(fs);
 
 		return program;
+	}
+
+	Renderer::ShaderProgramSource Renderer::parseShader(const std::string& filepath)
+	{
+		std::ifstream stream(filepath);
+
+		enum class ShaderType
+		{
+			None = -1,
+			Vertex = 0,
+			Fragment = 1
+		};
+
+		std::string line;
+		std::stringstream ss[2];
+		ShaderType type = ShaderType::None;
+
+		while (std::getline(stream, line))
+		{
+			if (line.find("#shader") != std::string::npos)
+			{
+				if (line.find("vertex") != std::string::npos)
+					type = ShaderType::Vertex;
+				else if (line.find("fragment") != std::string::npos)
+					type = ShaderType::Fragment;
+			}
+			else
+			{
+				ss[static_cast<int>(type)] << line << '\n';
+			} 
+		}
+
+		return { ss[0].str(), ss[1].str() };
 	}
 }
