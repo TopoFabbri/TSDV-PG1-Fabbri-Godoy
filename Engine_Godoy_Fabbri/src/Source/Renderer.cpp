@@ -21,7 +21,7 @@ namespace ToToEng
 		glEnableVertexAttribArray(0);
 		glVertexAttribPointer(vertexAttrib.index, vertexAttrib.size, GL_FLOAT, GL_FALSE, vertexAttrib.stride, 0);
 
-		ShaderProgramSource shaderSource = parseShader("res/shaders/Basic.shader");
+		ShaderProgramSource shaderSource = parseShader("../res/shaders/Basic.shader");
 
 		std::cout << glGetString(GL_VERSION) << std::endl;
 
