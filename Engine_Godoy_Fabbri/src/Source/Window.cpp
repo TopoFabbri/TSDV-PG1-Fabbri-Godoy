@@ -45,6 +45,8 @@ namespace ToToEng
 
 		glfwMakeContextCurrent(window);
 
+		glfwSwapInterval(1);
+
 		if (glewInit() != GLEW_OK)
 			std::cout << "An error has occurred while starting glew.";
 	}

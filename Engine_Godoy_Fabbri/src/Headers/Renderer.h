@@ -28,6 +28,9 @@ namespace ToToEng
 		unsigned int VBO;
 		unsigned int IBO;
 		unsigned int shader;
+		int u_ColorLocation;
+		float blueIncrementTest;
+		float blueTest;
 		Attribute vertexAttrib;
 
 		static unsigned int compileShader(unsigned int type, const char* source);

@@ -38,6 +38,13 @@ namespace ToToEng
 		shader = createShader(shaderSource.vertexSource.c_str(), shaderSource.fragmentSource.c_str());
 
 		glUseProgram(shader);
+
+		u_ColorLocation = glGetUniformLocation(shader, "u_Color");
+		_ASSERT(u_ColorLocation != -1);
+		glUniform4f(u_ColorLocation, 0.2f, 1.f, 0.f, 1.f);
+
+		blueTest = 0.f;
+		blueIncrementTest = 0.05f;
 	}
 
 	Renderer::~Renderer()
@@ -49,7 +56,15 @@ namespace ToToEng
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
 
+		glUniform4f(u_ColorLocation, 0.2f, 1.f, blueTest, 1.f);
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+
+		if (blueTest > 1.0f)
+			blueIncrementTest = -0.05f;
+		else if (blueTest < 0.0f)
+			blueIncrementTest = 0.05f;
+
+		blueTest += blueIncrementTest;
 
 		glfwSwapBuffers(window->getWindow());
 
@@ -126,7 +141,7 @@ namespace ToToEng
 			else
 			{
 				ss[static_cast<int>(type)] << line << '\n';
-			} 
+			}
 		}
 
 		return { ss[0].str(), ss[1].str() };
