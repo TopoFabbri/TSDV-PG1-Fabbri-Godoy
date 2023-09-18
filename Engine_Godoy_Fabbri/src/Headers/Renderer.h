@@ -26,6 +26,7 @@ namespace ToToEng
 		};
 
 		unsigned int VBO;
+		unsigned int IBO;
 		unsigned int shader;
 		Attribute vertexAttrib;
 

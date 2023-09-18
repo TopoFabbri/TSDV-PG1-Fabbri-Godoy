@@ -4,12 +4,18 @@ namespace ToToEng
 {
 	Renderer::Renderer()
 	{
-		float vertices[8] =
+		float vertices[8]
 		{
 			-.5f, -.5f,
 			.5f, -.5f,
 			-.5f, .5f,
 			.5f, .5f
+		};
+
+		unsigned int indices[6]
+		{
+			0, 1, 2,
+			1, 2, 3
 		};
 
 		vertexAttrib = { 0, 2, sizeof(float) * 2, 0 };
@@ -20,6 +26,10 @@ namespace ToToEng
 
 		glEnableVertexAttribArray(0);
 		glVertexAttribPointer(vertexAttrib.index, vertexAttrib.size, GL_FLOAT, GL_FALSE, vertexAttrib.stride, 0);
+
+		glGenBuffers(1, &IBO);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
 		ShaderProgramSource shaderSource = parseShader("../res/shaders/Basic.shader");
 
@@ -39,8 +49,7 @@ namespace ToToEng
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		glDrawArrays(GL_TRIANGLES, 0, 4);
-		glDrawArrays(GL_TRIANGLES, 1, 4);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 
 		glfwSwapBuffers(window->getWindow());
 
