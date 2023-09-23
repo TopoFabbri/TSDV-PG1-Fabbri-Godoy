@@ -6,33 +6,9 @@ namespace ToToEng
 	{
 		this->renderer = renderer;
 
-		vertexQty = 4;
-		indexQty = 6;
-		id = 1;
+		color = { 1, 1, 1, 1 };
 
-		positions = new float[vertexQty * 3]
-		{
-			-.5f, -.5f, 0.f,
-			.5f, -.5f, 0.f,
-			-.5f, .5f, 0.f,
-			.5f, .5f, 0.f
-		};
-
-		colors = new float[vertexQty * 4]
-		{
-			1.f, 1.f, 1.f, 1.f,
-			1.f, 1.f, 1.f, 1.f,
-			1.f, 1.f, 1.f, 1.f,
-			1.f, 1.f, 1.f, 1.f
-		};
-
-		indices = new unsigned int[]
-		{
-			0, 1, 2,
-			1, 2, 3
-		};
-
-		updateVao();
+		vertices = new float();
 	}
 
 	Entity::~Entity()
@@ -56,14 +32,10 @@ namespace ToToEng
 		renderer->deleteBuffers(VBO, IBO, VAO, id);
 	}
 
-	void Entity::draw()
-	{
-		renderer->drawEntity2D(VBO, indexQty);
-	}
-
 	void Entity::updateVao()
 	{
 		delete vertices;
+
 		vertices = new float[vertexQty * 7];
 
 		for (unsigned int i = 0; i < vertexQty; i++)

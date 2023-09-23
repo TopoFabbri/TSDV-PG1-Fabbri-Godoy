@@ -21,18 +21,20 @@
   <ItemGroup>
     <ClCompile Include="..\src\Source\BaseGame.cpp" />
     <ClCompile Include="..\src\Source\Entity.cpp" />
-    <ClCompile Include="..\src\Source\Game.cpp" />
+    <ClCompile Include="..\src\Source\Entity2D.cpp" />
     <ClCompile Include="..\src\Source\Renderer.cpp" />
     <ClCompile Include="..\src\Source\Shader.cpp" />
-    <ClCompile Include="..\src\Source\Source.cpp" />
+    <ClCompile Include="..\src\Source\Shape.cpp" />
     <ClCompile Include="..\src\Source\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Headers\BaseGame.h" />
     <ClInclude Include="..\src\Headers\Entity.h" />
-    <ClInclude Include="..\src\Headers\Game.h" />
+    <ClInclude Include="..\src\Headers\Entity2D.h" />
+    <ClInclude Include="..\src\Headers\Exports.h" />
     <ClInclude Include="..\src\Headers\Renderer.h" />
     <ClInclude Include="..\src\Headers\Shader.h" />
+    <ClInclude Include="..\src\Headers\Shape.h" />
     <ClInclude Include="..\src\Headers\Window.h" />
   </ItemGroup>
   <ItemGroup>
@@ -47,26 +49,26 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -92,13 +94,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(Platform)_$(Configuration)\</IntDir>
-    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj</IntDir>
+    <OutDir>$(SolutionDir)bin</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(Platform)_$(Configuration)\</IntDir>
-    <OutDir>$(SolutionDir)bin\$(ProjectName)\$(Platform)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj</IntDir>
+    <OutDir>$(SolutionDir)bin</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -110,7 +112,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;WIN32;EXPORTS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)lib;$(SolutionDir)src\Headers</AdditionalIncludeDirectories>
     </ClCompile>
@@ -130,7 +132,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;WIN32;EXPORTS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)lib;$(SolutionDir)src\Headers</AdditionalIncludeDirectories>
     </ClCompile>

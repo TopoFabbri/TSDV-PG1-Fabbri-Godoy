@@ -1,21 +1,28 @@
 #pragma once
 
+#include <list>
+
 #include "Renderer.h"
-#include "Entity.h"
+#include "Shape.h"
+#include "Exports.h"
 
 namespace ToToEng
 {
-	class BaseGame
+	class TOTO_API BaseGame
 	{
 	private:
 		Window* window;
+
+	protected:
 		Renderer* renderer;
-		Entity* entity;
+		std::list<Entity*> entities = std::list<Entity*>();
 
 	public:
 		BaseGame();
-		~BaseGame();
+		virtual ~BaseGame();
 
 		void run();
+
+		virtual void update() = 0;
 	};
 }

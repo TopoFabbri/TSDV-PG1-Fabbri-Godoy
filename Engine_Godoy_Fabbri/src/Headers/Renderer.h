@@ -5,6 +5,7 @@
 #include <sstream>
 
 #include "Window.h"
+#include "glm/glm.hpp"
 
 #pragma region MACROS
 #define ASSERT(x) if (!(x)) __debugbreak()
@@ -34,8 +35,6 @@ namespace ToToEng
 
 		unsigned int shader;
 		int u_ColorLocation;
-		float blueIncrementTest;
-		float blueTest;
 		Attribute vertexAttrib;
 
 		static unsigned int compileShader(unsigned int type, const char* source);
@@ -54,6 +53,6 @@ namespace ToToEng
 		void genIndexBuffer(unsigned int& IBO,
 			unsigned int indices[], unsigned int id, unsigned int qty);
 		void deleteBuffers(unsigned int& VBO, unsigned int& IBO, unsigned int& EBO, unsigned int id);
-		void drawEntity2D(unsigned int& VAO, unsigned int indexQty);
+		void drawEntity2D(unsigned int& VAO, unsigned int indexQty, glm::vec4 color);
 	};
 }

@@ -12,14 +12,8 @@ namespace ToToEng
 
 		shader = createShader(shaderSource.vertexSource.c_str(), shaderSource.fragmentSource.c_str());
 
-		glCall(glUseProgram(shader));
-
 		glCall(u_ColorLocation = glGetUniformLocation(shader, "u_Color"));
 		_ASSERT(u_ColorLocation != -1);
-		glCall(glUniform4f(u_ColorLocation, 0.2f, 1.f, 0.f, 1.f));
-
-		blueTest = 0.f;
-		blueIncrementTest = 0.05f;
 	}
 
 	Renderer::~Renderer()
@@ -30,13 +24,6 @@ namespace ToToEng
 	void Renderer::beginDraw()
 	{
 		glCall(glClear(GL_COLOR_BUFFER_BIT));
-
-		if (blueTest > 1.0f)
-			blueIncrementTest = -0.05f;
-		else if (blueTest < 0.0f)
-			blueIncrementTest = 0.05f;
-
-		blueTest += blueIncrementTest;
 	}
 
 	void Renderer::endDraw(Window* window)
@@ -79,11 +66,15 @@ namespace ToToEng
 		glDeleteProgram(shader);
 	}
 
-	void Renderer::drawEntity2D(unsigned int& VAO, unsigned int indexQty)
+	void Renderer::drawEntity2D(unsigned int& VAO, unsigned int indexQty, glm::vec4 color)
 	{
+		glCall(glUseProgram(shader));
+
 		glCall(glBindVertexArray(VAO));
-		glCall(glUniform4f(u_ColorLocation, 0.2f, 1.f, blueTest, 1.f));
+		glCall(glUniform4f(u_ColorLocation, color.x, color.y, color.z, color.w));
 		glCall(glDrawElements(GL_TRIANGLES, indexQty, GL_UNSIGNED_INT, 0));
+
+		glCall(glUseProgram(0));
 	}
 
 	unsigned int Renderer::compileShader(unsigned int type, const char* source)

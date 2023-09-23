@@ -6,23 +6,33 @@ namespace ToToEng
 	{
 		window = new Window(500, 500, "Example");
 		renderer = new Renderer();
-		entity = new Entity(renderer);
 	}
 
 	BaseGame::~BaseGame()
 	{
-		delete entity;
 		delete renderer;
 		delete window;
+
+		for (int i = 0; i < entities.size(); i++)
+		{
+			Entity* tmp = entities.front();
+			entities.pop_front();
+			delete tmp;
+		}
+
+		entities.clear();
 	}
 
 	void BaseGame::run()
 	{
 		while (!window->shouldClose())
 		{
+			update();
+
 			renderer->beginDraw();
 
-			entity->draw();
+			for (Entity* entity : entities)
+				entity->draw();
 
 			renderer->endDraw(window);
 		}

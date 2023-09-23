@@ -2,10 +2,12 @@
 
 #include "BaseGame.h"
 
-namespace ToToEng
+class Game :
+	public ToToEng::BaseGame
 {
-	class Game :
-		public BaseGame
-	{
-	};
-}
+public:
+	Game();
+	~Game();
+
+	void update() override;
+};

@@ -2,7 +2,7 @@
 
 int main()
 {
-    ToToEng::Game* game = new ToToEng::Game();
+    Game* game = new Game();
     game->run();
     delete game;
 }
