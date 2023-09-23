@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Source\BaseGame.cpp" />
+    <ClCompile Include="..\src\Source\Entity.cpp" />
     <ClCompile Include="..\src\Source\Game.cpp" />
     <ClCompile Include="..\src\Source\Renderer.cpp" />
     <ClCompile Include="..\src\Source\Shader.cpp" />
@@ -28,6 +29,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Headers\BaseGame.h" />
+    <ClInclude Include="..\src\Headers\Entity.h" />
     <ClInclude Include="..\src\Headers\Game.h" />
     <ClInclude Include="..\src\Headers\Renderer.h" />
     <ClInclude Include="..\src\Headers\Shader.h" />

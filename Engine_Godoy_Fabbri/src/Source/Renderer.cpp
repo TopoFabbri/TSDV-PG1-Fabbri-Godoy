@@ -4,32 +4,7 @@ namespace ToToEng
 {
 	Renderer::Renderer()
 	{
-		float vertices[8]
-		{
-			-.5f, -.5f,
-			.5f, -.5f,
-			-.5f, .5f,
-			.5f, .5f
-		};
-
-		unsigned int indices[6]
-		{
-			0, 1, 2,
-			1, 2, 3
-		};
-
-		vertexAttrib = { 0, 2, sizeof(float) * 2, 0 };
-
-		glGenBuffers(1, &VBO);
-		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(vertexAttrib.index, vertexAttrib.size, GL_FLOAT, GL_FALSE, vertexAttrib.stride, 0);
-
-		glGenBuffers(1, &IBO);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+		vertexAttrib = { 0, 3, sizeof(float) * 7, 0 };
 
 		ShaderProgramSource shaderSource = parseShader("../res/shaders/Basic.shader");
 
@@ -37,11 +12,11 @@ namespace ToToEng
 
 		shader = createShader(shaderSource.vertexSource.c_str(), shaderSource.fragmentSource.c_str());
 
-		glUseProgram(shader);
+		glCall(glUseProgram(shader));
 
-		u_ColorLocation = glGetUniformLocation(shader, "u_Color");
+		glCall(u_ColorLocation = glGetUniformLocation(shader, "u_Color"));
 		_ASSERT(u_ColorLocation != -1);
-		glUniform4f(u_ColorLocation, 0.2f, 1.f, 0.f, 1.f);
+		glCall(glUniform4f(u_ColorLocation, 0.2f, 1.f, 0.f, 1.f));
 
 		blueTest = 0.f;
 		blueIncrementTest = 0.05f;
@@ -52,12 +27,9 @@ namespace ToToEng
 		glDeleteProgram(shader);
 	}
 
-	void Renderer::draw(Window* window)
+	void Renderer::beginDraw()
 	{
-		glClear(GL_COLOR_BUFFER_BIT);
-
-		glUniform4f(u_ColorLocation, 0.2f, 1.f, blueTest, 1.f);
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+		glCall(glClear(GL_COLOR_BUFFER_BIT));
 
 		if (blueTest > 1.0f)
 			blueIncrementTest = -0.05f;
@@ -65,32 +37,75 @@ namespace ToToEng
 			blueIncrementTest = 0.05f;
 
 		blueTest += blueIncrementTest;
+	}
 
-		glfwSwapBuffers(window->getWindow());
+	void Renderer::endDraw(Window* window)
+	{
+		glCall(glfwSwapBuffers(window->getWindow()));
 
-		glfwPollEvents();
+		glCall(glfwPollEvents());
+	}
+
+	void Renderer::genVertexBuffer(unsigned int& VBO, unsigned int& VAO, float vertices[], unsigned int id, unsigned int qty)
+	{
+		glCall(glGenVertexArrays(id, &VAO));
+		glCall(glGenBuffers(id, &VBO));
+
+		glCall(glBindVertexArray(VAO));
+
+		glCall(glBindBuffer(GL_ARRAY_BUFFER, VBO));
+		glCall(glBufferData(GL_ARRAY_BUFFER, sizeof(float) * qty * 7, vertices, GL_STATIC_DRAW));
+
+		glCall(glVertexAttribPointer(vertexAttrib.index, vertexAttrib.size, GL_FLOAT, GL_FALSE, vertexAttrib.stride, static_cast<void*>(0)));
+		glCall(glEnableVertexAttribArray(0));
+	}
+
+	void Renderer::genIndexBuffer(unsigned int& IBO,
+		unsigned int indices[], unsigned int id, unsigned int qty)
+	{
+		glCall(glGenBuffers(id, &IBO));
+		glCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO));
+		glCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(int) * qty, indices, GL_STATIC_DRAW));
+
+		glCall(glBindBuffer(GL_ARRAY_BUFFER, 0));
+		glCall(glBindVertexArray(0));
+	}
+
+	void Renderer::deleteBuffers(unsigned int& VBO, unsigned int& IBO, unsigned int& EBO, unsigned int id)
+	{
+		glCall(glDeleteVertexArrays(id, &VBO));
+		glCall(glDeleteBuffers(id, &IBO));
+		glCall(glDeleteBuffers(id, &EBO));
+		glDeleteProgram(shader);
+	}
+
+	void Renderer::drawEntity2D(unsigned int& VAO, unsigned int indexQty)
+	{
+		glCall(glBindVertexArray(VAO));
+		glCall(glUniform4f(u_ColorLocation, 0.2f, 1.f, blueTest, 1.f));
+		glCall(glDrawElements(GL_TRIANGLES, indexQty, GL_UNSIGNED_INT, 0));
 	}
 
 	unsigned int Renderer::compileShader(unsigned int type, const char* source)
 	{
 		unsigned int id = glCreateShader(type);
-		glShaderSource(id, 1, &source, nullptr);
-		glCompileShader(id);
+		glCall(glShaderSource(id, 1, &source, nullptr));
+		glCall(glCompileShader(id));
 
 		int result;
-		glGetShaderiv(id, GL_COMPILE_STATUS, &result);
+		glCall(glGetShaderiv(id, GL_COMPILE_STATUS, &result));
 
 		if (!result)
 		{
 			int length;
-			glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length);
+			glCall(glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length));
 			char* message = new char[length];
-			glGetShaderInfoLog(id, length, &length, message);
+			glCall(glGetShaderInfoLog(id, length, &length, message));
 
 			std::cout << "Failed to compile " << (type == GL_VERTEX_SHADER ? "vertex" : "fragment") << " shader" << std::endl;
 			std::cout << message << std::endl;
 
-			glDeleteShader(id);
+			glCall(glDeleteShader(id));
 			return 0;
 		}
 
@@ -99,17 +114,17 @@ namespace ToToEng
 
 	unsigned int Renderer::createShader(const char* vShader, const char* fShader)
 	{
-		unsigned int program = glCreateProgram();
-		unsigned int vs = compileShader(GL_VERTEX_SHADER, vShader);
-		unsigned int fs = compileShader(GL_FRAGMENT_SHADER, fShader);
+		glCall(unsigned int program = glCreateProgram());
+		glCall(unsigned int vs = compileShader(GL_VERTEX_SHADER, vShader));
+		glCall(unsigned int fs = compileShader(GL_FRAGMENT_SHADER, fShader));
 
-		glAttachShader(program, vs);
-		glAttachShader(program, fs);
-		glLinkProgram(program);
-		glValidateProgram(program);
+		glCall(glAttachShader(program, vs));
+		glCall(glAttachShader(program, fs));
+		glCall(glLinkProgram(program));
+		glCall(glValidateProgram(program));
 
-		glDeleteShader(vs);
-		glDeleteShader(fs);
+		glCall(glDeleteShader(vs));
+		glCall(glDeleteShader(fs));
 
 		return program;
 	}
@@ -145,5 +160,22 @@ namespace ToToEng
 		}
 
 		return { ss[0].str(), ss[1].str() };
+	}
+
+	void Renderer::glClearError()
+	{
+		while (glGetError());
+	}
+
+	bool Renderer::glLogCall(const char* function, const char* file, int line)
+	{
+		while (GLenum error = glGetError())
+		{
+			std::cout << "[OpenGL Error] (" << error << "): "
+				<< function << " " << file << ": " << line << std::endl;
+			return false;
+		}
+
+		return true;
 	}
 }

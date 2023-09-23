@@ -6,10 +6,12 @@ namespace ToToEng
 	{
 		window = new Window(500, 500, "Example");
 		renderer = new Renderer();
+		entity = new Entity(renderer);
 	}
 
 	BaseGame::~BaseGame()
 	{
+		delete entity;
 		delete renderer;
 		delete window;
 	}
@@ -18,7 +20,11 @@ namespace ToToEng
 	{
 		while (!window->shouldClose())
 		{
-			renderer->draw(window);
+			renderer->beginDraw();
+
+			entity->draw();
+
+			renderer->endDraw(window);
 		}
 	}
 }
