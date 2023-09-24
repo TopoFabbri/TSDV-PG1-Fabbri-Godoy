@@ -21,5 +21,8 @@ namespace ToToEng
 
 		GLFWwindow* getWindow();
 		bool shouldClose();
+
+		int getWidth();
+		int getHeight();
 	};
 }

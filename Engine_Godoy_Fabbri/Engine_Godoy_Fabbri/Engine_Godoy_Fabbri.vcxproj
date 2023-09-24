@@ -20,21 +20,25 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Source\BaseGame.cpp" />
+    <ClCompile Include="..\src\Source\Camera.cpp" />
     <ClCompile Include="..\src\Source\Entity.cpp" />
     <ClCompile Include="..\src\Source\Entity2D.cpp" />
     <ClCompile Include="..\src\Source\Renderer.cpp" />
     <ClCompile Include="..\src\Source\Shader.cpp" />
     <ClCompile Include="..\src\Source\Shape.cpp" />
+    <ClCompile Include="..\src\Source\Transform.cpp" />
     <ClCompile Include="..\src\Source\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Headers\BaseGame.h" />
+    <ClInclude Include="..\src\Headers\Camera.h" />
     <ClInclude Include="..\src\Headers\Entity.h" />
     <ClInclude Include="..\src\Headers\Entity2D.h" />
     <ClInclude Include="..\src\Headers\Exports.h" />
     <ClInclude Include="..\src\Headers\Renderer.h" />
     <ClInclude Include="..\src\Headers\Shader.h" />
     <ClInclude Include="..\src\Headers\Shape.h" />
+    <ClInclude Include="..\src\Headers\Transform.h" />
     <ClInclude Include="..\src\Headers\Window.h" />
   </ItemGroup>
   <ItemGroup>

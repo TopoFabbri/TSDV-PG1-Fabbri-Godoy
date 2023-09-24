@@ -65,4 +65,14 @@ namespace ToToEng
 	{
 		return glfwWindowShouldClose(window);
 	}
+
+	int Window::getWidth()
+	{
+		return width;
+	}
+
+	int Window::getHeight()
+	{
+		return height;
+	}
 }

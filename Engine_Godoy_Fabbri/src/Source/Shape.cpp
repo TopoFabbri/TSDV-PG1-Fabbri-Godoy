@@ -25,7 +25,7 @@ ToToEng::Shape::Shape(Renderer* renderer) : Entity2D(renderer)
 	indices = new unsigned int[indexQty]
 	{
 		0, 1, 2,
-		1, 2, 3
+		1, 2, 3,
 	};
 
 	updateVao();

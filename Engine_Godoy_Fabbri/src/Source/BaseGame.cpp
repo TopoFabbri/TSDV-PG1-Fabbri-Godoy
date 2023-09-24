@@ -2,10 +2,13 @@
 
 namespace ToToEng
 {
-	BaseGame::BaseGame()
+	BaseGame::BaseGame(bool is3D)
 	{
+		camera = new Camera();
 		window = new Window(500, 500, "Example");
-		renderer = new Renderer();
+		renderer = new Renderer(window, camera, is3D);
+
+		camera->transform.setPos({ 0, 0, 1 });
 	}
 
 	BaseGame::~BaseGame()
@@ -27,6 +30,7 @@ namespace ToToEng
 	{
 		while (!window->shouldClose())
 		{
+			renderer->setView(lookAt(camera->transform.getPos(), camera->transform.getPos() + camera->transform.forward(), camera->transform.up()));
 			update();
 
 			renderer->beginDraw();
@@ -34,7 +38,7 @@ namespace ToToEng
 			for (Entity* entity : entities)
 				entity->draw();
 
-			renderer->endDraw(window);
+			renderer->endDraw();
 		}
 	}
 }

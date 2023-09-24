@@ -2,8 +2,10 @@
 
 namespace ToToEng
 {
-	Renderer::Renderer()
+	Renderer::Renderer(Window* window, Camera* camera, bool is3D)
 	{
+		this->window = window;
+
 		vertexAttrib = { 0, 3, sizeof(float) * 7, 0 };
 
 		ShaderProgramSource shaderSource = parseShader("../res/shaders/Basic.shader");
@@ -14,6 +16,22 @@ namespace ToToEng
 
 		glCall(u_ColorLocation = glGetUniformLocation(shader, "u_Color"));
 		_ASSERT(u_ColorLocation != -1);
+
+		glCall(u_TransformLocation = glGetUniformLocation(shader, "u_Transform"));
+		_ASSERT(u_ColorLocation != -1);
+
+		if (is3D)
+		{
+			setProjection(perspective(glm::radians(45.f), static_cast<float>(window->getWidth()) / static_cast<float>(window->getHeight()), 0.1f, 100.f));
+			cameraPos = vec3(0.0f, 0.0f, 3.0f);
+		}
+		else
+		{
+			setProjection(ortho(0.0f, static_cast<float>(window->getWidth()), 0.0f, static_cast<float>(window->getHeight()), 0.1f, 500.f));
+			cameraPos = vec3(0.0f, 0.0f, 1.0f);
+		}
+
+		view = lookAt(cameraPos, { 0, 0, 0 }, { 0,1,0 });
 	}
 
 	Renderer::~Renderer()
@@ -26,7 +44,7 @@ namespace ToToEng
 		glCall(glClear(GL_COLOR_BUFFER_BIT));
 	}
 
-	void Renderer::endDraw(Window* window)
+	void Renderer::endDraw()
 	{
 		glCall(glfwSwapBuffers(window->getWindow()));
 
@@ -66,15 +84,30 @@ namespace ToToEng
 		glDeleteProgram(shader);
 	}
 
-	void Renderer::drawEntity2D(unsigned int& VAO, unsigned int indexQty, glm::vec4 color)
+	void Renderer::drawEntity2D(unsigned int& VAO, unsigned int indexQty, glm::vec4 color, glm::mat4 trans)
 	{
-		glCall(glUseProgram(shader));
+		glm::mat4 pvm = projection * view * trans;
 
+		glCall(glUseProgram(shader));
 		glCall(glBindVertexArray(VAO));
+
 		glCall(glUniform4f(u_ColorLocation, color.x, color.y, color.z, color.w));
+		glCall(glUniformMatrix4fv(u_TransformLocation, 1, GL_FALSE, glm::value_ptr(pvm)));
+
 		glCall(glDrawElements(GL_TRIANGLES, indexQty, GL_UNSIGNED_INT, 0));
 
+		glCall(glBindVertexArray(0));
 		glCall(glUseProgram(0));
+	}
+
+	void Renderer::setProjection(glm::mat4 projection)
+	{
+		this->projection = projection;
+	}
+
+	void Renderer::setView(mat4 view)
+	{
+		this->view = view;
 	}
 
 	unsigned int Renderer::compileShader(unsigned int type, const char* source)

@@ -5,7 +5,9 @@
 #include <sstream>
 
 #include "Window.h"
-#include "glm/glm.hpp"
+#include <glm/gtc/type_ptr.hpp>
+
+#include "Camera.h"
 
 #pragma region MACROS
 #define ASSERT(x) if (!(x)) __debugbreak()
@@ -33,9 +35,15 @@ namespace ToToEng
 			std::string fragmentSource;
 		};
 
+		Window* window;
+		Camera* camera;
 		unsigned int shader;
 		int u_ColorLocation;
+		int u_TransformLocation;
 		Attribute vertexAttrib;
+		glm::mat4 projection;
+		glm::mat4 view;
+		glm::vec3 cameraPos;
 
 		static unsigned int compileShader(unsigned int type, const char* source);
 		static unsigned int createShader(const char* vShader, const char* fShader);
@@ -44,15 +52,17 @@ namespace ToToEng
 		static bool glLogCall(const char* function, const char* file, int line);
 
 	public:
-		Renderer();
+		Renderer(Window* window, Camera* camera, bool is3D);
 		~Renderer();
 
 		void beginDraw();
-		void endDraw(Window* window);
+		void endDraw();
 		void genVertexBuffer(unsigned int& VBO, unsigned int& VAO, float vertices[], unsigned int id, unsigned int qty);
 		void genIndexBuffer(unsigned int& IBO,
 			unsigned int indices[], unsigned int id, unsigned int qty);
 		void deleteBuffers(unsigned int& VBO, unsigned int& IBO, unsigned int& EBO, unsigned int id);
-		void drawEntity2D(unsigned int& VAO, unsigned int indexQty, glm::vec4 color);
+		void drawEntity2D(unsigned int& VAO, unsigned int indexQty, vec4 color, mat4 trans);
+		void setProjection(mat4 projection);
+		void setView(mat4 view);
 	};
 }

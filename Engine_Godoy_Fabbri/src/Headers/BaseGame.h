@@ -16,9 +16,10 @@ namespace ToToEng
 	protected:
 		Renderer* renderer;
 		std::list<Entity*> entities = std::list<Entity*>();
+		Camera* camera;
 
 	public:
-		BaseGame();
+		BaseGame(bool is3D);
 		virtual ~BaseGame();
 
 		void run();

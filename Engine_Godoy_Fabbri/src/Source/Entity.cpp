@@ -9,6 +9,8 @@ namespace ToToEng
 		color = { 1, 1, 1, 1 };
 
 		vertices = new float();
+
+		transform = Transform();
 	}
 
 	Entity::~Entity()
@@ -30,6 +32,10 @@ namespace ToToEng
 	void Entity::deleteBuffers()
 	{
 		renderer->deleteBuffers(VBO, IBO, VAO, id);
+	}
+
+	void Entity::update()
+	{
 	}
 
 	void Entity::updateVao()
