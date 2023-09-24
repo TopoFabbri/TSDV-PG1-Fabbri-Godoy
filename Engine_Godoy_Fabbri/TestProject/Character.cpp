@@ -20,7 +20,7 @@ void Character::update()
 		vel = normalize(vel) * (length(vel) - friction);
 }
 
-void Character::moveInDir(vec3 dir)
+void Character::accelerateInDir(vec3 dir)
 {
 	vel += dir * accel;
 

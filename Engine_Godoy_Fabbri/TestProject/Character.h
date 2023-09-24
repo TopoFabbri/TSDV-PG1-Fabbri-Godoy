@@ -16,5 +16,5 @@ public:
 
     void update() override;
 
-    void moveInDir(vec3 dir);
+    void accelerateInDir(vec3 dir);
 };
