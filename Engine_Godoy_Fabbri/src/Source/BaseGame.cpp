@@ -33,6 +33,8 @@ namespace ToToEng
 	{
 		while (!window->shouldClose())
 		{
+			deltaTime = static_cast<float>(glfwGetTime()) - frameTime;
+			frameTime = static_cast<float>(glfwGetTime());
 			renderer->setView(lookAt(camera->transform.getPos(), camera->transform.getPos() + camera->transform.forward(), camera->transform.up()));
 			update();
 
