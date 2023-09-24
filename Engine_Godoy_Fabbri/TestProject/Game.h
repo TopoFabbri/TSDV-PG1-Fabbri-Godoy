@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../src/Headers/BaseGame.h"
+#include "Character.h"
 
 using namespace ToToEng;
 

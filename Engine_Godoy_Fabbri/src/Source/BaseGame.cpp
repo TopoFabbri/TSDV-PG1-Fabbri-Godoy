@@ -40,6 +40,8 @@ namespace ToToEng
 			frameTime = static_cast<float>(glfwGetTime());
 			renderer->setView(lookAt(camera->transform.getPos(), camera->transform.getPos() + camera->transform.forward(), camera->transform.up()));
 			
+			for (Entity* entity : entities)
+				entity->update();
 			update();
 
 			renderer->beginDraw();

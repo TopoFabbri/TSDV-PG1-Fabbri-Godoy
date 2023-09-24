@@ -41,17 +41,17 @@ mat4 Transform::getTransformMatrix()
 
 vec3 Transform::up()
 {
-	return vec3(transformMatrix[1][0], transformMatrix[1][1], transformMatrix[1][2]);
+	return normalize(vec3(transformMatrix[1][0], transformMatrix[1][1], transformMatrix[1][2]));
 }
 
 vec3 Transform::right()
 {
-	return glm::vec3(transformMatrix[0][0], transformMatrix[0][1], transformMatrix[0][2]);
+	return normalize(vec3(transformMatrix[0][0], transformMatrix[0][1], transformMatrix[0][2]));
 }
 
 vec3 Transform::forward()
 {
-	return glm::vec3(-transformMatrix[2][0], -transformMatrix[2][1], -transformMatrix[2][2]);
+	return normalize(vec3(-transformMatrix[2][0], -transformMatrix[2][1], -transformMatrix[2][2]));
 }
 
 void Transform::lerpPos(vec3 target, float t)
