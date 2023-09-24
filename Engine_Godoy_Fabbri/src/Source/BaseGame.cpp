@@ -2,14 +2,17 @@
 
 namespace ToToEng
 {
-	BaseGame::BaseGame(bool is3D)
+	BaseGame::BaseGame(bool is3D, int width, int height, const char* title)
 	{
 		camera = new Camera();
-		window = new Window(500, 500, "Example");
+		window = new Window(width, height, title);
 		renderer = new Renderer(window, camera, is3D);
 
 		camera->transform.setPos({ 0, 0, 1 });
 		input = new Input(window->getWindow());
+
+		deltaTime = 0;
+		frameTime = static_cast<float>(glfwGetTime());
 	}
 
 	BaseGame::~BaseGame()
@@ -36,6 +39,7 @@ namespace ToToEng
 			deltaTime = static_cast<float>(glfwGetTime()) - frameTime;
 			frameTime = static_cast<float>(glfwGetTime());
 			renderer->setView(lookAt(camera->transform.getPos(), camera->transform.getPos() + camera->transform.forward(), camera->transform.up()));
+			
 			update();
 
 			renderer->beginDraw();
@@ -44,6 +48,8 @@ namespace ToToEng
 				entity->draw();
 
 			renderer->endDraw();
+
+			glfwPollEvents();
 		}
 	}
 }

@@ -23,7 +23,7 @@ namespace ToToEng
 		float frameTime;
 
 	public:
-		BaseGame(bool is3D);
+		BaseGame(bool is3D, int width, int height, const char* title);
 		virtual ~BaseGame();
 
 		void run();

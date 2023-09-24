@@ -54,9 +54,51 @@ vec3 Transform::forward()
 	return glm::vec3(-transformMatrix[2][0], -transformMatrix[2][1], -transformMatrix[2][2]);
 }
 
+void Transform::lerpPos(vec3 target, float t)
+{
+	const vec3 newPos
+	{
+	pos.x + t * (target.x - pos.x),
+	pos.y + t * (target.y - pos.y),
+	pos.z + t * (target.z - pos.z)
+	};
+
+	setPos(newPos);
+
+	updateTransformMatrix();
+}
+
+void Transform::lerpPos(vec2 target, float t)
+{
+	const vec3 newPos
+	{
+		pos.x + t * (target.x - pos.x),
+		pos.y + t * (target.y - pos.y),
+		pos.z
+	};
+
+	setPos(newPos);
+
+	updateTransformMatrix();
+}
+
+void Transform::lerpPos2D(vec3 target, float t)
+{
+	const vec3 newPos
+	{
+	pos.x + t * (target.x - pos.x),
+	pos.y + t * (target.y - pos.y),
+	pos.z
+	};
+
+	setPos(newPos);
+
+	updateTransformMatrix();
+}
+
 void Transform::setPos(const vec3& v)
 {
-	pos = v;
+	pos = vec3(0.f, 0.f, 0.f);
 
 	posMat = mat4(1.f);
 

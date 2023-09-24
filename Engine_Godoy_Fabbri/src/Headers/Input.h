@@ -1,5 +1,7 @@
 #pragma once
 
+#include <list>
+
 #include "Window.h"
 #include "Exports.h"
 
@@ -11,6 +13,7 @@ namespace ToToEng
 		GLFWwindow* window;
 
 	public:
+
 		enum KeyCode
 		{
 			a = GLFW_KEY_A,
@@ -24,13 +27,23 @@ namespace ToToEng
 		enum Action
 		{
 			Pressed = GLFW_PRESS,
-			Down = GLFW_REPEAT,
+			Repeated = GLFW_REPEAT,
 			Released = GLFW_RELEASE,
 		};
+
+		struct KeyState
+		{
+			KeyCode key;
+			Action state;
+		};
+
+		static std::list<KeyCode> keysPressed;
 
 		Input(GLFWwindow* window);
 		~Input();
 
 		bool getKey(KeyCode keyCode, Action action);
 	};
+
+	void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 }

@@ -37,6 +37,10 @@ public:
 	vec3 right();
 	vec3 forward();
 
+	void lerpPos(vec3 target, float t);
+	void lerpPos(vec2 target, float t);
+	void lerpPos2D(vec3 target, float t);
+
 #pragma endregion
 
 #pragma region SETTERS

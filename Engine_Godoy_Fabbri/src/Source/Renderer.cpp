@@ -47,8 +47,6 @@ namespace ToToEng
 	void Renderer::endDraw()
 	{
 		glCall(glfwSwapBuffers(window->getWindow()));
-
-		glCall(glfwPollEvents());
 	}
 
 	void Renderer::genVertexBuffer(unsigned int& VBO, unsigned int& VAO, float vertices[], unsigned int id, unsigned int qty)
