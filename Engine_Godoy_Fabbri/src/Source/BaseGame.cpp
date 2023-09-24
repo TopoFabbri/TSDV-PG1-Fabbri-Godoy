@@ -9,14 +9,17 @@ namespace ToToEng
 		renderer = new Renderer(window, camera, is3D);
 
 		camera->transform.setPos({ 0, 0, 1 });
+		input = new Input(window->getWindow());
 	}
 
 	BaseGame::~BaseGame()
 	{
+		delete input;
 		delete renderer;
 		delete window;
+		delete camera;
 
-		for (int i = 0; i < entities.size(); i++)
+		for (int i = 0; i < static_cast<int>(entities.size()); i++)
 		{
 			Entity* tmp = entities.front();
 			entities.pop_front();

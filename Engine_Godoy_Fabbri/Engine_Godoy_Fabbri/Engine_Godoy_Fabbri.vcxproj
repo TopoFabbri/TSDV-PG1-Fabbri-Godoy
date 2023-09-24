@@ -23,6 +23,7 @@
     <ClCompile Include="..\src\Source\Camera.cpp" />
     <ClCompile Include="..\src\Source\Entity.cpp" />
     <ClCompile Include="..\src\Source\Entity2D.cpp" />
+    <ClCompile Include="..\src\Source\Input.cpp" />
     <ClCompile Include="..\src\Source\Renderer.cpp" />
     <ClCompile Include="..\src\Source\Shader.cpp" />
     <ClCompile Include="..\src\Source\Shape.cpp" />
@@ -35,6 +36,7 @@
     <ClInclude Include="..\src\Headers\Entity.h" />
     <ClInclude Include="..\src\Headers\Entity2D.h" />
     <ClInclude Include="..\src\Headers\Exports.h" />
+    <ClInclude Include="..\src\Headers\Input.h" />
     <ClInclude Include="..\src\Headers\Renderer.h" />
     <ClInclude Include="..\src\Headers\Shader.h" />
     <ClInclude Include="..\src\Headers\Shape.h" />

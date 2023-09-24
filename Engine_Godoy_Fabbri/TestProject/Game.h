@@ -1,10 +1,11 @@
 #pragma once
 
 #include "../src/Headers/BaseGame.h"
-#include "conio.h"
+
+using namespace ToToEng;
 
 class Game :
-	public ToToEng::BaseGame
+	public BaseGame
 {
 public:
 	Game(bool is3D);

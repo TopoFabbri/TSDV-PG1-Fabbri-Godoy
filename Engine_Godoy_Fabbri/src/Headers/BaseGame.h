@@ -5,6 +5,7 @@
 #include "Renderer.h"
 #include "Shape.h"
 #include "Exports.h"
+#include "Input.h"
 
 namespace ToToEng
 {
@@ -17,6 +18,7 @@ namespace ToToEng
 		Renderer* renderer;
 		std::list<Entity*> entities = std::list<Entity*>();
 		Camera* camera;
+		Input* input;
 
 	public:
 		BaseGame(bool is3D);
