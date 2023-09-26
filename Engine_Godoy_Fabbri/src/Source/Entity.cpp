@@ -20,7 +20,7 @@ namespace ToToEng
 		delete vertices;
 		delete indices;
 
-		deleteBuffers();
+		Entity::deleteBuffers();
 	}
 
 	void Entity::genBuffers()
@@ -36,6 +36,16 @@ namespace ToToEng
 
 	void Entity::update()
 	{
+	}
+
+	void Entity::setColor(vec4 color)
+	{
+		this->color = color;
+	}
+
+	vec4 Entity::getColor()
+	{
+		return color;
 	}
 
 	void Entity::updateVao()

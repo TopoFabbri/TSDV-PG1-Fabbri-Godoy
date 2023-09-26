@@ -14,8 +14,6 @@ namespace ToToEng
 	{
 	}
 
-
-
 	bool Input::getKey(KeyCode keyCode, Action action)
 	{
 		switch (action)

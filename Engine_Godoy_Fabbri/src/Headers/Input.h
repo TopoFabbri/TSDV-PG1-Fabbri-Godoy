@@ -22,6 +22,12 @@ namespace ToToEng
 			e = GLFW_KEY_E,
 			w = GLFW_KEY_W,
 			s = GLFW_KEY_S,
+			r = GLFW_KEY_R,
+			g = GLFW_KEY_G,
+			b = GLFW_KEY_B,
+			t = GLFW_KEY_T,
+			h = GLFW_KEY_H,
+			n = GLFW_KEY_N,
 		};
 
 		enum Action

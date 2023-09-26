@@ -3,3 +3,7 @@
 Shader::Shader(const char* code)
 {
 }
+
+Shader::~Shader()
+{
+}
