@@ -8,6 +8,7 @@ using namespace ToToEng;
 class Game :
 	public BaseGame
 {
+	float speed;
 public:
 	Game(bool is3D, int width, int height, const char* title);
 	~Game() override;
