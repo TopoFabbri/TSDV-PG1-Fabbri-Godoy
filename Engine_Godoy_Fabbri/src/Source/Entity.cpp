@@ -6,7 +6,7 @@ namespace ToToEng
 	{
 		this->renderer = renderer;
 
-		color = { 1, 1, 1, 1 };
+		color = { 1.f, 0.3f, 0.f, 1.f };
 
 		vertices = new float();
 
