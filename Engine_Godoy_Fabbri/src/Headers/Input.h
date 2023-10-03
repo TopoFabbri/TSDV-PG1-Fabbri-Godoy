@@ -11,9 +11,9 @@ namespace ToToEng
 	{
 	private:
 		GLFWwindow* window;
-		static Input* instance;
 
 	public:
+
 		enum KeyCode
 		{
 			a = GLFW_KEY_A,
@@ -45,14 +45,10 @@ namespace ToToEng
 
 		static std::list<KeyCode> keysPressed;
 
-		static bool getKey(KeyCode keyCode, Action action);
-		static Input* getInstance();
-		
-	private:
-		bool instanceGetKey(KeyCode keyCode, Action action);
-		
 		Input(GLFWwindow* window);
 		~Input();
+
+		bool getKey(KeyCode keyCode, Action action);
 	};
 
 	void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);

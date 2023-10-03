@@ -30,8 +30,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/include/ctime" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/glfw3.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Aula 2/Downloads/TSDV-PG1-Fabbri-Godoy/Engine_Godoy_Fabbri/src/Source/BaseGame.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Aula 2/Downloads/TSDV-PG1-Fabbri-Godoy/Engine_Godoy_Fabbri/src/Source/BaseGame.cpp" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -174,13 +178,14 @@
       <workItem from="1693917071589" duration="50000" />
       <workItem from="1695669610815" duration="530000" />
       <workItem from="1695670158335" duration="12221000" />
-      <workItem from="1696338687062" duration="2938000" />
+      <workItem from="1696345782088" duration="1021000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>

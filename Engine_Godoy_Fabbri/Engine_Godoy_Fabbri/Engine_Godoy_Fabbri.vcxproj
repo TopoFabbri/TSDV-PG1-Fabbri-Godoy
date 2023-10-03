@@ -27,81 +27,6 @@
     <ClCompile Include="..\src\Source\Renderer.cpp" />
     <ClCompile Include="..\src\Source\Shader.cpp" />
     <ClCompile Include="..\src\Source\Shape.cpp" />
-    <ClCompile Include="..\src\Source\Time.cpp">
-      <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
-      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
-      <Optimization>Disabled</Optimization>
-      <SupportJustMyCode>true</SupportJustMyCode>
-      <AssemblerOutput>NoListing</AssemblerOutput>
-      <AssemblerListingLocation>C:\Users\Aula 2\Downloads\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\obj\</AssemblerListingLocation>
-      <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
-      <BrowseInformation>false</BrowseInformation>
-      <BrowseInformationFile>C:\Users\Aula 2\Downloads\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\obj\</BrowseInformationFile>
-      <CompileAs>Default</CompileAs>
-      <ConformanceMode>true</ConformanceMode>
-      <DiagnosticsFormat>Column</DiagnosticsFormat>
-      <DisableLanguageExtensions>false</DisableLanguageExtensions>
-      <ErrorReporting>Prompt</ErrorReporting>
-      <ExpandAttributedSource>false</ExpandAttributedSource>
-      <ExceptionHandling>Sync</ExceptionHandling>
-      <EnableASAN>false</EnableASAN>
-      <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
-      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
-      <FloatingPointModel>Precise</FloatingPointModel>
-      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
-      <GenerateModuleDependencies>false</GenerateModuleDependencies>
-      <GenerateSourceDependencies>false</GenerateSourceDependencies>
-      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
-      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
-      <IntrinsicFunctions>false</IntrinsicFunctions>
-      <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
-      <LanguageStandard>Default</LanguageStandard>
-      <LanguageStandard_C>Default</LanguageStandard_C>
-      <MinimalRebuild>false</MinimalRebuild>
-      <ModuleDependenciesFile>C:\Users\Aula 2\Downloads\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\obj\</ModuleDependenciesFile>
-      <ModuleOutputFile>C:\Users\Aula 2\Downloads\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\obj\</ModuleOutputFile>
-      <OmitDefaultLibName>false</OmitDefaultLibName>
-      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
-      <WholeProgramOptimization>false</WholeProgramOptimization>
-      <ObjectFileName>C:\Users\Aula 2\Downloads\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\obj\</ObjectFileName>
-      <CallingConvention>Cdecl</CallingConvention>
-      <ProgramDataBaseFileName>C:\Users\Aula 2\Downloads\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\obj\vc142.pdb</ProgramDataBaseFileName>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <PrecompiledHeaderOutputFile>C:\Users\Aula 2\Downloads\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\obj\Engine_Godoy_Fabbri.pch</PrecompiledHeaderOutputFile>
-      <PreprocessToFile>false</PreprocessToFile>
-      <PreprocessKeepComments>false</PreprocessKeepComments>
-      <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
-      <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
-      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
-      <ShowIncludes>false</ShowIncludes>
-      <SourceDependenciesFile>C:\Users\Aula 2\Downloads\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\obj\</SourceDependenciesFile>
-      <SuppressStartupBanner>true</SuppressStartupBanner>
-      <BufferSecurityCheck>true</BufferSecurityCheck>
-      <SmallerTypeCheck>false</SmallerTypeCheck>
-      <SpectreMitigation>false</SpectreMitigation>
-      <StructMemberAlignment>Default</StructMemberAlignment>
-      <TrackerLogDirectory>C:\Users\Aula 2\Downloads\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\obj\Engine_G.4dfaa669.tlog\</TrackerLogDirectory>
-      <TranslateIncludes>false</TranslateIncludes>
-      <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
-      <TreatWarningAsError>false</TreatWarningAsError>
-      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <UseFullPaths>true</UseFullPaths>
-      <WarningLevel>Level3</WarningLevel>
-      <XMLDocumentationFileName>C:\Users\Aula 2\Downloads\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\obj\</XMLDocumentationFileName>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
-      <IntelJCCErratum>false</IntelJCCErratum>
-      <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
-      <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
-      <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
-      <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
-      <PreprocessorDefinitions>GLEW_STATIC;WIN32;EXPORTS;_DEBUG;_CONSOLE;_WINDLL;_UNICODE;UNICODE;</PreprocessorDefinitions>
-      <EnablePREfast>false</EnablePREfast>
-      <OmitFramePointers>false</OmitFramePointers>
-      <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Aula 2\Downloads\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\lib;C:\Users\Aula 2\Downloads\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\src\Headers</AdditionalIncludeDirectories>
-      <LinkCompiled>true</LinkCompiled>
-    </ClCompile>
     <ClCompile Include="..\src\Source\Transform.cpp" />
     <ClCompile Include="..\src\Source\Window.cpp" />
   </ItemGroup>
@@ -115,7 +40,6 @@
     <ClInclude Include="..\src\Headers\Renderer.h" />
     <ClInclude Include="..\src\Headers\Shader.h" />
     <ClInclude Include="..\src\Headers\Shape.h" />
-    <ClInclude Include="..\src\Headers\Time.h" />
     <ClInclude Include="..\src\Headers\Transform.h" />
     <ClInclude Include="..\src\Headers\Window.h" />
   </ItemGroup>
