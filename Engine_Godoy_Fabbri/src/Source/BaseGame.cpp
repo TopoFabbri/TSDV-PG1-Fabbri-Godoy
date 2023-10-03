@@ -11,8 +11,7 @@ namespace ToToEng
 		camera->transform.setPos({ 0, 0, 1 });
 		input = new Input(window->getWindow());
 
-		deltaTime = 0;
-		frameTime = static_cast<float>(glfwGetTime());
+		GameTime::resetTime();
 	}
 
 	BaseGame::~BaseGame()
@@ -36,8 +35,7 @@ namespace ToToEng
 	{
 		while (!window->shouldClose())
 		{
-			deltaTime = static_cast<float>(glfwGetTime()) - frameTime;
-			frameTime = static_cast<float>(glfwGetTime());
+			GameTime::update();
 			renderer->setView(lookAt(camera->transform.getPos(), camera->transform.getPos() + camera->transform.forward(), camera->transform.up()));
 			
 			for (Entity* entity : entities)

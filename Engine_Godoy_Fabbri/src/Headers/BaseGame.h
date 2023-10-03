@@ -6,6 +6,7 @@
 #include "Shape.h"
 #include "Exports.h"
 #include "Input.h"
+#include "GameTime.h"
 
 namespace ToToEng
 {
@@ -19,8 +20,6 @@ namespace ToToEng
 		std::list<Entity*> entities = std::list<Entity*>();
 		Camera* camera;
 		Input* input;
-		float deltaTime;
-		float frameTime;
 
 	public:
 		BaseGame(bool is3D, int width, int height, const char* title);
