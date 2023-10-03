@@ -8,6 +8,7 @@ namespace ToToEng
 	{
 		glfwSetKeyCallback(window, keyCallback);
 		this->window = window;
+		instance = this;
 	}
 
 	Input::~Input()
@@ -15,6 +16,19 @@ namespace ToToEng
 	}
 
 	bool Input::getKey(KeyCode keyCode, Action action)
+	{
+		instance->instanceGetKey(keyCode, action);
+	}
+
+	Input* Input::getInstance()
+	{
+		if (instance == nullptr)
+			instance = new Input(Window::getInstance()->getWindow());
+
+		return instance;
+	}
+
+	bool Input::instanceGetKey(KeyCode keyCode, Action action)
 	{
 		switch (action)
 		{

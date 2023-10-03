@@ -10,12 +10,16 @@
   <component name="ChangeListManager">
     <list default="true" id="59b83834-1b16-455b-92bb-7e2412bbcbcc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine_Godoy_Fabbri/Engine_Godoy_Fabbri.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Engine_Godoy_Fabbri/Engine_Godoy_Fabbri.vcxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestProject/Character.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/Character.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestProject/Character.h" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/Character.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestProject/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/Game.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/Entity.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/Entity.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Headers/BaseGame.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/BaseGame.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Headers/Input.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/Input.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/Entity.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Entity.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Headers/Window.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/Window.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/BaseGame.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/BaseGame.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Source/Input.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Input.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/Shader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Shader.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Window.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Window.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,9 +55,9 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\user\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\user\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\user\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\Aula 2\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Aula 2\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
+      "C:\\Users\\Aula 2\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
@@ -63,6 +67,7 @@
         <option name="CONFIGURATION" value="Debug" />
         <option name="PLATFORM" value="x64" />
         <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/Engine_Godoy_Fabbri/Engine_Godoy_Fabbri.vcxproj" />
+        <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
         <option name="EXE_PATH" value="$(LocalDebuggerCommand)" />
         <option name="PROGRAM_PARAMETERS" value="$(LocalDebuggerCommandArguments)" />
         <option name="WORKING_DIRECTORY" value="$(LocalDebuggerWorkingDirectory)" />
@@ -73,6 +78,7 @@
         <option name="CONFIGURATION" value="Debug" />
         <option name="PLATFORM" value="x86" />
         <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/Engine_Godoy_Fabbri/Engine_Godoy_Fabbri.vcxproj" />
+        <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
         <option name="EXE_PATH" value="$(LocalDebuggerCommand)" />
         <option name="PROGRAM_PARAMETERS" value="$(LocalDebuggerCommandArguments)" />
         <option name="WORKING_DIRECTORY" value="$(LocalDebuggerWorkingDirectory)" />
@@ -83,6 +89,7 @@
         <option name="CONFIGURATION" value="Release" />
         <option name="PLATFORM" value="x64" />
         <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/Engine_Godoy_Fabbri/Engine_Godoy_Fabbri.vcxproj" />
+        <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
         <option name="EXE_PATH" value="$(LocalDebuggerCommand)" />
         <option name="PROGRAM_PARAMETERS" value="$(LocalDebuggerCommandArguments)" />
         <option name="WORKING_DIRECTORY" value="$(LocalDebuggerWorkingDirectory)" />
@@ -93,6 +100,7 @@
         <option name="CONFIGURATION" value="Release" />
         <option name="PLATFORM" value="x86" />
         <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/Engine_Godoy_Fabbri/Engine_Godoy_Fabbri.vcxproj" />
+        <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
         <option name="EXE_PATH" value="$(LocalDebuggerCommand)" />
         <option name="PROGRAM_PARAMETERS" value="$(LocalDebuggerCommandArguments)" />
         <option name="WORKING_DIRECTORY" value="$(LocalDebuggerWorkingDirectory)" />
@@ -109,6 +117,7 @@
         <option name="CONFIGURATION" value="Debug" />
         <option name="PLATFORM" value="x64" />
         <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/TestProject/TestProject.vcxproj" />
+        <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
         <option name="EXE_PATH" value="$(LocalDebuggerCommand)" />
         <option name="PROGRAM_PARAMETERS" value="$(LocalDebuggerCommandArguments)" />
         <option name="WORKING_DIRECTORY" value="$(LocalDebuggerWorkingDirectory)" />
@@ -119,6 +128,7 @@
         <option name="CONFIGURATION" value="Debug" />
         <option name="PLATFORM" value="x86" />
         <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/TestProject/TestProject.vcxproj" />
+        <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
         <option name="EXE_PATH" value="$(LocalDebuggerCommand)" />
         <option name="PROGRAM_PARAMETERS" value="$(LocalDebuggerCommandArguments)" />
         <option name="WORKING_DIRECTORY" value="$(LocalDebuggerWorkingDirectory)" />
@@ -129,6 +139,7 @@
         <option name="CONFIGURATION" value="Release" />
         <option name="PLATFORM" value="x64" />
         <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/TestProject/TestProject.vcxproj" />
+        <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
         <option name="EXE_PATH" value="$(LocalDebuggerCommand)" />
         <option name="PROGRAM_PARAMETERS" value="$(LocalDebuggerCommandArguments)" />
         <option name="WORKING_DIRECTORY" value="$(LocalDebuggerWorkingDirectory)" />
@@ -139,6 +150,7 @@
         <option name="CONFIGURATION" value="Release" />
         <option name="PLATFORM" value="x86" />
         <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/TestProject/TestProject.vcxproj" />
+        <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
         <option name="EXE_PATH" value="$(LocalDebuggerCommand)" />
         <option name="PROGRAM_PARAMETERS" value="$(LocalDebuggerCommandArguments)" />
         <option name="WORKING_DIRECTORY" value="$(LocalDebuggerWorkingDirectory)" />
@@ -162,6 +174,7 @@
       <workItem from="1693917071589" duration="50000" />
       <workItem from="1695669610815" duration="530000" />
       <workItem from="1695670158335" duration="12221000" />
+      <workItem from="1696338687062" duration="2938000" />
     </task>
     <servers />
   </component>

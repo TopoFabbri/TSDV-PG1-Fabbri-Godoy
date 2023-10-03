@@ -1,5 +1,7 @@
 #pragma once
-#include "Headers\Shape.h"
+#include "Headers/Shape.h"
+#include "Headers/Input.h"
+#include "Headers/Time.h"
 
 class Character :
     public ToToEng::Shape

@@ -56,6 +56,14 @@ namespace ToToEng
 		glfwTerminate();
 	}
 
+	Window* Window::getInstance()
+	{
+		if (instance == nullptr)
+			instance = new Window();
+
+		return instance;
+	}
+
 	GLFWwindow* Window::getWindow()
 	{
 		return window;
