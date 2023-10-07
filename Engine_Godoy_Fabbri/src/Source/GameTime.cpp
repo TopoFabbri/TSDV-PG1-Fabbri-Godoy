@@ -8,19 +8,19 @@ namespace ToToEng
     
     GameTime::GameTime()
     {
-        if (instance != nullptr)
-            instance = this;
+        if (instance != nullptr && this != instance)
+        {
+            delete this;
+            return;
+        }
         
         time = 0.f;
         deltaTime = 0.f;
     }
 
-    GameTime::~GameTime()
-    = default;
-
     GameTime* GameTime::getInstance()
     {
-        if (instance == nullptr)
+        if (!instance)
             instance = new GameTime();
         
         return instance;

@@ -4,42 +4,57 @@ namespace ToToEng
 {
 	std::list<Input::KeyCode> Input::keysPressed;
 
-	Input::Input(GLFWwindow* window)
+	Input* Input::instance = nullptr;
+	
+	Input::Input()
 	{
+		if (instance != nullptr && this != instance)
+		{
+			delete this;
+			return;
+		}
+		
+		instance = this;
+
+		window = Window::getInstance()->getWindow();
+		
 		glfwSetKeyCallback(window, keyCallback);
-		this->window = window;
 	}
 
-	Input::~Input()
+	Input* Input::getInstance()
 	{
+		if (!instance)
+			instance = new Input();
+
+		return instance;
 	}
 
-	bool Input::getKey(KeyCode keyCode, Action action)
+	bool Input::getKey(const KeyCode keyCode, const Action action)
 	{
 		switch (action)
 		{
 			case Pressed:
 			{
-				bool pressed = std::find(keysPressed.begin(), keysPressed.end(), keyCode) != keysPressed.end();
+				const bool pressed = std::find(keysPressed.begin(), keysPressed.end(), keyCode) != keysPressed.end();
 				keysPressed.remove(keyCode);
 				return pressed;
 			}
 
 			case Repeated:
 			{
-				return glfwGetKey(window, keyCode) == Pressed;
+				return glfwGetKey(getInstance()->window, keyCode) == Pressed;
 			}
 
 			case Released:
 			{
-				return glfwGetKey(window, keyCode) == Released;
+				return glfwGetKey(getInstance()->window, keyCode) == Released;
 			}
 		}
 
 		return false;
 	}
 
-	void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
+	void keyCallback(GLFWwindow* window, int key, int scancode, const int action, int mods)
 	{
 		switch (action)
 		{

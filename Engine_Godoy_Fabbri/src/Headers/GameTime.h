@@ -12,9 +12,7 @@ namespace ToToEng
         float deltaTime;
     
         GameTime();
-        ~GameTime();
     public:
-        GameTime(const GameTime& obj) = delete;
     
         static GameTime* getInstance();
         static void resetTime();

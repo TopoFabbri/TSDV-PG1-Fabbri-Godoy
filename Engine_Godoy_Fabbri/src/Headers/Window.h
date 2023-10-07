@@ -9,6 +9,7 @@ namespace ToToEng
 	class Window
 	{
 	private:
+		static Window* instance;
 		int width;
 		int height;
 		const char* title;
@@ -19,6 +20,8 @@ namespace ToToEng
 		Window(int width, int height, const char* title);
 		~Window();
 
+		static Window* getInstance();
+		
 		GLFWwindow* getWindow();
 		bool shouldClose();
 

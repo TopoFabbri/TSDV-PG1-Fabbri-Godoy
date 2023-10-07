@@ -2,8 +2,18 @@
 
 namespace ToToEng
 {
+	Window* Window::instance = nullptr;
+	
 	Window::Window()
 	{
+		if (instance != nullptr && this != instance)
+		{
+			delete this;
+			return;
+		}
+
+		instance = this;
+		
 		width = 854;
 		height = 480;
 		title = "Example game";
@@ -24,8 +34,16 @@ namespace ToToEng
 		glfwMakeContextCurrent(window);
 	}
 
-	Window::Window(int width, int height, const char* title)
+	Window::Window(const int width, const int height, const char* title)
 	{
+		if (instance != nullptr && this != instance)
+		{
+			delete this;
+			return;
+		}
+		
+		instance = this;
+
 		this->width = width;
 		this->height = height;
 		this->title = title;
@@ -54,6 +72,14 @@ namespace ToToEng
 	Window::~Window()
 	{
 		glfwTerminate();
+	}
+
+	Window* Window::getInstance()
+	{
+		if (!instance)
+			instance = new Window();
+		
+		return instance;
 	}
 
 	GLFWwindow* Window::getWindow()

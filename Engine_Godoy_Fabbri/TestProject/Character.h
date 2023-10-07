@@ -1,5 +1,5 @@
 #pragma once
-#include "Headers\Shape.h"
+#include "Headers/Shape.h"
 
 class Character :
     public ToToEng::Shape
@@ -11,7 +11,7 @@ private:
     float friction;
 
 public:
-    Character(ToToEng::Renderer* renderer);
+    explicit Character(ToToEng::Renderer* renderer);
     ~Character() override;
 
     void update() override;

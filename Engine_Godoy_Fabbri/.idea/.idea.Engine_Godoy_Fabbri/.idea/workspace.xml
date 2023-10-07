@@ -8,16 +8,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59b83834-1b16-455b-92bb-7e2412bbcbcc" name="Changes" comment="Re-do singleton input">
+    <list default="true" id="59b83834-1b16-455b-92bb-7e2412bbcbcc" name="Changes" comment="Made singleton time class">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine_Godoy_Fabbri/Engine_Godoy_Fabbri.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Engine_Godoy_Fabbri/Engine_Godoy_Fabbri.vcxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/Camera.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/Camera.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/GameTime.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/Transform.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/Transform.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestProject/Character.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/Character.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestProject/Character.h" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/Character.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestProject/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/Game.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestProject/Game.h" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/Game.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Headers/BaseGame.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/BaseGame.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Headers/GameTime.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/GameTime.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Headers/Input.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/Input.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Headers/Window.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/Window.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Source/BaseGame.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/BaseGame.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/Camera.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Camera.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/GameTime.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/Transform.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Transform.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/GameTime.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/GameTime.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Input.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Input.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Window.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Window.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +37,13 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Administrator/source/repos/TSDV-PG1-Fabbri-Godoy/Engine_Godoy_Fabbri/TestProject/Game.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/glfw3.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Administrator/source/repos/TSDV-PG1-Fabbri-Godoy/Engine_Godoy_Fabbri/src/Source/BaseGame.cpp" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
   <component name="ProblemsViewState">
@@ -191,7 +201,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696347043537</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Made singleton time class">
+      <option name="closed" value="true" />
+      <created>1696643166248</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1696643166248</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,6 +219,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Re-do singleton input" />
-    <option name="LAST_COMMIT_MESSAGE" value="Re-do singleton input" />
+    <MESSAGE value="Made singleton time class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made singleton time class" />
   </component>
 </project>

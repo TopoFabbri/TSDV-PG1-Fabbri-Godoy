@@ -9,14 +9,12 @@ namespace ToToEng
 		renderer = new Renderer(window, camera, is3D);
 
 		camera->transform.setPos({ 0, 0, 1 });
-		input = new Input(window->getWindow());
 
 		GameTime::resetTime();
 	}
 
 	BaseGame::~BaseGame()
 	{
-		delete input;
 		delete renderer;
 		delete window;
 		delete camera;

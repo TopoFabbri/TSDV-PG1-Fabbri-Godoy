@@ -10,10 +10,12 @@ namespace ToToEng
 	class TOTO_API Input
 	{
 	private:
+		static Input* instance;
 		GLFWwindow* window;
+		
+		explicit Input();
 
 	public:
-
 		enum KeyCode
 		{
 			a = GLFW_KEY_A,
@@ -59,11 +61,10 @@ namespace ToToEng
 		};
 
 		static std::list<KeyCode> keysPressed;
+		
+		static Input* getInstance();
 
-		Input(GLFWwindow* window);
-		~Input();
-
-		bool getKey(KeyCode keyCode, Action action);
+		static bool getKey(KeyCode keyCode, Action action);
 	};
 
 	void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
