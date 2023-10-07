@@ -17,17 +17,17 @@ void Game::update()
     if (input->getKey(Input::a, Input::Repeated))
         dynamic_cast<Character*>(character)->accelerateInDir(-character->transform.right() * GameTime::getDelta());
     if (input->getKey(Input::d, Input::Repeated))
-        dynamic_cast<Character*>(character)->accelerateInDir(character->transform.right() * GameTime::getTime());
+        dynamic_cast<Character*>(character)->accelerateInDir(character->transform.right() * GameTime::getDelta());
     
-    // if (input->getKey(Input::s, Input::Repeated))
-    //     dynamic_cast<Character*>(character)->accelerateInDir(-character->transform.up() * deltaTime);
-    // if (input->getKey(Input::w, Input::Repeated))
-    //     dynamic_cast<Character*>(character)->accelerateInDir(character->transform.up() * deltaTime);
-    //
-    // if (input->getKey(Input::q, Input::Repeated))
-    //     character->transform.rotateZ(100.f * deltaTime);
-    // if (input->getKey(Input::e, Input::Repeated))
-    //     character->transform.rotateZ(-100.f * deltaTime);
+    if (input->getKey(Input::s, Input::Repeated))
+        dynamic_cast<Character*>(character)->accelerateInDir(-character->transform.up() * GameTime::getDelta());
+    if (input->getKey(Input::w, Input::Repeated))
+        dynamic_cast<Character*>(character)->accelerateInDir(character->transform.up() * GameTime::getDelta());
+    
+    if (input->getKey(Input::q, Input::Repeated))
+        character->transform.rotateZ(100.f * GameTime::getDelta());
+    if (input->getKey(Input::e, Input::Repeated))
+        character->transform.rotateZ(-100.f * GameTime::getDelta());
 
 
     if (input->getKey(Input::t, Input::Repeated))

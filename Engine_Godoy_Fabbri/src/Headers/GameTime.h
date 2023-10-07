@@ -1,18 +1,25 @@
 #pragma once
 
-#include <glfw3.h>
-
 #include "Exports.h"
 
-class TOTO_API GameTime
+namespace ToToEng
 {
-    static float delta;
-    static float time;
-
-public:
-    static void update();
-    static void resetTime();
-
-    static float getDelta();
-    static float getTime();
-};
+    class TOTO_API GameTime
+    {
+    private:
+        static GameTime* instance;
+        float time;
+        float deltaTime;
+    
+        GameTime();
+        ~GameTime();
+    public:
+        GameTime(const GameTime& obj) = delete;
+    
+        static GameTime* getInstance();
+        static void resetTime();
+        static void update();
+        static float getTime();
+        static float getDelta();
+    };
+}

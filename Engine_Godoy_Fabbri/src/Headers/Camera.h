@@ -4,7 +4,7 @@
 class Camera
 {
 public:
-	Transform transform;
+	ToToEng::Transform transform;
 
 	Camera();
 	~Camera();

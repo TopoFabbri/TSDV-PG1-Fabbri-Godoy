@@ -23,7 +23,7 @@ namespace ToToEng
 
 		for (int i = 0; i < static_cast<int>(entities.size()); i++)
 		{
-			Entity* tmp = entities.front();
+			const Entity* tmp = entities.front();
 			entities.pop_front();
 			delete tmp;
 		}
