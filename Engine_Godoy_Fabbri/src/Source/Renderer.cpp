@@ -6,8 +6,6 @@ namespace ToToEng
 	{
 		this->window = window;
 
-		vertexAttrib = { 0, 3, sizeof(float) * 7, 0 };
-
 		ShaderProgramSource shaderSource = parseShader("../res/shaders/Basic.shader");
 
 		std::cout << glGetString(GL_VERSION) << std::endl;
@@ -59,8 +57,14 @@ namespace ToToEng
 		glCall(glBindBuffer(GL_ARRAY_BUFFER, VBO));
 		glCall(glBufferData(GL_ARRAY_BUFFER, sizeof(float) * qty * 7, vertices, GL_STATIC_DRAW));
 
-		glCall(glVertexAttribPointer(vertexAttrib.index, vertexAttrib.size, GL_FLOAT, GL_FALSE, vertexAttrib.stride, static_cast<void*>(0)));
+		glCall(glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 9 * sizeof(float), static_cast<void*>(0)));
 		glCall(glEnableVertexAttribArray(0));
+		
+		glCall(glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 9 * sizeof(float), reinterpret_cast<void*>(4 * sizeof(float))));
+		glCall(glEnableVertexAttribArray(1));
+		
+		glCall(glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 9 * sizeof(float), reinterpret_cast<void*>(7 * sizeof(float))));
+		glCall(glEnableVertexAttribArray(2));
 	}
 
 	void Renderer::genIndexBuffer(unsigned int& IBO,

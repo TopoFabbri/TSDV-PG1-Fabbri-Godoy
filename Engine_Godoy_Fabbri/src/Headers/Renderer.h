@@ -21,13 +21,6 @@ namespace ToToEng
 	class Renderer
 	{
 	private:
-		struct Attribute
-		{
-			GLuint index;
-			GLint size;
-			GLsizei stride;
-			const GLvoid* pointer;
-		};
 
 		struct ShaderProgramSource
 		{
@@ -40,10 +33,9 @@ namespace ToToEng
 		unsigned int shader;
 		int u_ColorLocation;
 		int u_TransformLocation;
-		Attribute vertexAttrib;
-		glm::mat4 projection;
-		glm::mat4 view;
-		glm::vec3 cameraPos;
+		mat4 projection;
+		mat4 view;
+		vec3 cameraPos;
 
 		static unsigned int compileShader(unsigned int type, const char* source);
 		static unsigned int createShader(const char* vShader, const char* fShader);
@@ -64,5 +56,6 @@ namespace ToToEng
 		void drawEntity2D(unsigned int& VAO, unsigned int indexQty, vec4 color, mat4 trans);
 		void setProjection(mat4 projection);
 		void setView(mat4 view);
+		void loadTexture(const char* filePath);
 	};
 }

@@ -27,6 +27,7 @@ namespace ToToEng
 		unsigned int vertexQty;
 		float* positions;
 		float* colors;
+		float* textureCoords;
 
 		void updateVao();
 

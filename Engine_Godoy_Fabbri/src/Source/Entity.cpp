@@ -52,18 +52,21 @@ namespace ToToEng
 	{
 		delete vertices;
 
-		vertices = new float[vertexQty * 7];
+		vertices = new float[vertexQty * 9];
 
 		for (unsigned int i = 0; i < vertexQty; i++)
 		{
-			vertices[7 * i] = positions[i * 3];
-			vertices[7 * i + 1] = positions[i * 3 + 1];
-			vertices[7 * i + 2] = positions[i * 3 + 2];
+			vertices[9 * i] = positions[i * 3];
+			vertices[9 * i + 1] = positions[i * 3 + 1];
+			vertices[9 * i + 2] = positions[i * 3 + 2];
 
-			vertices[7 * i + 3] = colors[i * 4];
-			vertices[7 * i + 4] = colors[i * 4 + 1];
-			vertices[7 * i + 5] = colors[i * 4 + 2];
-			vertices[7 * i + 6] = colors[i * 4 + 3];
+			vertices[9 * i + 3] = colors[i * 4];
+			vertices[9 * i + 4] = colors[i * 4 + 1];
+			vertices[9 * i + 5] = colors[i * 4 + 2];
+			vertices[9 * i + 6] = colors[i * 4 + 3];
+
+			vertices[9 * i + 7] = textureCoords[i * 7];
+			vertices[9 * i + 7] = textureCoords[i * 7 + 1];
 		}
 
 		genBuffers();

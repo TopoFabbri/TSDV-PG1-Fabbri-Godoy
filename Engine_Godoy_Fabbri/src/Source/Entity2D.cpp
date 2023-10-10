@@ -24,10 +24,18 @@ ToToEng::Entity2D::Entity2D(Renderer* renderer): Entity(renderer)
 		1.f, 1.f, 1.f, 1.f
 	};
 
+	textureCoords = new float[vertexQty * 2]
+	{
+		1.f, 1.f,
+		1.f, 0.f,
+		0.f, 0.f,
+		0.f, 1.f
+	};
+
 	indices = new unsigned int[indexQty]
 	{
 		0, 1, 2,
-			1, 2, 3
+		1, 2, 3
 	};
 
 	updateVao();
