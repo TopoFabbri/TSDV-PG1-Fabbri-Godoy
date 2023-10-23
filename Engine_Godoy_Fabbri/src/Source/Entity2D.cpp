@@ -47,5 +47,5 @@ ToToEng::Entity2D::~Entity2D()
 
 void ToToEng::Entity2D::draw()
 {
-	renderer->drawEntity2D(VAO, indexQty, color, transform.getTransformMatrix());
+	renderer->drawEntity2D(VAO, indexQty, color, transform.getTransformMatrix(), texture);
 }

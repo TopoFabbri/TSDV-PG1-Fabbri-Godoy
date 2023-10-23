@@ -6,6 +6,7 @@
 
 #include "Window.h"
 #include <glm/gtc/type_ptr.hpp>
+#include "stb_image.h"
 
 #include "Camera.h"
 
@@ -31,7 +32,6 @@ namespace ToToEng
 		Window* window;
 		Camera* camera;
 		unsigned int shader;
-		int u_ColorLocation;
 		int u_TransformLocation;
 		mat4 projection;
 		mat4 view;
@@ -53,9 +53,9 @@ namespace ToToEng
 		void genIndexBuffer(unsigned int& IBO,
 			unsigned int indices[], unsigned int id, unsigned int qty);
 		void deleteBuffers(unsigned int& VBO, unsigned int& IBO, unsigned int& EBO, unsigned int id);
-		void drawEntity2D(unsigned int& VAO, unsigned int indexQty, vec4 color, mat4 trans);
+		void drawEntity2D(unsigned int& VAO, unsigned int indexQty, vec4 color, mat4 trans, unsigned int texture);
 		void setProjection(mat4 projection);
 		void setView(mat4 view);
-		void loadTexture(const char* filePath);
+		unsigned int loadTexture(const char* filePath);
 	};
 }

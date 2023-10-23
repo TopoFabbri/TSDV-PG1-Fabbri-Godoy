@@ -28,6 +28,7 @@
     <ClCompile Include="..\src\Source\Renderer.cpp" />
     <ClCompile Include="..\src\Source\Shader.cpp" />
     <ClCompile Include="..\src\Source\Shape.cpp" />
+    <ClCompile Include="..\src\Source\stb_image.cpp" />
     <ClCompile Include="..\src\Source\Transform.cpp" />
     <ClCompile Include="..\src\Source\Window.cpp" />
   </ItemGroup>

@@ -2,22 +2,32 @@
 #version 330 core
 
 layout(location = 0) in vec4 position;
+layout(location = 1) in vec4 col;
+layout(location = 2) in vec2 textCoord;
+
+out vec4 ourColor;
+out vec2 texCoord;
 
 uniform mat4 u_Transform;
 
 void main()
 {
 	gl_Position = u_Transform * position;
-};
+	ourColor = col;
+	texCoord = textCoord;
+}
 
 #shader fragment
 #version 330 core
 
-layout(location = 0) out vec4 color;
+out vec4 fragColor;
 
-uniform vec4 u_Color;
+in vec4 ourColor;
+in vec2 texCoord;
+
+uniform sampler2D ourTexture;
 
 void main()
 {
-	color = u_Color;
+	fragColor = texture(ourTexture, texCoord) * ourColor;
 };

@@ -11,6 +11,8 @@ namespace ToToEng
 		vertices = new float();
 
 		transform = Transform();
+
+		loadTexture("C:/Users/Administrator/source/repos/TSDV-PG1-Fabbri-Godoy/Engine_Godoy_Fabbri/res/textures/AstonBirra.png");
 	}
 
 	Entity::~Entity()
@@ -41,6 +43,11 @@ namespace ToToEng
 	void Entity::setColor(vec4 color)
 	{
 		this->color = color;
+	}
+
+	void Entity::loadTexture(const char* filePath)
+	{
+		texture = renderer->loadTexture(filePath);
 	}
 
 	vec4 Entity::getColor()
