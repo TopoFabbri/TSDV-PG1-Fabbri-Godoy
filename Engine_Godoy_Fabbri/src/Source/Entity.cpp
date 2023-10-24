@@ -12,7 +12,7 @@ namespace ToToEng
 
 		transform = Transform();
 
-		loadTexture("C:/Users/Administrator/source/repos/TSDV-PG1-Fabbri-Godoy/Engine_Godoy_Fabbri/res/textures/AstonBirra.png");
+		loadTexture("../res/textures/AstonBirra2.png");
 	}
 
 	Entity::~Entity()
@@ -72,8 +72,8 @@ namespace ToToEng
 			vertices[9 * i + 5] = colors[i * 4 + 2];
 			vertices[9 * i + 6] = colors[i * 4 + 3];
 
-			vertices[9 * i + 7] = textureCoords[i * 7];
-			vertices[9 * i + 7] = textureCoords[i * 7 + 1];
+			vertices[9 * i + 7] = textureCoords[i * 2];
+			vertices[9 * i + 8] = textureCoords[i * 2 + 1];
 		}
 
 		genBuffers();

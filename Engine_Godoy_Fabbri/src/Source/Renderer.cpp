@@ -62,7 +62,7 @@ namespace ToToEng
         glCall(glEnableVertexAttribArray(0));
 
         glCall(
-            glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 9 * sizeof(float), reinterpret_cast<void*>(4 * sizeof(float)
+            glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 9 * sizeof(float), reinterpret_cast<void*>(3 * sizeof(float)
             )));
         glCall(glEnableVertexAttribArray(1));
 
@@ -98,7 +98,7 @@ namespace ToToEng
         glCall(glUseProgram(shader));
         glCall(glUniform1i(glGetUniformLocation(shader, "ourTexture"), 0));
         
-        glCall(glActiveTexture(GL_TEXTURE0));
+        glCall(glActiveTexture(GL_TEXTURE0)); 
         glCall(glBindTexture(GL_TEXTURE_2D, texture));
         glCall(glBindVertexArray(VAO));
         
@@ -127,10 +127,10 @@ namespace ToToEng
         glCall(glGenTextures(1, &texture));
         glCall(glBindTexture(GL_TEXTURE_2D, texture));
 
-        glCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT));
-        glCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT));
+        glCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT));
+        glCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT));
 
-        glCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR));
+        glCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST));
         glCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR));
 
         int width, height, nrChannels;
@@ -139,7 +139,15 @@ namespace ToToEng
         
         if (data)
         {
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+            if (nrChannels == 4) 
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+            else if (nrChannels == 3)
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+            else if (nrChannels == 2)
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_RG, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+            else if (nrChannels == 1)
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_R, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+
             glGenerateMipmap(GL_TEXTURE_2D);
         }
         else

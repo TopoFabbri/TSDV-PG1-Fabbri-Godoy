@@ -26,8 +26,8 @@ ToToEng::Entity2D::Entity2D(Renderer* renderer): Entity(renderer)
 
 	textureCoords = new float[vertexQty * 2]
 	{
+		0.f, 1.f,
 		1.f, 1.f,
-		1.f, 0.f,
 		0.f, 0.f,
 		0.f, 1.f
 	};

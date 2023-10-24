@@ -22,6 +22,14 @@ ToToEng::Shape::Shape(Renderer* renderer) : Entity2D(renderer)
 		1.f, 1.f, 1.f, 1.f
 	};
 
+	textureCoords = new float[vertexQty * 2]
+	{
+		0.f, 1.f,
+		1.f, 1.f,
+		0.f, 0.f,
+		1.f, 0.f
+	};
+
 	indices = new unsigned int[indexQty]
 	{
 		0, 1, 2,
