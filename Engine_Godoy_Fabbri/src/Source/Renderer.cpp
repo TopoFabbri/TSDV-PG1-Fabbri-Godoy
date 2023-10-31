@@ -97,6 +97,9 @@ namespace ToToEng
         
         glCall(glUseProgram(shader));
         glCall(glUniform1i(glGetUniformLocation(shader, "ourTexture"), 0));
+        glCall(u_ColorLocation = glGetUniformLocation(shader, "u_Color"));
+
+        glCall(glUniform4f(u_ColorLocation, color.x, color.y, color.z, color.w));
         
         glCall(glActiveTexture(GL_TEXTURE0)); 
         glCall(glBindTexture(GL_TEXTURE_2D, texture));
