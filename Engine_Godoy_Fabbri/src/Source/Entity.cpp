@@ -12,7 +12,7 @@ namespace ToToEng
 
 		transform = Transform();
 
-		loadTexture("../res/textures/AstonBirra2.png");
+		loadTexture("../res/textures/AstonBirra.png");
 	}
 
 	Entity::~Entity()
