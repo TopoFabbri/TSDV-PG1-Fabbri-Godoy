@@ -1,5 +1,7 @@
 #include "Renderer.h"
 
+#include <fstream>
+
 namespace ToToEng
 {
     Renderer::Renderer(Window* window, Camera* camera, bool is3D)
@@ -7,12 +9,17 @@ namespace ToToEng
         this->window = window;
 
         ShaderProgramSource shaderSource = parseShader("../res/shaders/Basic.shader");
-
         std::cout << glGetString(GL_VERSION) << std::endl;
-
         shader = createShader(shaderSource.vertexSource.c_str(), shaderSource.fragmentSource.c_str());
 
+        shaderSource = parseShader("../res/shaders/Shape.shader");
+        std::cout << glGetString(GL_VERSION) << std::endl;
+        shapeShader = createShader(shaderSource.vertexSource.c_str(), shaderSource.fragmentSource.c_str());
+
         glCall(u_TransformLocation = glGetUniformLocation(shader, "u_Transform"));
+        _ASSERT(u_TransformLocation != -1);
+        
+        glCall(u_ShapeTransformLocation = glGetUniformLocation(shapeShader, "u_Transform"));
         _ASSERT(u_TransformLocation != -1);
 
         if (is3D)
@@ -94,18 +101,37 @@ namespace ToToEng
     void Renderer::drawEntity2D(unsigned int& VAO, unsigned int indexQty, vec4 color, mat4 trans, unsigned int texture)
     {
         mat4 pvm = projection * view * trans;
-        
+
         glCall(glUseProgram(shader));
         glCall(glUniform1i(glGetUniformLocation(shader, "ourTexture"), 0));
         glCall(u_ColorLocation = glGetUniformLocation(shader, "u_Color"));
 
         glCall(glUniform4f(u_ColorLocation, color.x, color.y, color.z, color.w));
-        
-        glCall(glActiveTexture(GL_TEXTURE0)); 
+
+        glCall(glActiveTexture(GL_TEXTURE0));
         glCall(glBindTexture(GL_TEXTURE_2D, texture));
         glCall(glBindVertexArray(VAO));
-        
+
         glCall(glUniformMatrix4fv(u_TransformLocation, 1, GL_FALSE, glm::value_ptr(pvm)));
+
+        glCall(glDrawElements(GL_TRIANGLES, indexQty, GL_UNSIGNED_INT, 0));
+
+        glCall(glBindVertexArray(0));
+        glCall(glUseProgram(0));
+    }
+
+    void Renderer::drawShape(unsigned& VAO, unsigned indexQty, vec4 color, mat4 trans)
+    {
+        mat4 pvm = projection * view * trans;
+
+        glCall(glUseProgram(shapeShader));
+        glCall(u_ColorLocation = glGetUniformLocation(shapeShader, "u_Color"));
+
+        glCall(glUniform4f(u_ColorLocation, color.x, color.y, color.z, color.w));
+
+        glCall(glBindVertexArray(VAO));
+
+        glCall(glUniformMatrix4fv(u_ShapeTransformLocation, 1, GL_FALSE, glm::value_ptr(pvm)));
 
         glCall(glDrawElements(GL_TRIANGLES, indexQty, GL_UNSIGNED_INT, 0));
 
@@ -121,55 +147,6 @@ namespace ToToEng
     void Renderer::setView(mat4 view)
     {
         this->view = view;
-    }
-
-    unsigned int Renderer::loadTexture(const char* filePath)
-    {
-        unsigned int texture;
-
-        glCall(glGenTextures(1, &texture));
-        glCall(glBindTexture(GL_TEXTURE_2D, texture));
-
-        glCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT));
-        glCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT));
-
-        glCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST));
-        glCall(glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR));
-
-        int width, height, nrChannels;
-
-        unsigned char* data = stbi_load(filePath, &width, &height, &nrChannels, 0);
-        
-        if (data)
-        {
-            if (nrChannels == 4)
-            {
-                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
-            }
-            else if (nrChannels == 3)
-            {
-                glPixelStorei(GL_UNPACK_ALIGNMENT, 1); 
-                glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-                glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
-            }
-            else if (nrChannels == 2)
-            {
-                glTexImage2D(GL_TEXTURE_2D, 0, GL_RG, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-            }
-            else if (nrChannels == 1)
-            {
-                glTexImage2D(GL_TEXTURE_2D, 0, GL_R, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-            }
-
-            glGenerateMipmap(GL_TEXTURE_2D);
-        }
-        else
-        {
-            std::cout << "Failed to load texture" << std::endl;
-        }
-        stbi_image_free(data);
-        
-        return texture;
     }
 
     unsigned int Renderer::compileShader(unsigned int type, const char* source)

@@ -30,6 +30,7 @@
     <ClCompile Include="..\src\Source\Shape.cpp" />
     <ClCompile Include="..\src\Source\Sprite.cpp" />
     <ClCompile Include="..\src\Source\stb_image.cpp" />
+    <ClCompile Include="..\src\Source\TextureImporter.cpp" />
     <ClCompile Include="..\src\Source\Transform.cpp" />
     <ClCompile Include="..\src\Source\Window.cpp" />
   </ItemGroup>
@@ -45,6 +46,7 @@
     <ClInclude Include="..\src\Headers\Shader.h" />
     <ClInclude Include="..\src\Headers\Shape.h" />
     <ClInclude Include="..\src\Headers\Sprite.h" />
+    <ClInclude Include="..\src\Headers\TextureImporter.h" />
     <ClInclude Include="..\src\Headers\Transform.h" />
     <ClInclude Include="..\src\Headers\Window.h" />
   </ItemGroup>

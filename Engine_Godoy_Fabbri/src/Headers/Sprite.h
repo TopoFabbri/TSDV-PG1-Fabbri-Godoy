@@ -6,8 +6,14 @@ namespace ToToEng
     class TOTO_API Sprite :
         public Entity2D
     {
+    private:
+        unsigned int texture;
+        
     public:
         Sprite(Renderer* renderer);
         ~Sprite() override;
+        
+        void draw() override;
+        void loadTexture(const char* filePath);
     };
 }

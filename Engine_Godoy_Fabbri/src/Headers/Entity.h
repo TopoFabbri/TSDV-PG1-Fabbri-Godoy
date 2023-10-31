@@ -25,7 +25,6 @@ namespace ToToEng
 		unsigned int id;
 		unsigned int indexQty;
 		unsigned int vertexQty;
-		unsigned int texture;
 		float* positions;
 		float* colors;
 		float* textureCoords;
@@ -44,7 +43,6 @@ namespace ToToEng
 		virtual void deleteBuffers();
 		virtual void update();
 		virtual void draw() = 0;
-		void loadTexture(const char* filePath);
 
 #pragma region Getters
 		vec4 getColor();

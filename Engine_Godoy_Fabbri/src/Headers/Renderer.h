@@ -1,12 +1,10 @@
 #pragma once
 
-#include <fstream>
 #include <string>
 #include <sstream>
 
 #include "Window.h"
 #include <glm/gtc/type_ptr.hpp>
-#include "stb_image.h"
 
 #include "Camera.h"
 
@@ -22,7 +20,6 @@ namespace ToToEng
 	class Renderer
 	{
 	private:
-
 		struct ShaderProgramSource
 		{
 			std::string vertexSource;
@@ -32,7 +29,9 @@ namespace ToToEng
 		Window* window;
 		Camera* camera;
 		unsigned int shader;
+		unsigned int shapeShader;
 		int u_TransformLocation;
+		int u_ShapeTransformLocation;
 		int u_ColorLocation;
 		mat4 projection;
 		mat4 view;
@@ -55,6 +54,7 @@ namespace ToToEng
 			unsigned int indices[], unsigned int id, unsigned int qty);
 		void deleteBuffers(unsigned int& VBO, unsigned int& IBO, unsigned int& EBO, unsigned int id);
 		void drawEntity2D(unsigned int& VAO, unsigned int indexQty, vec4 color, mat4 trans, unsigned int texture);
+		void drawShape(unsigned int& VAO, unsigned int indexQty, vec4 color, mat4 trans);
 		void setProjection(mat4 projection);
 		void setView(mat4 view);
 		unsigned int loadTexture(const char* filePath);

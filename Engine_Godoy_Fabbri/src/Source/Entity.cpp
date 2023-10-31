@@ -11,8 +11,6 @@ namespace ToToEng
 		vertices = new float();
 
 		transform = Transform();
-
-		loadTexture("../res/textures/AstonBirra.png");
 	}
 
 	Entity::~Entity()
@@ -43,11 +41,6 @@ namespace ToToEng
 	void Entity::setColor(vec4 color)
 	{
 		this->color = color;
-	}
-
-	void Entity::loadTexture(const char* filePath)
-	{
-		texture = renderer->loadTexture(filePath);
 	}
 
 	vec4 Entity::getColor()

@@ -11,5 +11,7 @@ namespace ToToEng
 	public:
 		Shape(Renderer* renderer);
 		~Shape() override;
+
+		void draw() override;
 	};
 }

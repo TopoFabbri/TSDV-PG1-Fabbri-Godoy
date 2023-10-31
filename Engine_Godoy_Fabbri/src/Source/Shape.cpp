@@ -42,3 +42,8 @@ ToToEng::Shape::Shape(Renderer* renderer) : Entity2D(renderer)
 ToToEng::Shape::~Shape()
 {
 }
+
+void ToToEng::Shape::draw()
+{
+	renderer->drawShape(VAO, indexQty, color, transform.getTransformMatrix());
+}
