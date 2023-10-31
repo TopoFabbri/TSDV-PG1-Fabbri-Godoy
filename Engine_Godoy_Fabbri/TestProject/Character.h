@@ -1,8 +1,9 @@
 #pragma once
 #include "Headers/Shape.h"
+#include "Headers/Sprite.h"
 
 class Character :
-    public ToToEng::Shape
+    public ToToEng::Sprite
 {
 private:
     float accel;

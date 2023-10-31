@@ -16,8 +16,8 @@ ToToEng::Shape::Shape(Renderer* renderer) : Entity2D(renderer)
 
 	colors = new float[vertexQty * 4]
 	{
-		1.f, 1.f, 1.f, 1.f,
-		1.f, 1.f, 1.f, 1.f,
+		0.f, 0.f, 0.f, 1.f,
+		0.f, 0.f, 0.f, 1.f,
 		1.f, 1.f, 1.f, 1.f,
 		1.f, 1.f, 1.f, 1.f
 	};

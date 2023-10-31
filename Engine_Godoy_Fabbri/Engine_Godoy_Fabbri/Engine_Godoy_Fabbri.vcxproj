@@ -28,6 +28,7 @@
     <ClCompile Include="..\src\Source\Renderer.cpp" />
     <ClCompile Include="..\src\Source\Shader.cpp" />
     <ClCompile Include="..\src\Source\Shape.cpp" />
+    <ClCompile Include="..\src\Source\Sprite.cpp" />
     <ClCompile Include="..\src\Source\stb_image.cpp" />
     <ClCompile Include="..\src\Source\Transform.cpp" />
     <ClCompile Include="..\src\Source\Window.cpp" />
@@ -43,11 +44,15 @@
     <ClInclude Include="..\src\Headers\Renderer.h" />
     <ClInclude Include="..\src\Headers\Shader.h" />
     <ClInclude Include="..\src\Headers\Shape.h" />
+    <ClInclude Include="..\src\Headers\Sprite.h" />
     <ClInclude Include="..\src\Headers\Transform.h" />
     <ClInclude Include="..\src\Headers\Window.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\res\shaders\Basic.shader" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\res\shaders\Shape.shader" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

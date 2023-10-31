@@ -5,7 +5,7 @@
 
 using namespace ToToEng;
 
-Character::Character(Renderer* renderer) : Shape(renderer)
+Character::Character(Renderer* renderer) : Sprite(renderer)
 {
     accel = 20.f;
     vel = vec3(0.f);
