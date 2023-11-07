@@ -9,21 +9,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59b83834-1b16-455b-92bb-7e2412bbcbcc" name="Changes" comment="Added sprite class">
-      <change afterPath="$PROJECT_DIR$/src/Headers/TextureImporter.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Source/TextureImporter.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Headers/CollisionManager.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Source/CollisionManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/shelf/Uncommitted_changes_before_Update_at_31_10_2023_9_48__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/shelf/Uncommitted_changes_before_Update_at_31_10_2023_9_48__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Engine_Godoy_Fabbri/Engine_Godoy_Fabbri.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Engine_Godoy_Fabbri/Engine_Godoy_Fabbri.vcxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/shaders/Shape.shader" beforeDir="false" afterPath="$PROJECT_DIR$/res/shaders/Shape.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/Entity.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/Entity.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Headers/Renderer.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/Renderer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/Shape.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/Shape.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/Sprite.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/Sprite.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/Entity.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Entity.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/Entity2D.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Entity2D.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/Renderer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Renderer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/Shape.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Shape.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/Sprite.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Sprite.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +57,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Add-collision-manager",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -177,17 +169,6 @@
         <option name="PASS_PARENT_ENVS" value="1" />
         <option name="USE_EXTERNAL_CONSOLE" value="0" />
       </configuration_4>
-      <configuration_5>
-        <option name="CONFIGURATION" value="" />
-        <option name="PLATFORM" value="" />
-        <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/TestProject/TestProject.vcxproj" />
-        <option name="CURRENT_LAUNCH_PROFILE" value="Local" />
-        <option name="EXE_PATH" value="$(TargetPath)" />
-        <option name="PROGRAM_PARAMETERS" value="" />
-        <option name="WORKING_DIRECTORY" value="$(ProjectDir)" />
-        <option name="PASS_PARENT_ENVS" value="1" />
-        <option name="USE_EXTERNAL_CONSOLE" value="0" />
-      </configuration_5>
       <option name="DEFAULT_PROJECT_PATH" value="$PROJECT_DIR$/TestProject/TestProject.vcxproj" />
       <method v="2">
         <option name="Build" />
@@ -211,6 +192,7 @@
       <workItem from="1697994642227" duration="2935000" />
       <workItem from="1698010031885" duration="9312000" />
       <workItem from="1698755343553" duration="8678000" />
+      <workItem from="1699359889368" duration="4150000" />
     </task>
     <task id="LOCAL-00001" summary="Re-do singleton input">
       <option name="closed" value="true" />
