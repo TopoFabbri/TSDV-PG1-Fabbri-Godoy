@@ -2,6 +2,17 @@
 
 #include "TextureImporter.h"
 
+void ToToEng::Sprite::update()
+{
+    Entity2D::update();
+
+    if (animation)
+    {
+        animation->update();
+        setOffset({animation->getOffset(), 0.f});
+    }
+}
+
 ToToEng::Sprite::Sprite(Renderer* renderer) : Entity2D(renderer)
 {
     loadTexture("../res/textures/AstonBirra.png");
@@ -55,4 +66,11 @@ void ToToEng::Sprite::draw()
 void ToToEng::Sprite::loadTexture(const char* filePath)
 {
     texture = TextureImporter::loadTexture(filePath);
+}
+
+void ToToEng::Sprite::addAnimation(float duration, int frameQty, const char* filePath)
+{
+    loadTexture(filePath);
+    animation = new Animation(duration, frameQty);
+    setScale({animation->getFrameWidth(), 1.f});
 }

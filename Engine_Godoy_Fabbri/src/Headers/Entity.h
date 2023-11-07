@@ -29,7 +29,7 @@ namespace ToToEng
 		float* colors;
 		float* textureCoords;
 
-		void updateVao();
+		virtual void updateVao();
 
 	public:
 		vec4 color;

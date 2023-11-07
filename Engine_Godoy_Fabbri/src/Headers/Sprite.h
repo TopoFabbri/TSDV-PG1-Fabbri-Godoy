@@ -1,4 +1,5 @@
 #pragma once
+#include "Animation.h"
 #include "Entity2D.h"
 
 namespace ToToEng
@@ -8,6 +9,10 @@ namespace ToToEng
     {
     private:
         unsigned int texture;
+        Animation* animation;
+
+    protected:
+        void update() override;
         
     public:
         Sprite(Renderer* renderer);
@@ -15,5 +20,6 @@ namespace ToToEng
         
         void draw() override;
         void loadTexture(const char* filePath);
+        void addAnimation(float duration, int frameQty, const char* filePath);
     };
 }

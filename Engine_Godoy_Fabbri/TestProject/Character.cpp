@@ -11,6 +11,10 @@ Character::Character(Renderer* renderer) : Sprite(renderer)
     vel = vec3(0.f);
     maxSpeed = 4.f;
     friction = .1f;
+
+    transform.setScale(transform.getScale() * 2.f);
+
+    addAnimation(2.f, 19, "../res/textures/DoorAnimation.png");
 }
 
 Character::~Character()
@@ -19,6 +23,8 @@ Character::~Character()
 
 void Character::update()
 {
+    Sprite::update();
+    
     if (Input::getKey(Input::a, Input::Repeated))
     accelerateInDir(-transform.right() * GameTime::getDelta());
     if (Input::getKey(Input::d, Input::Repeated))
