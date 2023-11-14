@@ -12,9 +12,9 @@ Character::Character(Renderer* renderer) : Sprite(renderer)
     maxSpeed = 4.f;
     friction = .1f;
 
-    transform.setScale(transform.getScale() * 2.f);
+    transform.translateZ(.5f);
 
-    addAnimation(2.f, 19, "../res/textures/DoorAnimation.png");
+    addAnimation(1.f, 9, "../res/textures/WolfWalk.png");
 }
 
 Character::~Character()
