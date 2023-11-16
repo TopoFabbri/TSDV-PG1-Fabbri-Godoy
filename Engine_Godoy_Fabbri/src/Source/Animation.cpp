@@ -45,9 +45,15 @@ void Animation::update()
     updateOffset();
 }
 
-void Animation::setAnimation(int animNumber)
+void Animation::setAnimByIndex(int animNumber)
 {
-    curAnim = animNumber;
+    if (animNumber >= 0 && animNumber < animQty)
+        curAnim = animNumber;
+}
+
+int Animation::getAnimIndex()
+{
+    return curAnim;
 }
 
 glm::vec2 Animation::getOffset()

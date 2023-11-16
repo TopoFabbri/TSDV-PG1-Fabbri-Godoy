@@ -9,9 +9,9 @@ namespace ToToEng
     {
     private:
         unsigned int texture;
-        Animation* animation;
 
     protected:
+        Animation* animation;
         void update() override;
         
     public:

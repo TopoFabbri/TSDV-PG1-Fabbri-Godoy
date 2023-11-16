@@ -1,7 +1,8 @@
 #pragma once
 #include <glm/vec2.hpp>
+#include "Exports.h"
 
-class Animation
+class TOTO_API Animation
 {
 private:
     float duration;
@@ -22,7 +23,8 @@ public:
     ~Animation();
 
     void update();
-    void setAnimation(int animNumber);
+    void setAnimByIndex(int animNumber);
+    int getAnimIndex();
     
     glm::vec2 getOffset();
     glm::vec2 getFrameSize();
