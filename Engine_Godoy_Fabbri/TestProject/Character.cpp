@@ -14,7 +14,7 @@ Character::Character(Renderer* renderer) : Sprite(renderer)
 
     transform.translateZ(.5f);
 
-    addAnimation(1.f, 9, "../res/textures/WolfWalk.png");
+    addAnimation(1.f, 8, 8, "../res/textures/dragon.png");
 }
 
 Character::~Character()

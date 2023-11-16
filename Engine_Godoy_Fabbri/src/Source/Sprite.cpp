@@ -9,7 +9,7 @@ void ToToEng::Sprite::update()
     if (animation)
     {
         animation->update();
-        setOffset({animation->getOffset(), 0.f});
+        setOffset(animation->getOffset());
     }
 }
 
@@ -68,9 +68,9 @@ void ToToEng::Sprite::loadTexture(const char* filePath)
     texture = TextureImporter::loadTexture(filePath);
 }
 
-void ToToEng::Sprite::addAnimation(float duration, int frameQty, const char* filePath)
+void ToToEng::Sprite::addAnimation(float duration, int frameQty, int animQty, const char* filePath)
 {
     loadTexture(filePath);
-    animation = new Animation(duration, frameQty);
-    setScale({animation->getFrameWidth(), 1.f});
+    animation = new Animation(duration, frameQty, animQty);
+    setScale(animation->getFrameSize());
 }
