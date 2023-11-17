@@ -2,6 +2,7 @@
 
 #include <list>
 
+#include "CollisionManager.h"
 #include "Renderer.h"
 #include "Shape.h"
 #include "Exports.h"
@@ -10,22 +11,25 @@
 
 namespace ToToEng
 {
-	class TOTO_API BaseGame
-	{
-	private:
-		Window* window;
+    class TOTO_API BaseGame
+    {
+    private:
+        Window* window;
+        CollisionManager* collisionManager;
 
-	protected:
-		Renderer* renderer;
-		std::list<Entity*> entities = std::list<Entity*>();
-		Camera* camera;
+    protected:
+        Renderer* renderer;
+        std::list<Entity*> entities = std::list<Entity*>();
+        Camera* camera;
 
-	public:
-		BaseGame(bool is3D, int width, int height, const char* title);
-		virtual ~BaseGame();
+    public:
+        BaseGame(bool is3D, int width, int height, const char* title);
+        virtual ~BaseGame();
 
-		void run();
+        void run();
 
-		virtual void update() = 0;
-	};
+        virtual void update() = 0;
+
+        void DoCollisions();
+    };
 }
