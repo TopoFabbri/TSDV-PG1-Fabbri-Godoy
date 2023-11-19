@@ -10,6 +10,7 @@ namespace ToToEng
 		camera = new Camera();
 		window = new Window(width, height, title);
 		renderer = new Renderer(window, camera, is3D);
+		collisionManager = new CollisionManager();
 
 		camera->transform.setPos({ 0, 0, 1 });
 
@@ -21,6 +22,7 @@ namespace ToToEng
 		delete renderer;
 		delete window;
 		delete camera;
+		delete collisionManager;
 
 		for (int i = 0; i < static_cast<int>(entities.size()); i++)
 		{
@@ -74,6 +76,21 @@ namespace ToToEng
 			renderer->endDraw();
 
 			glfwPollEvents();
+		}
+	}
+
+	void BaseGame::DoCollisions()
+	{
+		for(auto it = entities.begin(); it != entities.end(); ++it)
+		{
+			for(auto jt = std::next(it); jt != entities.end(); ++jt)
+			{
+				if(collisionManager->checkCollision(**it, **jt))
+				{
+					std::cout<< "Collision" << std::endl;
+					
+				}
+			}
 		}
 	}
 }
