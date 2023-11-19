@@ -1,11 +1,12 @@
 #pragma once
-#include "Entity.h"
+#include "BoxCollider2D.h"
 
 namespace ToToEng
 {
     class CollisionManager
     {
     public:
-        bool checkCollision(Entity &one, Entity &two);
+        static bool checkOverlap(const BoxCollider2D* one, const BoxCollider2D* two);
+        static void checkCollision(BoxCollider2D* one, BoxCollider2D* two);
     };
 }

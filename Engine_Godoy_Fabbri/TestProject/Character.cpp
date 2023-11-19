@@ -12,7 +12,7 @@ Character::Character(Renderer* renderer) : Sprite(renderer)
     maxSpeed = 4.f;
     friction = .1f;
 
-    transform.translateZ(.5f);
+    transform.setPos(vec3(0.f, 100.f, 0.f));
 
     addAnimation(1.f, 8, 8, "../res/textures/dragon.png");
 }

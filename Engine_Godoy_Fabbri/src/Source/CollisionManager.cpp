@@ -1,12 +1,19 @@
 #include "CollisionManager.h"
 
-bool ToToEng::CollisionManager::checkCollision(Entity& one, Entity& two)
-{
-    bool collisionX = one.transform.getPos().x + one.transform.getScale().x >= two.transform.getPos().x &&
-        two.transform.getPos().x + two.transform.getScale().x >= one.transform.getPos().x;
 
-    bool collisionY = one.transform.getPos().y + one.transform.getScale().y >= two.transform.getPos().y &&
-        two.transform.getPos().y + two.transform.getScale().y >= one.transform.getPos().y;
+bool ToToEng::CollisionManager::checkOverlap(const BoxCollider2D* one, const BoxCollider2D* two)
+{
+    const bool collisionX = one->getUpLeft().x < two->getDownRight().x && two->getUpLeft().x < one->getDownRight().x;
+    const bool collisionY = one->getUpLeft().y < two->getDownRight().y && two->getUpLeft().y < one->getDownRight().y;
 
     return collisionX && collisionY;
+}
+
+void ToToEng::CollisionManager::checkCollision(BoxCollider2D* one, BoxCollider2D* two)
+{
+    if (checkOverlap(one, two))
+    {
+        one->onCollision(two);
+        two->onCollision(one);
+    }
 }

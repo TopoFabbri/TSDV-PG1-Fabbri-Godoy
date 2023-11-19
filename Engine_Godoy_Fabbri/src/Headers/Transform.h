@@ -16,6 +16,8 @@ namespace ToToEng
 		vec3 scale;
 		vec3 rot;
 
+		vec3 prevPos;
+
 		mat4 transformMatrix;
 
 		mat4 posMat;
@@ -32,7 +34,9 @@ namespace ToToEng
 		vec3 getPos();
 		vec3 getScale();
 		vec3 getRot();
-	
+
+		vec3 getPrevPos();
+		
 		mat4 getTransformMatrix();
 
 		vec3 up();

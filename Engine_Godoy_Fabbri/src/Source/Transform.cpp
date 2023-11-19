@@ -9,6 +9,7 @@ namespace ToToEng
 
     Transform::Transform()
     {
+        pos = {0.0f, 0.0f, 0.0f};
         setPos({0.0f, 0.0f, 0.0f});
         setScale({1.0f, 1.0f, 1.0f});
         setRot({0.0f, 0.0f, 0.0f});
@@ -34,6 +35,11 @@ namespace ToToEng
     vec3 Transform::getRot()
     {
         return rot;
+    }
+
+    vec3 Transform::getPrevPos()
+    {
+        return prevPos;
     }
 
     mat4 Transform::getTransformMatrix()
@@ -100,6 +106,8 @@ namespace ToToEng
 
     void Transform::setPos(const vec3& v)
     {
+        prevPos = pos;
+        
         pos = vec3(0.f, 0.f, 0.f);
 
         posMat = mat4(1.f);

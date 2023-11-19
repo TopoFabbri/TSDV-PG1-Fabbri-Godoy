@@ -37,6 +37,8 @@ ToToEng::Shape::Shape(Renderer* renderer) : Entity2D(renderer)
 	};
 
 	updateVao();
+
+	collider = new BoxCollider2D({0.f, 0.f}, {1.f, 1.f}, &transform);
 }
 
 ToToEng::Shape::~Shape()

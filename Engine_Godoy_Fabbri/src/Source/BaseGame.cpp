@@ -1,5 +1,8 @@
 #include "BaseGame.h"
 
+#include "CollisionManager.h"
+#include "Sprite.h"
+
 namespace ToToEng
 {
 	BaseGame::BaseGame(bool is3D, int width, int height, const char* title)
@@ -39,6 +42,29 @@ namespace ToToEng
 			for (Entity* entity : entities)
 				entity->update();
 			update();
+
+			for (Entity* entityOne : entities)
+			{
+				bool newCollider = false;
+				
+				for (Entity* entityTwo : entities)
+				{
+					if (entityOne == entityTwo)
+					{
+						newCollider = true;
+						continue;
+					}
+
+					if (!newCollider)
+						continue;
+
+					BoxCollider2D* colliderOne = dynamic_cast<Entity2D*>(entityOne)->collider;
+					BoxCollider2D* colliderTwo = dynamic_cast<Entity2D*>(entityTwo)->collider;
+
+					if (colliderOne && colliderTwo)
+						CollisionManager::checkCollision(colliderOne, colliderTwo);
+				}
+			}
 
 			renderer->beginDraw();
 
