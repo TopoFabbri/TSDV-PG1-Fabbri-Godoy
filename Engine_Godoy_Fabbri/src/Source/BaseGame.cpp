@@ -78,19 +78,4 @@ namespace ToToEng
 			glfwPollEvents();
 		}
 	}
-
-	void BaseGame::DoCollisions()
-	{
-		for(auto it = entities.begin(); it != entities.end(); ++it)
-		{
-			for(auto jt = std::next(it); jt != entities.end(); ++jt)
-			{
-				if(collisionManager->checkCollision(**it, **jt))
-				{
-					std::cout<< "Collision" << std::endl;
-					
-				}
-			}
-		}
-	}
 }

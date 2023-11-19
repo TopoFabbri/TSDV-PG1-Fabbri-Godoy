@@ -29,7 +29,5 @@ namespace ToToEng
         void run();
 
         virtual void update() = 0;
-
-        void DoCollisions();
     };
 }
