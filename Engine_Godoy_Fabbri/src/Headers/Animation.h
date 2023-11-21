@@ -14,12 +14,17 @@ private:
     int curFrame;
     int animQty;
     int curAnim;
+    int frameStart;
+    int frameEnd;
+    glm::vec2 startOffset;
+    glm::vec2 maxOffset;
     
     void updateFrame();
     void updateOffset();
 
 public:
     Animation(float duration, int frameQty, int animQty);
+    Animation(float duration, int frameQty, int animQty, int frameStart, int frameEnd);
     ~Animation();
 
     void update();
@@ -28,4 +33,7 @@ public:
     
     glm::vec2 getOffset();
     glm::vec2 getFrameSize();
+
+    void setStartOffset(glm::vec2 offset);
+    void setMaxOffset(glm::vec2 offset);
 };

@@ -4,8 +4,21 @@
 
 Game::Game(bool is3D, int width, int height, const char* title) : BaseGame(is3D, width, height, title)
 {
-    entities.push_back(new Character(renderer));
     entities.push_back(new Sprite(renderer));
+    dynamic_cast<Sprite*>(entities.back())->loadTexture("../res/textures/BG.png");
+    dynamic_cast<Sprite*>(entities.back())->setTrigger(true);
+    dynamic_cast<Sprite*>(entities.back())->transform.setScale({1600.f, 1600.f, 0.f});
+
+    entities.push_back(new Character(renderer));
+    character = dynamic_cast<Character*>(entities.back());
+
+    entities.push_back(new Sprite(renderer));
+    dynamic_cast<Sprite*>(entities.back())->setTrigger(false);
+
+    dynamic_cast<Sprite*>(entities.back())->addAnimation(2.f, 16, 9, "../res/textures/Sonic_Mania_Sprite_Sheet.png", 2,
+                                                         7);
+    dynamic_cast<Sprite*>(entities.back())->animation->setStartOffset({.037f, .043f});
+    dynamic_cast<Sprite*>(entities.back())->animation->setAnimByIndex(6);
 }
 
 Game::~Game()
@@ -14,6 +27,5 @@ Game::~Game()
 
 void Game::update()
 {
-    camera->transform.lerpPos2D(entities.front()->transform.getPos() - vec3(400.f, 300.f, 0), .1f);
-    dynamic_cast<Sprite*>(entities.back())->setTrigger(false);
+    camera->transform.lerpPos2D(character->transform.getPos() - vec3(400.f, 300.f, 0), .1f);
 }

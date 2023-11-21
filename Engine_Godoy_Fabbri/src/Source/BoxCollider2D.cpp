@@ -57,7 +57,7 @@ namespace ToToEng
 
     void BoxCollider2D::onCollision(BoxCollider2D* other)
     {
-        if (isTrigger)
+        if (isTrigger || other->isTrigger)
         {
             onTrigger(other);
             return;

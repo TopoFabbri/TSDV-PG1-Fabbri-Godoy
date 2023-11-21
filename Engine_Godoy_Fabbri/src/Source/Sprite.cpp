@@ -6,7 +6,7 @@ void ToToEng::Sprite::update()
 {
     Entity2D::update();
 
-    if (animation)
+    if (animation && playAnim)
     {
         animation->update();
         setOffset(animation->getOffset());
@@ -76,5 +76,13 @@ void ToToEng::Sprite::addAnimation(float duration, int frameQty, int animQty, co
 {
     loadTexture(filePath);
     animation = new Animation(duration, frameQty, animQty);
+    setScale(animation->getFrameSize());
+}
+
+void ToToEng::Sprite::addAnimation(float duration, int frameQty, int animQty, const char* filePath, int frameStart,
+    int frameEnd)
+{
+    loadTexture(filePath);
+    animation = new Animation(duration, frameQty, animQty, frameStart, frameEnd);
     setScale(animation->getFrameSize());
 }
