@@ -15,6 +15,7 @@ Character::Character(Renderer* renderer) : Sprite(renderer)
     transform.setPos(vec3(0.f, 100.f, 0.f));
 
     addAnimation(1.f, 8, 8, "../res/textures/dragon.png");
+    setTrigger(false);
 }
 
 Character::~Character()

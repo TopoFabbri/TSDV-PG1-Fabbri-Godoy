@@ -17,6 +17,8 @@ ToToEng::Sprite::Sprite(Renderer* renderer) : Entity2D(renderer)
 {
     loadTexture("../res/textures/AstonBirra.png");
 
+    animation = nullptr;
+    
     vertexQty = 4;
     indexQty = 6;
     id = 1;

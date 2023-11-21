@@ -8,13 +8,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59b83834-1b16-455b-92bb-7e2412bbcbcc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/BoxCollider2D.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/BoxCollider2D.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/Entity2D.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/Entity2D.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/BoxCollider2D.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/BoxCollider2D.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/Entity2D.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Entity2D.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/Shape.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Shape.cpp" afterDir="false" />
+    <list default="true" id="59b83834-1b16-455b-92bb-7e2412bbcbcc" name="Changes" comment="Added trigger">
+      <change beforePath="$PROJECT_DIR$/TestProject/Character.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/Character.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestProject/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/Game.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Source/Sprite.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Sprite.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +30,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Dummy.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/glfw3.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/glm/detail/type_vec2.inl" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/glm/detail/type_vec3.inl" root0="SKIP_HIGHLIGHTING" />
@@ -202,7 +200,7 @@
       <workItem from="1700334710436" duration="9803000" />
       <workItem from="1700407173353" duration="13843000" />
       <workItem from="1700571139289" duration="1062000" />
-      <workItem from="1700581359215" duration="718000" />
+      <workItem from="1700581359215" duration="1066000" />
     </task>
     <task id="LOCAL-00001" summary="Re-do singleton input">
       <option name="closed" value="true" />
@@ -244,7 +242,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698764293433</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added trigger">
+      <option name="closed" value="true" />
+      <created>1700582110552</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1700582110552</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,6 +275,7 @@
     <MESSAGE value="Fixed texture channels" />
     <MESSAGE value="Clean up code" />
     <MESSAGE value="Added sprite class" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Added trigger" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added trigger" />
   </component>
 </project>
