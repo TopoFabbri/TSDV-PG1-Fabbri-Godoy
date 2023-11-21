@@ -4,11 +4,12 @@
 
 namespace ToToEng
 {
-    BoxCollider2D::BoxCollider2D(const vec2 pos, const vec2 size, Transform* transform)
+    BoxCollider2D::BoxCollider2D(const vec2 pos, const vec2 size, Transform* transform, bool isTrigger)
     {
         this->pos = pos;
         this->size = size;
         this->transform = transform;
+        this->isTrigger = isTrigger;
 
         upLeft = vec2(pos.x - size.x / 2, pos.y + size.y / 2);
         downRight = vec2(pos.x + size.x / 2, pos.y - size.y / 2);
@@ -56,11 +57,17 @@ namespace ToToEng
 
     void BoxCollider2D::onCollision(BoxCollider2D* other)
     {
+        if (!isTrigger)
+        {
+            onTrigger(other);
+            return;
+        }
+        
         vec2 dir = transform->getPos() - transform->getPrevPos();
 
         if (dir.x == 0.f && dir.y == 0.f)
             return;
-        
+
         if (abs(transform->getPrevPos().x - other->getPos().x) > abs(transform->getPrevPos().y - other->getPos().y))
         {
             dir.x = dir.x > 0 ? 1.f : -1.f;
@@ -69,9 +76,9 @@ namespace ToToEng
             vec2 otherPos = other->getPos();
             vec2 size = getSize();
             vec2 otherSize = other->getSize();
-            
+
             transform->setPos(vec3(otherPos.x - dir.x * (size.x / 2.f + otherSize.x / 2.f), pos.y,
-                                    pos.z));
+                                   pos.z));
         }
         else
         {
@@ -81,9 +88,18 @@ namespace ToToEng
             vec2 otherPos = other->getPos();
             vec2 size = getSize();
             vec2 otherSize = other->getSize();
-            
+
             transform->setPos(vec3(pos.x, otherPos.y - dir.y * (size.y / 2.f + otherSize.y / 2.f),
-                                    pos.z));
+                                   pos.z));
         }
+    }
+
+    void BoxCollider2D::onTrigger(BoxCollider2D* other)
+    {
+    }
+
+    void BoxCollider2D::setTrigger(bool isTrigger)
+    {
+        this->isTrigger = isTrigger;
     }
 }

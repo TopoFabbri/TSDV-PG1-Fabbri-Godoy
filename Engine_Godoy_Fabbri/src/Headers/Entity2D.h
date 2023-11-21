@@ -26,5 +26,7 @@ namespace ToToEng
 		void updateVao() override;
 
 		void draw() override;
+
+		void setTrigger(bool isTrigger);
 	};
 }
