@@ -20,6 +20,6 @@ namespace ToToEng
         
         void draw() override;
         void loadTexture(const char* filePath);
-        void addAnimation(float duration, int frameQty, int animQty, const char* filePath);
+        void addAnimation(float duration, int frameQty, int animQty, const char* filePath, vec2 offset);
     };
 }

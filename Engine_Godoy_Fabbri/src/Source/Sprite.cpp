@@ -70,9 +70,9 @@ void ToToEng::Sprite::loadTexture(const char* filePath)
     texture = TextureImporter::loadTexture(filePath);
 }
 
-void ToToEng::Sprite::addAnimation(float duration, int frameQty, int animQty, const char* filePath)
+void ToToEng::Sprite::addAnimation(float duration, int frameQty, int animQty, const char* filePath, vec2 offset)
 {
     loadTexture(filePath);
-    animation = new Animation(duration, frameQty, animQty);
+    animation = new Animation(duration, frameQty, animQty, offset);
     setScale(animation->getFrameSize());
 }

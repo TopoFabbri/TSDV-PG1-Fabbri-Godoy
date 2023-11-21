@@ -14,7 +14,8 @@ Character::Character(Renderer* renderer) : Sprite(renderer)
 
     transform.setPos(vec3(0.f, 100.f, 0.f));
 
-    addAnimation(1.f, 8, 8, "../res/textures/dragon.png");
+    addAnimation(1.f, 11, 9, "../res/textures/sonic.png", vec2(27.5f, 0.f));
+    animation->setAnimByIndex(2);
 }
 
 Character::~Character()
@@ -24,17 +25,29 @@ Character::~Character()
 void Character::update()
 {
     Sprite::update();
-    
+
     if (Input::getKey(Input::a, Input::Repeated))
-    accelerateInDir(-transform.right() * GameTime::getDelta());
+    {
+        accelerateInDir(-transform.right() * GameTime::getDelta());
+        animation->setAnimByIndex(2);
+    }
     if (Input::getKey(Input::d, Input::Repeated))
+    {
         accelerateInDir(transform.right() * GameTime::getDelta());
-    
+        animation->setAnimByIndex(2);
+    }
+
     if (Input::getKey(Input::s, Input::Repeated))
+    {
         accelerateInDir(-transform.up() * GameTime::getDelta());
+        animation->setAnimByIndex(2);
+    }
     if (Input::getKey(Input::w, Input::Repeated))
+    {
         accelerateInDir(transform.up() * GameTime::getDelta());
-    
+        animation->setAnimByIndex(2);
+    }
+
     if (Input::getKey(Input::q, Input::Repeated))
         transform.rotateZ(100.f * GameTime::getDelta());
     if (Input::getKey(Input::e, Input::Repeated))
@@ -42,7 +55,7 @@ void Character::update()
 
     if (Input::getKey(Input::f, Input::Pressed))
         animation->setAnimByIndex(animation->getAnimIndex() >= 7 ? 0 : animation->getAnimIndex() + 1);
-    
+
     transform.setPos(transform.getPos() + vel);
 
     if (length(vel) > 0)

@@ -9,21 +9,24 @@ void Animation::updateFrame()
 
 void Animation::updateOffset()
 {
-    curOffset.x = static_cast<float>(curFrame) * frameSize.x;
+    curOffset.x = (static_cast<float>(curFrame) * frameSize.x) + animOffset.x;
     curOffset.y = static_cast<float>(curAnim) * frameSize.y;
 }
 
-Animation::Animation(float duration, int frameQty, int animQty)
+Animation::Animation(float duration, int frameQty, int animQty, glm::vec2 offset)
 {
     this->duration = duration;
     this->frameQty = frameQty;
     this->animQty = animQty;
     
-    frameSize.x = 1.f / static_cast<float>(frameQty);
-    frameSize.y = 1.f / static_cast<float>(animQty);
+    frameSize.x = 0.48f / static_cast<float>(frameQty);
+    frameSize.y = 1.08f / static_cast<float>(animQty);
     
     curOffset.x = 0;
     curOffset.y = 0;
+    animOffset.x = offset.x;
+    animOffset.y = offset.y;
+    
     curTime = 0;
     frameTime = duration / static_cast<float>(frameQty);
     curFrame = 0;

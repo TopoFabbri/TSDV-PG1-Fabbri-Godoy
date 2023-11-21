@@ -34,6 +34,7 @@ namespace ToToEng
 	public:
 		vec4 color;
 		bool active;
+		bool isTrigger;
 		Transform transform;
 
 		Entity(Renderer* renderer);
@@ -46,10 +47,12 @@ namespace ToToEng
 
 #pragma region Getters
 		vec4 getColor();
+		bool getIsTrigger();
 #pragma endregion
 		
 #pragma region  Setters
 		void setColor(vec4 color);
+		void setIsTrigger(bool isTrigger);
 #pragma endregion
 	};
 }

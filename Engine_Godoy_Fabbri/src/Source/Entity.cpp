@@ -6,6 +6,8 @@ namespace ToToEng
 	{
 		this->renderer = renderer;
 
+		isTrigger = false;
+
 		color = { 1, 1, 1, 1 };
 
 		vertices = new float();
@@ -43,9 +45,19 @@ namespace ToToEng
 		this->color = color;
 	}
 
+	void Entity::setIsTrigger(bool isTrigger)
+	{
+		this->isTrigger = isTrigger;
+	}
+
 	vec4 Entity::getColor()
 	{
 		return color;
+	}
+
+	bool Entity::getIsTrigger()
+	{
+		return isTrigger;
 	}
 
 	void Entity::updateVao()

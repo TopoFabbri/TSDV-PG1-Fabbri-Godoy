@@ -16,6 +16,9 @@ namespace ToToEng
         std::cout << glGetString(GL_VERSION) << std::endl;
         shapeShader = createShader(shaderSource.vertexSource.c_str(), shaderSource.fragmentSource.c_str());
 
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC1_ALPHA_EXT);
+        
         glCall(u_TransformLocation = glGetUniformLocation(shader, "u_Transform"));
         _ASSERT(u_TransformLocation != -1);
         

@@ -5,77 +5,81 @@
 
 namespace ToToEng
 {
-	BaseGame::BaseGame(bool is3D, int width, int height, const char* title)
-	{
-		camera = new Camera();
-		window = new Window(width, height, title);
-		renderer = new Renderer(window, camera, is3D);
-		collisionManager = new CollisionManager();
+    BaseGame::BaseGame(bool is3D, int width, int height, const char* title)
+    {
+        camera = new Camera();
+        window = new Window(width, height, title);
+        renderer = new Renderer(window, camera, is3D);
+        collisionManager = new CollisionManager();
 
-		camera->transform.setPos({ 0, 0, 1 });
+        camera->transform.setPos({0, 0, 1});
 
-		GameTime::resetTime();
-	}
+        GameTime::resetTime();
+    }
 
-	BaseGame::~BaseGame()
-	{
-		delete renderer;
-		delete window;
-		delete camera;
-		delete collisionManager;
+    BaseGame::~BaseGame()
+    {
+        delete renderer;
+        delete window;
+        delete camera;
+        delete collisionManager;
 
-		for (int i = 0; i < static_cast<int>(entities.size()); i++)
-		{
-			const Entity* tmp = entities.front();
-			entities.pop_front();
-			delete tmp;
-		}
+        for (int i = 0; i < static_cast<int>(entities.size()); i++)
+        {
+            const Entity* tmp = entities.front();
+            entities.pop_front();
+            delete tmp;
+        }
 
-		entities.clear();
-	}
+        entities.clear();
+    }
 
-	void BaseGame::run()
-	{
-		while (!window->shouldClose())
-		{
-			GameTime::update();
-			renderer->setView(lookAt(camera->transform.getPos(), camera->transform.getPos() + camera->transform.forward(), camera->transform.up()));
-			
-			for (Entity* entity : entities)
-				entity->update();
-			update();
+    void BaseGame::run()
+    {
+        while (!window->shouldClose())
+        {
+            GameTime::update();
+            renderer->setView(lookAt(camera->transform.getPos(),
+                                     camera->transform.getPos() + camera->transform.forward(), camera->transform.up()));
 
-			for (Entity* entityOne : entities)
-			{
-				bool newCollider = false;
-				
-				for (Entity* entityTwo : entities)
-				{
-					if (entityOne == entityTwo)
-					{
-						newCollider = true;
-						continue;
-					}
+            for (Entity* entity : entities)
+                entity->update();
+            update();
 
-					if (!newCollider)
-						continue;
+            for (Entity* entityOne : entities)
+            {
+                bool newCollider = false;
 
-					BoxCollider2D* colliderOne = dynamic_cast<Entity2D*>(entityOne)->collider;
-					BoxCollider2D* colliderTwo = dynamic_cast<Entity2D*>(entityTwo)->collider;
+                for (Entity* entityTwo : entities)
+                {
+                    if (entityOne == entityTwo)
+                    {
+                        newCollider = true;
+                        continue;
+                    }
 
-					if (colliderOne && colliderTwo)
-						CollisionManager::checkCollision(colliderOne, colliderTwo);
-				}
-			}
+                    if (!newCollider)
+                        continue;
 
-			renderer->beginDraw();
+                    if (!entityOne->isTrigger && !entityTwo->isTrigger)
+                    {
+                        BoxCollider2D* colliderOne = dynamic_cast<Entity2D*>(entityOne)->collider;
+                        BoxCollider2D* colliderTwo = dynamic_cast<Entity2D*>(entityTwo)->collider;
 
-			for (Entity* entity : entities)
-				entity->draw();
+                        if (colliderOne && colliderTwo)
+                            CollisionManager::checkCollision(colliderOne, colliderTwo);
+                    }
+                }
+            }
 
-			renderer->endDraw();
+            renderer->beginDraw();
 
-			glfwPollEvents();
-		}
-	}
+            for (Entity* entity : entities)
+                entity->draw();
+
+            renderer->endDraw();
+
+            glfwPollEvents();
+        }
+    }
 }

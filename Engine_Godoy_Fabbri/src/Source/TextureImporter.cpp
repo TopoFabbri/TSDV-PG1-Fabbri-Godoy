@@ -36,7 +36,7 @@ unsigned ToToEng::TextureImporter::loadTexture(const char* filePath)
     {
         if (nrChannels == 4)
         {
-            glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+           
             glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
             glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
         }

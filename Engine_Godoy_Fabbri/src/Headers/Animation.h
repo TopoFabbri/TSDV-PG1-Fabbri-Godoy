@@ -8,6 +8,7 @@ private:
     float duration;
     glm::vec2 frameSize;
     glm::vec2 curOffset;
+    glm::vec2 animOffset;
     float curTime;
     float frameTime;
     int frameQty;
@@ -19,7 +20,7 @@ private:
     void updateOffset();
 
 public:
-    Animation(float duration, int frameQty, int animQty);
+    Animation(float duration, int frameQty, int animQty, glm::vec2 offset);
     ~Animation();
 
     void update();
