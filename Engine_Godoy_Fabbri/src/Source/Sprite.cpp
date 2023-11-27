@@ -6,7 +6,7 @@ void ToToEng::Sprite::update()
 {
     Entity2D::update();
 
-    if (animation)
+    if (animation && hasAnimation)
     {
         animation->update();
         setOffset(animation->getOffset());
@@ -15,7 +15,7 @@ void ToToEng::Sprite::update()
 
 ToToEng::Sprite::Sprite(Renderer* renderer) : Entity2D(renderer)
 {
-    loadTexture("../res/textures/AstonBirra.png");
+    loadTexture("../res/textures/fondo.jpg");
 
     vertexQty = 4;
     indexQty = 6;
@@ -70,9 +70,14 @@ void ToToEng::Sprite::loadTexture(const char* filePath)
     texture = TextureImporter::loadTexture(filePath);
 }
 
-void ToToEng::Sprite::addAnimation(float duration, int frameQty, int animQty, const char* filePath, vec2 offset)
+void ToToEng::Sprite::addAnimation(float duration, int frameQty, int animQty, const char* filePath, vec2 offset, vec2 frameSize)
 {
     loadTexture(filePath);
-    animation = new Animation(duration, frameQty, animQty, offset);
+    animation = new Animation(duration, frameQty, animQty, offset, frameSize);
     setScale(animation->getFrameSize());
+}
+
+void ToToEng::Sprite::setHasAnimation(bool hasAnimation)
+{
+    this->hasAnimation = hasAnimation;
 }

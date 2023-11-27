@@ -17,7 +17,7 @@ namespace ToToEng
         shapeShader = createShader(shaderSource.vertexSource.c_str(), shaderSource.fragmentSource.c_str());
 
         glEnable(GL_BLEND);
-        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC1_ALPHA_EXT);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         
         glCall(u_TransformLocation = glGetUniformLocation(shader, "u_Transform"));
         _ASSERT(u_TransformLocation != -1);
@@ -108,7 +108,7 @@ namespace ToToEng
         glCall(glUseProgram(shader));
         glCall(glUniform1i(glGetUniformLocation(shader, "ourTexture"), 0));
         glCall(u_ColorLocation = glGetUniformLocation(shader, "u_Color"));
-
+        
         glCall(glUniform4f(u_ColorLocation, color.x, color.y, color.z, color.w));
 
         glCall(glActiveTexture(GL_TEXTURE0));

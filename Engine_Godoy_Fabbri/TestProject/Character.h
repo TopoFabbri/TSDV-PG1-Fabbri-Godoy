@@ -10,9 +10,11 @@ private:
     vec3 vel;
     float maxSpeed;
     float friction;
+    bool hasMovement;
+    bool hasAnimation;
 
 public:
-    explicit Character(ToToEng::Renderer* renderer);
+    explicit Character(ToToEng::Renderer* renderer, bool hasMovement, bool hasAnimation);
     ~Character() override;
 
     void update() override;

@@ -15,16 +15,18 @@ private:
     int curFrame;
     int animQty;
     int curAnim;
+    bool playAnimation;
     
     void updateFrame();
     void updateOffset();
 
 public:
-    Animation(float duration, int frameQty, int animQty, glm::vec2 offset);
+    Animation(float duration, int frameQty, int animQty, glm::vec2 offset, glm::vec2 frameSize);
     ~Animation();
 
     void update();
     void setAnimByIndex(int animNumber);
+    void setPlayAnim(bool playAnim);
     int getAnimIndex();
     
     glm::vec2 getOffset();
