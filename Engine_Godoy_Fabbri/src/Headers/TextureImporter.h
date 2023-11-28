@@ -8,6 +8,6 @@ namespace ToToEng
         TextureImporter();
         ~TextureImporter();
         
-        static unsigned int loadTexture(const char* filePath);
+        static unsigned int loadTexture(const char* filePath, int& width, int& height);
     };
 }

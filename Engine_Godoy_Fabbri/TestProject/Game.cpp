@@ -15,9 +15,7 @@ Game::Game(bool is3D, int width, int height, const char* title) : BaseGame(is3D,
     entities.push_back(new Sprite(renderer));
     dynamic_cast<Sprite*>(entities.back())->setTrigger(false);
 
-    dynamic_cast<Sprite*>(entities.back())->addAnimation(2.f, 16, 9, "../res/textures/Sonic_Mania_Sprite_Sheet.png", 2,
-                                                         7);
-    dynamic_cast<Sprite*>(entities.back())->animation->setStartOffset({.037f, .043f});
+    dynamic_cast<Sprite*>(entities.back())->addAnimation(2.f, 5, {132.f, 323.f}, {49.f, 120.f}, "../res/textures/Sonic_Mania_Sprite_Sheet.png");
     dynamic_cast<Sprite*>(entities.back())->animation->setAnimByIndex(6);
 }
 

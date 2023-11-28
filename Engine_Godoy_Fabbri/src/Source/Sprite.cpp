@@ -69,13 +69,13 @@ void ToToEng::Sprite::draw()
 
 void ToToEng::Sprite::loadTexture(const char* filePath)
 {
-    texture = TextureImporter::loadTexture(filePath);
+    texture = TextureImporter::loadTexture(filePath, texWidth, texHeight);
 }
 
 void ToToEng::Sprite::addAnimation(float duration, int frameQty, int animQty, const char* filePath)
 {
     loadTexture(filePath);
-    animation = new Animation(duration, frameQty, animQty);
+    animation = new Animation(duration, frameQty, animQty, texWidth, texHeight);
     setScale(animation->getFrameSize());
 }
 
@@ -83,6 +83,13 @@ void ToToEng::Sprite::addAnimation(float duration, int frameQty, int animQty, co
     int frameEnd)
 {
     loadTexture(filePath);
-    animation = new Animation(duration, frameQty, animQty, frameStart, frameEnd);
+    animation = new Animation(duration, frameQty, animQty, frameStart, frameEnd, texWidth, texHeight);
+    setScale(animation->getFrameSize());
+}
+
+void ToToEng::Sprite::addAnimation(float duration, int frameQty, vec2 offset, vec2 frameSize, const char* filePath)
+{
+    loadTexture(filePath);
+    animation = new Animation(duration, frameQty, offset, frameSize, texWidth, texHeight);
     setScale(animation->getFrameSize());
 }

@@ -16,15 +16,18 @@ private:
     int curAnim;
     int frameStart;
     int frameEnd;
+    
     glm::vec2 startOffset;
-    glm::vec2 maxOffset;
+    int texWidth;
+    int texHeight;
     
     void updateFrame();
     void updateOffset();
 
 public:
-    Animation(float duration, int frameQty, int animQty);
-    Animation(float duration, int frameQty, int animQty, int frameStart, int frameEnd);
+    Animation(float duration, int frameQty, int animQty, int texWidth, int texHeight);
+    Animation(float duration, int frameQty, int animQty, int frameStart, int frameEnd, int texWidth, int texHeight);
+    Animation(float duration, int frameQty, glm::vec2 offset, glm::vec2 frameSize, int texWidth, int texHeight);
     ~Animation();
 
     void update();
@@ -35,5 +38,4 @@ public:
     glm::vec2 getFrameSize();
 
     void setStartOffset(glm::vec2 offset);
-    void setMaxOffset(glm::vec2 offset);
 };

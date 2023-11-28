@@ -13,17 +13,19 @@ void Animation::updateOffset()
     curOffset.y = static_cast<float>(curAnim) * frameSize.y + startOffset.y;
 }
 
-Animation::Animation(float duration, int frameQty, int animQty)
+Animation::Animation(float duration, int frameQty, int animQty, int texWidth, int texHeight)
 {
     this->duration = duration;
     this->frameQty = frameQty;
     this->animQty = animQty;
+    this->texWidth = texWidth;
+    this->texHeight = texHeight;
 
     frameStart = 0;
     frameEnd = frameQty;
     
-    frameSize.x = 1.f / static_cast<float>(frameQty);
-    frameSize.y = 1.f / static_cast<float>(animQty);
+    frameSize.x = static_cast<float>(texWidth) / static_cast<float>(frameQty) / static_cast<float>(texWidth);
+    frameSize.y = static_cast<float>(texHeight) / static_cast<float>(animQty) / static_cast<float>(texHeight);
     
     curOffset.x = 0;
     curOffset.y = 0;
@@ -33,19 +35,20 @@ Animation::Animation(float duration, int frameQty, int animQty)
     curAnim = 0;
 
     startOffset = glm::vec2(0);
-    maxOffset = glm::vec2(0);
 }
 
-Animation::Animation(float duration, int frameQty, int animQty, int frameStart, int frameEnd)
+Animation::Animation(float duration, int frameQty, int animQty, int frameStart, int frameEnd, int texWidth, int texHeight)
 {
     this->duration = duration;
     this->frameQty = frameQty;
     this->animQty = animQty;
     this->frameStart = frameStart;
     this->frameEnd = frameEnd;
+    this->texWidth = texWidth;
+    this->texHeight = texHeight;
     
-    frameSize.x = 1.f / static_cast<float>(frameQty);
-    frameSize.y = 1.f / static_cast<float>(animQty);
+    frameSize.x = static_cast<float>(texWidth) / static_cast<float>(frameQty) / static_cast<float>(texWidth);
+    frameSize.y = static_cast<float>(texHeight) / static_cast<float>(animQty) / static_cast<float>(texHeight);
     
     curOffset.x = 0;
     curOffset.y = 0;
@@ -55,7 +58,27 @@ Animation::Animation(float duration, int frameQty, int animQty, int frameStart, 
     curAnim = 0;
 
     startOffset = glm::vec2(0);
-    maxOffset = glm::vec2(0);
+}
+
+Animation::Animation(float duration, int frameQty, glm::vec2 offset, glm::vec2 frameSize, int texWidth, int texHeight)
+{
+    this->duration = duration;
+    this->frameQty = frameQty;
+    this->frameSize = frameSize / static_cast<float>(texWidth);
+    this->texWidth = texWidth;
+    this->texHeight = texHeight;
+    
+    setStartOffset(offset);
+
+    animQty = 1;
+    frameStart = 0;
+    curTime = 0;
+    frameTime = duration / static_cast<float>(frameQty);
+    curFrame = 0;
+    curAnim = 0;
+
+    curOffset = glm::vec2(0);
+    frameEnd = frameQty;
 }
 
 Animation::~Animation()
@@ -96,16 +119,6 @@ glm::vec2 Animation::getFrameSize()
 
 void Animation::setStartOffset(glm::vec2 offset)
 {
-    startOffset = offset;
-
-    frameSize.x = (1.f - startOffset.x) / static_cast<float>(frameQty);
-    frameSize.y = (1.f - startOffset.y) / static_cast<float>(animQty);
-}
-
-void Animation::setMaxOffset(glm::vec2 offset)
-{
-    maxOffset = offset;
-        
-    frameSize.x = (1.f - startOffset.x - maxOffset.x) / static_cast<float>(frameQty);
-    frameSize.y = (1.f - startOffset.y - maxOffset.y) / static_cast<float>(animQty);
+    startOffset.x = offset.x / static_cast<float>(texWidth);
+    startOffset.y = offset.y / static_cast<float>(texHeight);
 }
