@@ -77,7 +77,7 @@ namespace ToToEng
             vec2 size = getSize();
             vec2 otherSize = other->getSize();
 
-            transform->setPos(vec3(otherPos.x - dir.x * (size.x / 2.f + otherSize.x / 2.f), pos.y,
+            transform->setPos(vec3(otherPos.x - dir.x * (size.x / 2.f + otherSize.x / 2.f + 1.f), pos.y,
                                    pos.z));
         }
         else
@@ -89,7 +89,7 @@ namespace ToToEng
             vec2 size = getSize();
             vec2 otherSize = other->getSize();
 
-            transform->setPos(vec3(pos.x, otherPos.y - dir.y * (size.y / 2.f + otherSize.y / 2.f),
+            transform->setPos(vec3(pos.x, otherPos.y - dir.y * (size.y / 2.f + otherSize.y / 2.f + 1.f),
                                    pos.z));
         }
     }
