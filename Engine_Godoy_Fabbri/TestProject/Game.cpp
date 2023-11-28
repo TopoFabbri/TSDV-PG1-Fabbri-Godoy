@@ -22,7 +22,7 @@ Game::Game(bool is3D, int width, int height, const char* title) : BaseGame(is3D,
 
     Sprite* tv = new Sprite(renderer);
     tv->addAnimation(3.f, 5, 9, "../res/textures/sonic.png",
-        vec2(0.156f, 0.69f), vec2(0.06f, 0.107f));
+        vec2(0.157f, 0.69f), vec2(0.06f, 0.107f));
     entities.push_back(tv);
 
     
