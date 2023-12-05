@@ -24,9 +24,11 @@ namespace ToToEng
 		delete camera;
 		delete collisionManager;
 
-		for (int i = 0; i < static_cast<int>(entities.size()); i++)
+		const int size = static_cast<int>(entities.size());
+		
+		for (int i = 0; i < size; i++)
 		{
-			const Entity* tmp = entities.front();
+			Entity* tmp = entities.front();
 			entities.pop_front();
 			delete tmp;
 		}
