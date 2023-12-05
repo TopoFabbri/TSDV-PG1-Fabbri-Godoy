@@ -95,9 +95,9 @@ namespace ToToEng
 
     void Renderer::deleteBuffers(unsigned int& VBO, unsigned int& IBO, unsigned int& EBO, unsigned int id)
     {
-        glCall(glDeleteVertexArrays(id, &VBO));
-        glCall(glDeleteBuffers(id, &IBO));
-        glCall(glDeleteBuffers(id, &EBO));
+        glDeleteVertexArrays(id, &VBO);
+        glDeleteBuffers(id, &IBO);
+        glDeleteBuffers(id, &EBO);
         glDeleteProgram(shader);
     }
 

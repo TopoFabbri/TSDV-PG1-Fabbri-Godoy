@@ -30,7 +30,8 @@ namespace ToToEng
             entities.pop_front();
             delete tmp;
         }
-
+        
+        
         entities.clear();
     }
 
