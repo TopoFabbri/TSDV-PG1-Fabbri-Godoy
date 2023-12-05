@@ -25,7 +25,11 @@ Game::Game(bool is3D, int width, int height, const char* title) : BaseGame(is3D,
         vec2(0.157f, 0.69f), vec2(0.06f, 0.107f));
     entities.push_back(tv);
 
-    
+    Shape* shape = new Shape(renderer);
+    shape->setIsTrigger(true);
+    shape->setColor(vec4(1.0f, 0.f, 0.f, 1.f));
+    shape->transform.setScale(vec3(10, 10, 0.f));
+    entities.push_back(shape);
 }
 
 Game::~Game()
