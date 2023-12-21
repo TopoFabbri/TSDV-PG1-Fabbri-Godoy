@@ -13,7 +13,7 @@ namespace ToToEng
 		vec2 uvOffset;
 		vec2 uvScale;
 	
-	protected:
+	public:
 		void setOffset(vec2 offset);
 		void setScale(vec2 scale);
 		
@@ -26,5 +26,7 @@ namespace ToToEng
 		void updateVao() override;
 
 		void draw() override;
+
+		void setTrigger(bool isTrigger);
 	};
 }

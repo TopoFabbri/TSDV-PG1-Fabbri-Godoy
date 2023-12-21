@@ -15,9 +15,12 @@ ToToEng::TextureImporter::~TextureImporter()
 {
 }
 
-unsigned ToToEng::TextureImporter::loadTexture(const char* filePath)
+unsigned ToToEng::TextureImporter::loadTexture(const char* filePath, int& width, int& height)
 {
     unsigned int texture;
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
@@ -28,7 +31,7 @@ unsigned ToToEng::TextureImporter::loadTexture(const char* filePath)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-    int width, height, nrChannels;
+    int nrChannels;
 
     unsigned char* data = stbi_load(filePath, &width, &height, &nrChannels, 0);
 
