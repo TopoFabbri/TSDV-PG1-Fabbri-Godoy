@@ -24,9 +24,11 @@ Character::~Character()
 void Character::update()
 {
     Sprite::update();
+
     
     if (Input::getKey(Input::a, Input::Repeated))
-    accelerateInDir(-transform.right() * GameTime::getDelta());
+        accelerateInDir(-transform.right() * GameTime::getDelta());
+    
     if (Input::getKey(Input::d, Input::Repeated))
         accelerateInDir(transform.right() * GameTime::getDelta());
     
