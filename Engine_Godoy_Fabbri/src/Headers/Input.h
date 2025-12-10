@@ -44,7 +44,10 @@ namespace ToToEng
 			x = GLFW_KEY_X,
 			y = GLFW_KEY_Y,
 			z = GLFW_KEY_Z,
-			
+			left = GLFW_KEY_LEFT,
+			right = GLFW_KEY_RIGHT,
+			up = GLFW_KEY_UP,
+			down = GLFW_KEY_DOWN,
 		};
 
 		enum Action

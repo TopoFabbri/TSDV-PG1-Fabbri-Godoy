@@ -9,6 +9,7 @@ private:
     vec3 vel;
     float maxSpeed;
     float friction;
+    float rotSpeed;
 
 public:
     explicit Character(ToToEng::Renderer* renderer);

@@ -11,6 +11,7 @@ Character::Character(Renderer* renderer) : Sprite(renderer)
     vel = vec3(0.f);
     maxSpeed = 4.f;
     friction = .1f;
+    rotSpeed = 200.f;
 
     transform.setPos(vec3(0.f, 100.f, 0.f));
 
@@ -36,10 +37,10 @@ void Character::update()
     if (Input::getKey(Input::w, Input::Repeated))
         accelerateInDir(transform.up() * GameTime::getDelta());
     
-    if (Input::getKey(Input::q, Input::Repeated))
-        transform.rotateZ(100.f * GameTime::getDelta());
-    if (Input::getKey(Input::e, Input::Repeated))
-        transform.rotateZ(-100.f * GameTime::getDelta());
+    if (Input::getKey(Input::left, Input::Repeated))
+        transform.rotateZ(rotSpeed * GameTime::getDelta());
+    if (Input::getKey(Input::right, Input::Repeated))
+        transform.rotateZ(-rotSpeed * GameTime::getDelta());
 
     if (Input::getKey(Input::f, Input::Pressed))
         animation->setAnimByIndex(animation->getAnimIndex() >= 7 ? 0 : animation->getAnimIndex() + 1);

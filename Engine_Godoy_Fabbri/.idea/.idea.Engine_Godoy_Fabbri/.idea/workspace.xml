@@ -9,21 +9,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59b83834-1b16-455b-92bb-7e2412bbcbcc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_11_2023_9_31_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/shelf/Uncommitted_changes_before_Checkout_at_28_11_2023_9_31__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine_Godoy_Fabbri/Engine_Godoy_Fabbri.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Engine_Godoy_Fabbri/Engine_Godoy_Fabbri.vcxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestProject/Character.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/Character.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestProject/Character.h" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/Character.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/BaseGame.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/BaseGame.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/BoxCollider2D.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/BoxCollider2D.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/TextureImporter.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/TextureImporter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/Tile.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/Tile.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/BaseGame.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/BaseGame.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/Renderer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Renderer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/Sprite.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Sprite.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/TextureImporter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/TextureImporter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/Tile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Tile.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestProject/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/Game.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/textures/Sonic_Mania_Sprite_Sheet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Headers/Input.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/Input.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
