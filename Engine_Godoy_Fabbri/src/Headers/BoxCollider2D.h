@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Transform.h"
 
 namespace ToToEng
@@ -23,7 +24,7 @@ namespace ToToEng
         vec2 getDownRight(bool colliderOnly = false) const;
 
         void onCollision(BoxCollider2D* other);
-        void onTrigger(BoxCollider2D* other);
+        void virtual onTrigger(BoxCollider2D* other);
 
         void setTrigger(bool isTrigger);
     };

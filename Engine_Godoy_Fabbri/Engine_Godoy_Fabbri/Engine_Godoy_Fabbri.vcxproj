@@ -35,8 +35,11 @@
     <ClCompile Include="..\src\Source\stb_image.cpp" />
     <ClCompile Include="..\src\Source\TextureImporter.cpp" />
     <ClCompile Include="..\src\Source\Tile.cpp" />
+    <ClCompile Include="..\src\Source\TileMap.cpp" />
+    <ClCompile Include="..\src\Source\tinyxml2.cpp" />
     <ClCompile Include="..\src\Source\Transform.cpp" />
     <ClCompile Include="..\src\Source\Window.cpp" />
+    <ClCompile Include="..\src\Source\xmltest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Headers\Animation.h" />
@@ -55,6 +58,8 @@
     <ClInclude Include="..\src\Headers\Sprite.h" />
     <ClInclude Include="..\src\Headers\TextureImporter.h" />
     <ClInclude Include="..\src\Headers\Tile.h" />
+    <ClInclude Include="..\src\Headers\TileMap.h" />
+    <ClInclude Include="..\src\Headers\tinyxml2.h" />
     <ClInclude Include="..\src\Headers\Transform.h" />
     <ClInclude Include="..\src\Headers\Window.h" />
   </ItemGroup>

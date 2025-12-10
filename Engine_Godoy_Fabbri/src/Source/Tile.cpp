@@ -1,23 +1,53 @@
 #include "Tile.h"
 
-#include "TextureImporter.h"
-
 namespace ToToEng
 {
-    Tile::Tile(int x, int y, const char* texturePath, int id)
+    Tile::Tile(Renderer* renderer) : Sprite(renderer)
     {
-        this->id = id;
-        this->x = x;
-        this->y = y;
-
-        loadTexture(texturePath);
+        id = 0;
+        walkable = false;
+        pos = {0.f, 0.f};
+        collider = new BoxCollider2D({0.f, 0.f}, {1.f, 1.f}, &transform, false);
     }
 
-    Tile::~Tile()
-    = default;
+    Tile::~Tile() = default;
 
-    void Tile::loadTexture(const char* texturePath)
+    bool Tile::isWalkable() const
     {
-        textureId = TextureImporter::loadTexture(texturePath);
+        if (!walkable)
+            return false;
+
+        else
+            return true;
+    }
+
+    void Tile::walkability(const bool bWalkable)
+    {
+        walkable = bWalkable;
+    }
+
+    unsigned int Tile::getId() const
+    {
+        return id;
+    }
+
+    void Tile::setId(const unsigned int id)
+    {
+        this->id = id;
+    }
+
+    void Tile::setPosX(const float x)
+    {
+        pos.x = x;
+    }
+
+    void Tile::setPosY(const float y)
+    {
+        pos.y = y;
+    }
+
+    void Tile::setTexture(unsigned int texture)
+    {
+        this->texture = texture;
     }
 }

@@ -1,6 +1,7 @@
 #include "BaseGame.h"
 
 #include "CollisionManager.h"
+#include "GameTime.h"
 #include "Sprite.h"
 
 namespace ToToEng
@@ -28,7 +29,7 @@ namespace ToToEng
 		
 		for (int i = 0; i < size; i++)
 		{
-			Entity* tmp = entities.front();
+			const Entity* tmp = entities.front();
 			entities.pop_front();
 			delete tmp;
 		}

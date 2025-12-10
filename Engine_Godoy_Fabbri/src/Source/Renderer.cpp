@@ -18,21 +18,18 @@ namespace ToToEng
 
         glCall(u_TransformLocation = glGetUniformLocation(shader, "u_Transform"));
         _ASSERT(u_TransformLocation != -1);
-        
+
         glCall(u_ShapeTransformLocation = glGetUniformLocation(shapeShader, "u_Transform"));
         _ASSERT(u_TransformLocation != -1);
 
         if (is3D)
         {
-            setProjection(perspective(radians(45.f),
-                                      static_cast<float>(window->getWidth()) / static_cast<float>(window->getHeight()),
-                                      0.1f, 100.f));
+            setProjection(perspective(radians(45.f), static_cast<float>(window->getWidth()) / static_cast<float>(window->getHeight()), 0.1f, 100.f));
             cameraPos = vec3(0.0f, 0.0f, 3.0f);
         }
         else
         {
-            setProjection(ortho(0.0f, static_cast<float>(window->getWidth()), 0.0f,
-                                static_cast<float>(window->getHeight()), 0.1f, 500.f));
+            setProjection(ortho(0.0f, static_cast<float>(window->getWidth()), 0.0f, static_cast<float>(window->getHeight()), 0.1f, 500.f));
             cameraPos = vec3(0.0f, 0.0f, 1.0f);
         }
 
@@ -54,8 +51,7 @@ namespace ToToEng
         glCall(glfwSwapBuffers(window->getWindow()));
     }
 
-    void Renderer::genVertexBuffer(unsigned int& VBO, unsigned int& VAO, float vertices[], unsigned int id,
-                                   unsigned int qty)
+    void Renderer::genVertexBuffer(unsigned int& VBO, unsigned int& VAO, float vertices[], unsigned int id, unsigned int qty)
     {
         glCall(glGenVertexArrays(id, &VAO));
         glCall(glGenBuffers(id, &VBO));
@@ -68,19 +64,14 @@ namespace ToToEng
         glCall(glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 9 * sizeof(float), static_cast<void*>(0)));
         glCall(glEnableVertexAttribArray(0));
 
-        glCall(
-            glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 9 * sizeof(float), reinterpret_cast<void*>(3 * sizeof(float)
-            )));
+        glCall(glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 9 * sizeof(float), reinterpret_cast<void*>(3 * sizeof(float) )));
         glCall(glEnableVertexAttribArray(1));
 
-        glCall(
-            glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 9 * sizeof(float), reinterpret_cast<void*>(7 * sizeof(float)
-            )));
+        glCall(glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 9 * sizeof(float), reinterpret_cast<void*>(7 * sizeof(float) )));
         glCall(glEnableVertexAttribArray(2));
     }
 
-    void Renderer::genIndexBuffer(unsigned int& IBO,
-                                  unsigned int indices[], unsigned int id, unsigned int qty)
+    void Renderer::genIndexBuffer(unsigned int& IBO, unsigned int indices[], unsigned int id, unsigned int qty)
     {
         glCall(glGenBuffers(id, &IBO));
         glCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO));
@@ -165,8 +156,7 @@ namespace ToToEng
             char* message = new char[length];
             glCall(glGetShaderInfoLog(id, length, &length, message));
 
-            std::cout << "Failed to compile " << (type == GL_VERTEX_SHADER ? "vertex" : "fragment") << " shader" <<
-                std::endl;
+            std::cout << "Failed to compile " << (type == GL_VERTEX_SHADER ? "vertex" : "fragment") << " shader" << std::endl;
             std::cout << message << std::endl;
 
             glCall(glDeleteShader(id));
@@ -212,10 +202,8 @@ namespace ToToEng
         {
             if (line.find("#shader") != std::string::npos)
             {
-                if (line.find("vertex") != std::string::npos)
-                    type = ShaderType::Vertex;
-                else if (line.find("fragment") != std::string::npos)
-                    type = ShaderType::Fragment;
+                if (line.find("vertex") != std::string::npos) type = ShaderType::Vertex;
+                else if (line.find("fragment") != std::string::npos) type = ShaderType::Fragment;
             }
             else
             {
@@ -235,8 +223,7 @@ namespace ToToEng
     {
         while (GLenum error = glGetError())
         {
-            std::cout << "[OpenGL Error] (" << error << "): "
-                << function << " " << file << ": " << line << std::endl;
+            std::cout << "[OpenGL Error] (" << error << "): " << function << " " << file << ": " << line << std::endl;
             return false;
         }
 

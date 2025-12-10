@@ -1,5 +1,4 @@
 #pragma once
-#include "Headers/Shape.h"
 #include "Headers/Sprite.h"
 
 class Character :

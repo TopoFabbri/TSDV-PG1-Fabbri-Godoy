@@ -18,7 +18,7 @@ ToToEng::Sprite::Sprite(Renderer* renderer) : Entity2D(renderer)
     loadTexture("../res/textures/AstonBirra.png");
 
     animation = nullptr;
-    
+
     vertexQty = 4;
     indexQty = 6;
     id = 1;
@@ -52,15 +52,13 @@ ToToEng::Sprite::Sprite(Renderer* renderer) : Entity2D(renderer)
         0, 1, 2,
         1, 2, 3,
     };
-    
+
     updateVao();
 
     collider = new BoxCollider2D({0.f, 0.f}, {1.f, 1.f}, &transform, false);
 }
 
-ToToEng::Sprite::~Sprite()
-{
-}
+ToToEng::Sprite::~Sprite() = default;
 
 void ToToEng::Sprite::draw()
 {
@@ -79,8 +77,7 @@ void ToToEng::Sprite::addAnimation(float duration, int frameQty, int animQty, co
     setScale(animation->getFrameSize());
 }
 
-void ToToEng::Sprite::addAnimation(float duration, int frameQty, int animQty, const char* filePath, int frameStart,
-    int frameEnd)
+void ToToEng::Sprite::addAnimation(float duration, int frameQty, int animQty, const char* filePath, int frameStart, int frameEnd)
 {
     loadTexture(filePath);
     animation = new Animation(duration, frameQty, animQty, frameStart, frameEnd, texWidth, texHeight);

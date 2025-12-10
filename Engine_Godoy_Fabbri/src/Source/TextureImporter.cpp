@@ -15,7 +15,13 @@ ToToEng::TextureImporter::~TextureImporter()
 {
 }
 
-unsigned ToToEng::TextureImporter::loadTexture(const char* filePath, int& width, int& height)
+unsigned int ToToEng::TextureImporter::loadTexture(const char* filePath)
+{
+    int width, height;
+    return loadTexture(filePath, width, height);
+}
+
+unsigned int ToToEng::TextureImporter::loadTexture(const char* filePath, int& width, int& height)
 {
     unsigned int texture;
 
