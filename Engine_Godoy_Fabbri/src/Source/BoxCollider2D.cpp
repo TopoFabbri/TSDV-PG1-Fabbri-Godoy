@@ -63,6 +63,9 @@ namespace ToToEng
             return;
         }
         
+        if (onCollisionCallback)
+            onCollisionCallback(other);
+        
         vec2 dir = transform->getPos() - transform->getPrevPos();
 
         if (dir.x == 0.f && dir.y == 0.f)
@@ -96,6 +99,18 @@ namespace ToToEng
 
     void BoxCollider2D::onTrigger(BoxCollider2D* other)
     {
+        if (onTriggerCallback)
+            onTriggerCallback(other);
+    }
+
+    void BoxCollider2D::setOnCollision(const std::function<void(BoxCollider2D*)>& callback)
+    {
+        onCollisionCallback = callback;
+    }
+
+    void BoxCollider2D::setOnTrigger(const std::function<void(BoxCollider2D*)>& callback)
+    {
+        onTriggerCallback = callback;
     }
 
     void BoxCollider2D::setTrigger(bool isTrigger)
