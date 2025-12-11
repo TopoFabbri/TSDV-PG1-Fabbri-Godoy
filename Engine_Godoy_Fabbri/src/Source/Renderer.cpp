@@ -86,7 +86,6 @@ namespace ToToEng
         glDeleteVertexArrays(id, &VBO);
         glDeleteBuffers(id, &IBO);
         glDeleteBuffers(id, &EBO);
-        glDeleteProgram(shader);
     }
 
     void Renderer::drawEntity2D(unsigned int& VAO, unsigned int indexQty, vec4 color, mat4 trans, unsigned int texture)

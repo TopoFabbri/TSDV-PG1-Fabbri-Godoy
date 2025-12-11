@@ -133,8 +133,7 @@ namespace ToToEng
         int columns = pTileset->IntAttribute("columns"); // Columns of Tiles in the Tileset
         int rows = tileCount / columns;
 
-        imagePath = "Assets/"; //
-        imagePath += pTileset->FirstChildElement("image")->Attribute("source"); // Loading Textures
+        imagePath = pTileset->FirstChildElement("image")->Attribute("source"); // Loading Textures
         setTexture(TextureImporter::loadTexture(imagePath.c_str()));
 
         imageWidth = static_cast<float>(pTileset->FirstChildElement("image")->IntAttribute("width"));

@@ -10,19 +10,10 @@
   <component name="ChangeListManager">
     <list default="true" id="59b83834-1b16-455b-92bb-7e2412bbcbcc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestProject/Character.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/Character.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestProject/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/Game.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/BaseGame.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/BaseGame.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/BoxCollider2D.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/BoxCollider2D.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/Entity.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/Entity.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/Entity2D.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/Entity2D.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/TextureImporter.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/TextureImporter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/Tile.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/Tile.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/TileMap.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/TileMap.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/BaseGame.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/BaseGame.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/BoxCollider2D.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/BoxCollider2D.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/Entity.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Entity.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/Entity2D.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Entity2D.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/Tile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Tile.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/maps/TilemapTest1.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/res/maps/TilemapTest1.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Renderer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Renderer.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Source/TileMap.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/TileMap.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +40,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="cidr-memory-view://61" root0="FORCE_HIGHLIGHTING" />
+    <setting file="cidr-memory-view://81" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/glew.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/glfw3.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/glm/detail/setup.hpp" root0="SKIP_HIGHLIGHTING" />
@@ -380,11 +371,6 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="13" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/TestProject/Game.cpp</url>
-          <line>19</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
