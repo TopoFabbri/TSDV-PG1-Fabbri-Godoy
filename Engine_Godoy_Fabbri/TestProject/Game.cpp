@@ -1,6 +1,7 @@
 #include "Game.h"
 
 #include "Character.h"
+#include "Headers/TextureImporter.h"
 
 Game::Game(bool is3D, int width, int height, const char* title) : BaseGame(is3D, width, height, title)
 {
@@ -14,6 +15,10 @@ Game::Game(bool is3D, int width, int height, const char* title) : BaseGame(is3D,
 
     entities.push_back(new Sprite(renderer));
     dynamic_cast<Sprite*>(entities.back())->setTrigger(false);
+    
+    tileMap = new TileMap(renderer);
+    tileMap->setTexture(TextureImporter::loadTexture("../res/maps/AQ1.png"));
+    tileMap->importTileMap("../res/maps/TilemapTest1.tmx");
 }
 
 Game::~Game()

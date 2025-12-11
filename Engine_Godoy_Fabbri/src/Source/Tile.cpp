@@ -2,6 +2,14 @@
 
 namespace ToToEng
 {
+    Tile::Tile() : Sprite(nullptr)
+    {
+        id = 0;
+        walkable = true;
+        pos = {0.f, 0.f};
+        collider = new BoxCollider2D({0.f, 0.f}, {1.f, 1.f}, &transform, false);
+    }
+
     Tile::Tile(Renderer* renderer) : Sprite(renderer)
     {
         id = 0;

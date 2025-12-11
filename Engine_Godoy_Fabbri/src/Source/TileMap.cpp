@@ -11,7 +11,7 @@ namespace ToToEng
     TileMap::TileMap(Renderer* renderer)
     {
         this->renderer = renderer;
-        
+
         width = 0;
         height = 0;
         tileWidth = 0;
@@ -21,18 +21,33 @@ namespace ToToEng
         imageHeight = 0;
         convertedPosX = 0;
         convertedPosY = 0;
+
+        tiles = std::vector<Tile>();
     }
 
-    TileMap::~TileMap() = default;
+    TileMap::~TileMap()
+    {
+        for (Tile** layer : tileMapGrid)
+        {
+            if (layer)
+            {
+                for (unsigned int i = 0; i < height; i++)
+                {
+                    delete[] layer[i];
+                }
+                delete[] layer;
+            }
+        }
+        tileMapGrid.clear();
+    }
 
     const Tile& TileMap::tile(const unsigned int uiId)
     {
-        for (int i = 0; i < tiles.size(); i++)
-        {
-            if (uiId == tiles[i].getId()) return tiles[i];
-        }
+        Tile* noTile = nullptr;
 
-        throw std::runtime_error("Tile not found");
+        for (const auto& tile : tiles) if (uiId == tile.getId()) return tile;
+
+        return *noTile;
     }
 
     void TileMap::setMapTileId(int layer, unsigned int uiCol, unsigned int uiRow, unsigned int uiId)
@@ -55,8 +70,18 @@ namespace ToToEng
     {
         this->width = static_cast<unsigned int>(round(width));
         this->height = static_cast<unsigned int>(round(height));
-
-        tileMapGrid.emplace_back(this->height, std::vector<Tile>(this->width, Tile(renderer)));
+    
+        Tile** tileMap = new Tile*[this->height];
+    
+        for (uint i = 0; i < this->height; i++)
+        {
+            tileMap[i] = new Tile[this->width]();
+            
+            for (unsigned int j = 0; j < this->width; j++)
+                tileMap[i][j].setRenderer(renderer);
+        }
+        
+        tileMapGrid.push_back(tileMap);
     }
 
     void TileMap::setTexture(const unsigned int texture)
@@ -64,16 +89,16 @@ namespace ToToEng
         this->texture = texture;
     }
 
-    void TileMap::draw()
+    void TileMap::draw() const
     {
         const float mapWidth = -(static_cast<float>(width) * tileWidth) / 2;
         const float mapHeight = static_cast<float>(height) * tileHeight / 2;
 
-        for (int i = 0; i < tileMapGrid.size(); i++)
+        for (uint i = 0; i < tileMapGrid.size(); i++)
         {
-            for (int y = 0; y < height; y++)
+            for (uint y = 0; y < height; y++)
             {
-                for (int x = 0; x < width; x++)
+                for (uint x = 0; x < width; x++)
                 {
                     if (tileMapGrid[i][y][x].getId() != NULL)
                     {
@@ -102,7 +127,7 @@ namespace ToToEng
 
         // Loading Tilset element
         tinyxml2::XMLElement* pTileset = mapNode->FirstChildElement("tileset");
-        if (pTileset == NULL) return false;
+        if (pTileset == nullptr) return false;
 
         int tileCount = pTileset->IntAttribute("tilecount"); // Number of Tiles in the Tileset
         int columns = pTileset->IntAttribute("columns"); // Columns of Tiles in the Tileset
@@ -112,15 +137,18 @@ namespace ToToEng
         imagePath += pTileset->FirstChildElement("image")->Attribute("source"); // Loading Textures
         setTexture(TextureImporter::loadTexture(imagePath.c_str()));
 
-        imageWidth = pTileset->FirstChildElement("image")->IntAttribute("width");
-        imageHeight = pTileset->FirstChildElement("image")->IntAttribute("height");
+        imageWidth = static_cast<float>(pTileset->FirstChildElement("image")->IntAttribute("width"));
+        imageHeight = static_cast<float>(pTileset->FirstChildElement("image")->IntAttribute("height"));
+
+        tiles.clear();
+
         float tileX = 0.0f, tileY = 0.0f;
         int id = 1;
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < columns; j++)
             {
-                Tile newTile(renderer);
+                Tile newTile = Tile(renderer);
 
                 newTile.setId(id);
                 newTile.setTexture(texture);
@@ -140,7 +168,7 @@ namespace ToToEng
 
         while (pTile)
         {
-            unsigned int id = pTile->IntAttribute("id");
+            uint id = pTile->IntAttribute("id");
             tinyxml2::XMLElement* pProperty = pTile->FirstChildElement("properties")->FirstChildElement("property");
             std::string propertyName = pProperty->Attribute("value");
             if (propertyName == "false") tiles[id].walkability(false);
@@ -151,33 +179,73 @@ namespace ToToEng
 
         // Loading Layer element
         tinyxml2::XMLElement* pLayer = mapNode->FirstChildElement("layer");
-        if (pLayer == NULL) return false;
+        if (pLayer == nullptr) return false;
 
         int layerCount = 0;
         while (pLayer)
         {
             // Loading Data element
             tinyxml2::XMLElement* pData = pLayer->FirstChildElement("data");
-            if (pData == NULL) return false;
+            if (pData == nullptr) return false;
 
             if (layerCount > 0)
             {
-                tileMapGrid.emplace_back(height, std::vector<Tile>(width, Tile(renderer)));
+                Tile** tileMap;
+                tileMap = new Tile*[height];
+                for (uint i = 0; i < height; i++)
+                {
+                    tileMap[i] = new Tile[width]();
+
+                    for (uint j = 0; j < width; j++)
+                        tileMap[i][j].setRenderer(renderer);
+                }
+
+                tileMapGrid.push_back(tileMap);
             }
 
             while (pData)
             {
                 std::vector<int> tileGids;
-                for (tinyxml2::XMLElement* pTile = pData->FirstChildElement("tile"); pTile != NULL; pTile = pTile->NextSiblingElement("tile"))
+
+                // CHECK FOR ENCODING TYPE
+                const char* encoding = pData->Attribute("encoding");
+
+                // --- CASE A: CSV ENCODING (Your current map) ---
+                if (encoding && std::string(encoding) == "csv")
                 {
-                    unsigned int gid = std::atoi(pTile->Attribute("gid")); // tile's id is saved
-                    tileGids.push_back(gid);
+                    const char* csvText = pData->GetText();
+                    std::string textStr = csvText ? csvText : "";
+                    std::stringstream ss(textStr);
+                    std::string value;
+
+                    while (std::getline(ss, value, ','))
+                    {
+                        if (!value.empty()) tileGids.push_back(std::stoi(value));
+                    }
+                }
+                else
+                {
+                    for (tinyxml2::XMLElement* pTileGid = pData->FirstChildElement("tile"); pTileGid != nullptr; pTileGid = pTileGid->NextSiblingElement("tile"))
+                    {
+                        const char* gidAttribute = pTileGid->Attribute("gid");
+                        int gid = gidAttribute != nullptr ? std::atoi(gidAttribute) : 0;
+
+                        tileGids.push_back(gid);
+                    }
+                }
+
+                // --- SAFETY CHECK (Prevents the crash) ---
+                // If we failed to read any tiles, skip this layer to avoid crashing
+                if (tileGids.empty())
+                {
+                    pData = pData->NextSiblingElement("data");
+                    continue;
                 }
 
                 int gid = 0;
-                for (uint y = 0; y < height; y++)
+                for (unsigned int y = 0; y < height; y++)
                 {
-                    for (uint x = 0; x < width; x++)
+                    for (unsigned int x = 0; x < width; x++)
                     {
                         if (tileGids[gid] != 0) setMapTileId(layerCount, y, x, tileGids[gid]);
                         gid++;

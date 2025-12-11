@@ -43,6 +43,11 @@ namespace ToToEng
 		this->color = color;
 	}
 
+	void Entity::setRenderer(Renderer* renderer)
+	{
+		this->renderer = renderer;
+	}
+
 	vec4 Entity::getColor()
 	{
 		return color;

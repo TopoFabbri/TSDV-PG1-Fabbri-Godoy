@@ -26,6 +26,7 @@ namespace ToToEng
         vec2 getSize(bool colliderOnly = false) const;
         vec2 getUpLeft(bool colliderOnly = false) const;
         vec2 getDownRight(bool colliderOnly = false) const;
+        bool getIsTrigger() const;
 
         void onCollision(BoxCollider2D* other);
         void onTrigger(BoxCollider2D* other);

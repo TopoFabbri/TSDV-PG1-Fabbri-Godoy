@@ -8,7 +8,8 @@ namespace ToToEng
     class Tile : public Sprite
     {
     public:
-        explicit Tile(Renderer* renderer);
+        Tile();
+        Tile(Renderer* renderer);
         ~Tile() override;
 
         bool isWalkable() const;

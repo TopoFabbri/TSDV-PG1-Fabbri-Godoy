@@ -1,8 +1,9 @@
 #pragma once
+#include "Exports.h"
 
 namespace ToToEng
 {
-    class TextureImporter
+    class TOTO_API TextureImporter
     {
     public:
         TextureImporter();

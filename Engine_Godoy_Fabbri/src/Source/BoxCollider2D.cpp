@@ -113,6 +113,11 @@ namespace ToToEng
         onTriggerCallback = callback;
     }
 
+    bool BoxCollider2D::getIsTrigger() const
+    {
+        return isTrigger;
+    }
+
     void BoxCollider2D::setTrigger(bool isTrigger)
     {
         this->isTrigger = isTrigger;

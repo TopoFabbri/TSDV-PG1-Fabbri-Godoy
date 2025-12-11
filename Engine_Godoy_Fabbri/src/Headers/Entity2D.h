@@ -14,10 +14,14 @@ namespace ToToEng
 		vec2 uvScale;
 	
 	public:
+		bool getIsTrigger();
+		Entity2D(const Entity2D& other);
+		
+		Entity2D& operator=(const Entity2D& other);
+		
 		void setOffset(vec2 offset);
 		void setScale(vec2 scale);
 		
-	public:
 		BoxCollider2D* collider;
 		
 		Entity2D(Renderer* renderer);

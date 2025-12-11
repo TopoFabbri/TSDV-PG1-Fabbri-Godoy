@@ -7,7 +7,7 @@
 
 namespace ToToEng
 {
-    class TileMap
+    class TOTO_API TileMap
     {
     public:
         explicit TileMap(Renderer* renderer);
@@ -21,13 +21,13 @@ namespace ToToEng
         void setTileDimensions(float tileWidth, float tileHeight);
 
         void setTexture(unsigned int texture);
-        void draw();
+        void draw() const;
 
         bool importTileMap(std::string filePath);
 
     private:
         std::vector<Tile> tiles;
-        std::vector<std::vector<std::vector<Tile>>> tileMapGrid;
+        std::vector<Tile**> tileMapGrid;
         Renderer* renderer;
         
         unsigned int width;

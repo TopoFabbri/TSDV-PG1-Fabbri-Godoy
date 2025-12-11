@@ -43,13 +43,14 @@ namespace ToToEng
 		virtual void deleteBuffers();
 		virtual void update();
 		virtual void draw() = 0;
-
+		
 #pragma region Getters
 		vec4 getColor();
 #pragma endregion
 		
 #pragma region  Setters
 		void setColor(vec4 color);
+		void setRenderer(Renderer* renderer);
 #pragma endregion
 	};
 }

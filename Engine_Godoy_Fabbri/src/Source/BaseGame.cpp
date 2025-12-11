@@ -12,6 +12,7 @@ namespace ToToEng
 		window = new Window(width, height, title);
 		renderer = new Renderer(window, camera, is3D);
 		collisionManager = new CollisionManager();
+		tileMap = nullptr;
 
 		camera->transform.setPos({ 0, 0, 1 });
 
@@ -72,6 +73,9 @@ namespace ToToEng
 			}
 
 			renderer->beginDraw();
+
+			if (tileMap)
+				tileMap->draw();
 
 			for (Entity* entity : entities)
 				entity->draw();
