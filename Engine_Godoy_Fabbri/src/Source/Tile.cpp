@@ -22,11 +22,7 @@ namespace ToToEng
 
     bool Tile::isWalkable() const
     {
-        if (!walkable)
-            return false;
-
-        else
-            return true;
+        return walkable;
     }
 
     void Tile::walkability(const bool bWalkable)
@@ -54,8 +50,10 @@ namespace ToToEng
         pos.y = y;
     }
 
-    void Tile::setTexture(unsigned int texture)
+    void Tile::setTexture(const uint texture, const int texWidth, const int texHeight)
     {
         this->texture = texture;
+        this->texWidth = texWidth;
+        this->texHeight = texHeight;
     }
 }

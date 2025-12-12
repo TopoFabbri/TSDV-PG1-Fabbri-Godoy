@@ -5,6 +5,8 @@
 #include <string>
 #include <vector>
 
+#include "tinyxml2.h"
+
 namespace ToToEng
 {
     class TOTO_API TileMap
@@ -24,6 +26,15 @@ namespace ToToEng
         void draw() const;
 
         bool importTileMap(std::string filePath);
+        tinyxml2::XMLElement* handleImportMapAttributes(tinyxml2::XMLDocument& doc);
+        tinyxml2::XMLElement* handleImportTileset(tinyxml2::XMLElement* mapNode);
+        void handleImportTiles(tinyxml2::XMLElement* pTileset);
+        bool handleImportMapData(tinyxml2::XMLElement*& pLayer);
+        
+        void initializeLayer(int layerCount);
+        void handleCsvTileImport(tinyxml2::XMLElement* pData, std::vector<int>& tileGids);
+        void handleEmbeddedTileImport(tinyxml2::XMLElement* pData, std::vector<int> tileGids);
+        void setTiles(int layerCount, std::vector<int> tileGids);
 
     private:
         std::vector<Tile> tiles;
@@ -38,8 +49,8 @@ namespace ToToEng
 
         unsigned int texture;
 
-        float imageWidth;
-        float imageHeight;
+        int imageWidth;
+        int imageHeight;
 
         float convertedPosX;
         float convertedPosY;

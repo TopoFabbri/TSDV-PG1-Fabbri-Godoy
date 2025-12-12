@@ -18,17 +18,7 @@ Game::~Game()
 
 void Game::update()
 {
-    constexpr float moveSpeed = 500.f;
+    camera->transform.setPos(character->transform.getPos() + vec3{-400.f, -300.f, 10.f});
     
-    if (Input::getKey(Input::up, Input::Repeated))
-        camera->transform.setPos(camera->transform.getPos() + camera->transform.up() * GameTime::getDelta() * moveSpeed);
-    
-    if (Input::getKey(Input::down, Input::Repeated))
-        camera->transform.setPos(camera->transform.getPos() - camera->transform.up() * GameTime::getDelta() * moveSpeed);
-    
-    if (Input::getKey(Input::left, Input::Repeated))
-        camera->transform.setPos(camera->transform.getPos() - camera->transform.right() * GameTime::getDelta() * moveSpeed);
-    
-    if (Input::getKey(Input::right, Input::Repeated))
-        camera->transform.setPos(camera->transform.getPos() + camera->transform.right() * GameTime::getDelta() * moveSpeed);
+    std::cout << "Coordinates: " << character->transform.getPos().x << ", " << character->transform.getPos().y << '\n';
 }

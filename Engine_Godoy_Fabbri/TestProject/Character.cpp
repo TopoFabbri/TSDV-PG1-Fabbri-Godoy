@@ -37,9 +37,9 @@ void Character::update()
     if (Input::getKey(Input::w, Input::Repeated))
         accelerateInDir(transform.up() * GameTime::getDelta());
     
-    if (Input::getKey(Input::q, Input::Repeated))
+    if (Input::getKey(Input::left, Input::Repeated))
         transform.rotateZ(rotSpeed * GameTime::getDelta());
-    if (Input::getKey(Input::e, Input::Repeated))
+    if (Input::getKey(Input::right, Input::Repeated))
         transform.rotateZ(-rotSpeed * GameTime::getDelta());
 
     if (Input::getKey(Input::f, Input::Pressed))
