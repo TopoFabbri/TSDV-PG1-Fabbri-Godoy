@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 #include "Exports.h"
 
 namespace ToToEng
@@ -19,5 +21,6 @@ namespace ToToEng
         static void update();
         static float getTime();
         static float getDelta();
+        static std::string formatTime(float timeInSeconds);
     };
 }

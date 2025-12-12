@@ -4,6 +4,7 @@
 #include <iostream>
 #include <sstream>
 
+#include "Debug.h"
 #include "gl/GL.h"
 #include "stb_image.h"
 
@@ -68,7 +69,7 @@ unsigned int ToToEng::TextureImporter::loadTexture(const char* filePath, int& wi
     }
     else
     {
-        std::cout << "Failed to load texture" << std::endl;
+        Debug::log("Failed to load texture");
     }
     stbi_image_free(data);
 
