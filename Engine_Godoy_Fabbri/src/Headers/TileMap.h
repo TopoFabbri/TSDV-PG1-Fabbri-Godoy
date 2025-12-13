@@ -23,7 +23,9 @@ namespace ToToEng
         void setTileDimensions(float tileWidth, float tileHeight);
 
         void setTexture(unsigned int texture);
+        void positionTiles();        
         void draw() const;
+        void checkCollision(BoxCollider2D* collider) const;
 
         bool importTileMap(std::string filePath);
         tinyxml2::XMLElement* handleImportMapAttributes(tinyxml2::XMLDocument& doc);

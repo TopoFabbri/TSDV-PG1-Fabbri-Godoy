@@ -43,6 +43,10 @@ namespace ToToEng
 		while (!window->shouldClose())
 		{
 			GameTime::update();
+
+			std::string newTitle = "Fps: " + std::to_string(1 / GameTime::getDelta()) + "  |  Frame Time: " + std::to_string(GameTime::getDelta());
+			window->setTitle(newTitle.c_str());
+			
 			renderer->setView(lookAt(camera->transform.getPos(), camera->transform.getPos() + camera->transform.forward(), camera->transform.up()));
 			
 			for (Entity* entity : entities)

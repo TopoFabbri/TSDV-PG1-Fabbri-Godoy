@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <iostream>
 
+#include "CollisionManager.h"
 #include "TextureImporter.h"
 #include "tinyxml2.h"
 
@@ -98,7 +99,7 @@ namespace ToToEng
         this->texture = texture;
     }
 
-    void TileMap::draw() const
+    void TileMap::positionTiles()
     {
         const float mapHalfWidth = -static_cast<float>(width) / 2;
         const float mapHalfHeight = static_cast<float>(height) / 2;
@@ -115,7 +116,41 @@ namespace ToToEng
                     
                     tileMapGrid[i][y][x].setPosX((static_cast<float>(x) + mapHalfWidth) * tileScale.x);
                     tileMapGrid[i][y][x].setPosY((-static_cast<float>(y) + mapHalfHeight) * tileScale.y);
+                }
+            }
+        }
+    }
+
+    void TileMap::draw() const
+    {
+        const float mapHalfWidth = -static_cast<float>(width) / 2;
+        const float mapHalfHeight = static_cast<float>(height) / 2;
+
+        for (uint i = 0; i < tileMapGrid.size(); i++)
+        {
+            for (uint y = 0; y < height; y++)
+            {
+                for (uint x = 0; x < width; x++)
+                {
+                    if (tileMapGrid[i][y][x].getId() == NULL) continue;
+
                     tileMapGrid[i][y][x].draw();
+                }
+            }
+        }
+    }
+
+    void TileMap::checkCollision(BoxCollider2D* collider) const
+    {
+        for (uint i = 0; i < tileMapGrid.size(); i++)
+        {
+            for (uint y = 0; y < height; y++)
+            {
+                for (uint x = 0; x < width; x++)
+                {
+                    if (tileMapGrid[i][y][x].getId() == NULL) continue;
+                    
+                    CollisionManager::checkCollision(collider, tileMapGrid[i][y][x].collider);
                 }
             }
         }
@@ -209,7 +244,7 @@ namespace ToToEng
         {
             // Loading Data element
             tinyxml2::XMLElement* pData = pLayer->FirstChildElement("data");
-            if (pData == nullptr) return true;
+            if (pData == nullptr) return false;
 
             initializeLayer(layerCount);
 
@@ -235,7 +270,10 @@ namespace ToToEng
             layerCount++;
             pLayer = pLayer->NextSiblingElement("layer");
         }
-        return false;
+        
+        positionTiles();
+        
+        return true;
     }
 
     void TileMap::handleImportTiles(tinyxml2::XMLElement* pTileset)

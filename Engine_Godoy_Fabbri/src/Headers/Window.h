@@ -21,6 +21,8 @@ namespace ToToEng
 		~Window();
 
 		static Window* getInstance();
+
+		void setTitle(const char* title);
 		
 		GLFWwindow* getWindow();
 		bool shouldClose();

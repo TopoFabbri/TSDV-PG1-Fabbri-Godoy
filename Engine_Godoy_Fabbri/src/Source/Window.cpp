@@ -82,6 +82,13 @@ namespace ToToEng
 		return instance;
 	}
 
+	void Window::setTitle(const char* title)
+	{
+		glfwSetWindowTitle(window, title);
+		
+		this->title = title;
+	}
+
 	GLFWwindow* Window::getWindow()
 	{
 		return window;
