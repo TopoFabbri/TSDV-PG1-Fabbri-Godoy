@@ -100,8 +100,8 @@ namespace ToToEng
 
     void TileMap::draw() const
     {
-        const float mapWidth = -(static_cast<float>(width) * tileWidth) / 2;
-        const float mapHeight = static_cast<float>(height) * tileHeight / 2;
+        const float mapHalfWidth = -static_cast<float>(width) / 2;
+        const float mapHalfHeight = static_cast<float>(height) / 2;
 
         for (uint i = 0; i < tileMapGrid.size(); i++)
         {
@@ -110,9 +110,11 @@ namespace ToToEng
                 for (uint x = 0; x < width; x++)
                 {
                     if (tileMapGrid[i][y][x].getId() == NULL) continue;
+
+                    const vec3 tileScale = tileMapGrid[i][y][x].transform.getScale();
                     
-                    tileMapGrid[i][y][x].setPosX(mapWidth + tileWidth * static_cast<float>(x));
-                    tileMapGrid[i][y][x].setPosY(mapHeight - tileHeight * static_cast<float>(y));
+                    tileMapGrid[i][y][x].setPosX((static_cast<float>(x) + mapHalfWidth) * tileScale.x);
+                    tileMapGrid[i][y][x].setPosY((-static_cast<float>(y) + mapHalfHeight) * tileScale.y);
                     tileMapGrid[i][y][x].draw();
                 }
             }
@@ -254,7 +256,7 @@ namespace ToToEng
 
     void TileMap::initializeLayer(int layerCount)
     {
-        if (layerCount >= 0)
+        if (layerCount > 0)
         {
             Tile** tileMap;
             tileMap = new Tile*[height];

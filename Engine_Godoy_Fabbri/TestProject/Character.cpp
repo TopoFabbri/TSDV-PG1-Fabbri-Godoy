@@ -1,5 +1,8 @@
 #include "Character.h"
 
+#include <algorithm>
+#include <complex>
+
 #include "Headers/GameTime.h"
 #include "Headers/Input.h"
 
@@ -7,11 +10,11 @@ using namespace ToToEng;
 
 Character::Character(Renderer* renderer) : Sprite(renderer)
 {
-    accel = 20.f;
+    accel = 20000.f;
     vel = vec3(0.f);
-    maxSpeed = 4.f;
+    maxSpeed = 200.f;
     friction = .1f;
-    rotSpeed = 200.f;
+    rotSpeed = 400.f;
 
     transform.setPos(vec3(0.f, 100.f, 0.f));
 
@@ -23,9 +26,28 @@ Character::~Character()
 {
 }
 
+void Character::move()
+{
+    
+    if (!hasAccelerated)
+    {
+        const float t = std::min(friction, 1.0f);
+        vel = vel * (1.0f - t) + vec3(0.f) * t;
+    }
+    
+    transform.setPos(transform.getPos() + vel * GameTime::getDelta());
+    
+    if (length(vel) > 0)
+        playAnim = true;
+    else
+        playAnim = false;
+}
+
 void Character::update()
 {
     Sprite::update();
+
+    hasAccelerated = false;
     
     if (Input::getKey(Input::a, Input::Repeated))
         accelerateInDir(-transform.right() * GameTime::getDelta());
@@ -45,26 +67,16 @@ void Character::update()
     if (Input::getKey(Input::f, Input::Pressed))
         animation->setAnimByIndex(animation->getAnimIndex() >= 7 ? 0 : animation->getAnimIndex() + 1);
     
-    transform.setPos(transform.getPos() + vel);
-
-    if (length(vel) > 0)
-    {
-        if (length(vel) > friction)
-            vel = normalize(vel) * (length(vel) - friction);
-        else
-            vel = vec3(0.f);
-        
-        playAnim = true;
-    }
-    else
-    {
-        playAnim = false;
-    }
+    move();
 }
 
 void Character::accelerateInDir(vec3 dir)
 {
-    vel += dir * accel;
+    if (length(dir) <= 0) return;
+    
+    hasAccelerated = true;
+    
+    vel += dir * accel * GameTime::getDelta();
 
     if (length(vel) > maxSpeed)
         vel = normalize(vel) * maxSpeed;

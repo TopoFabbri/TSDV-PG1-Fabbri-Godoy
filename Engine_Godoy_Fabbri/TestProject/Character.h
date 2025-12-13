@@ -10,10 +10,13 @@ private:
     float maxSpeed;
     float friction;
     float rotSpeed;
+    
+    bool hasAccelerated;
 
 public:
     explicit Character(ToToEng::Renderer* renderer);
     ~Character() override;
+    void move();
 
     void update() override;
 

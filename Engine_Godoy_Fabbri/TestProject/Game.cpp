@@ -19,6 +19,4 @@ Game::~Game()
 void Game::update()
 {
     camera->transform.setPos(character->transform.getPos() + vec3{-400.f, -300.f, 10.f});
-    
-    std::cout << "Coordinates: " << character->transform.getPos().x << ", " << character->transform.getPos().y << '\n';
 }
