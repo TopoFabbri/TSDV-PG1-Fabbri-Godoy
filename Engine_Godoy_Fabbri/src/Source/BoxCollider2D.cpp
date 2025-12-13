@@ -4,12 +4,13 @@
 
 namespace ToToEng
 {
-    BoxCollider2D::BoxCollider2D(const vec2 pos, const vec2 size, Transform* transform, bool isTrigger)
+    BoxCollider2D::BoxCollider2D(const vec2 pos, const vec2 size, Transform* transform, const bool isTrigger)
     {
         this->pos = pos;
         this->size = size;
         this->transform = transform;
         this->isTrigger = isTrigger;
+        this->isStatic = false;
 
         upLeft = vec2(pos.x - size.x / 2, pos.y + size.y / 2);
         downRight = vec2(pos.x + size.x / 2, pos.y - size.y / 2);
@@ -31,7 +32,7 @@ namespace ToToEng
         return {transform->getScale().x * size.x, transform->getScale().y * size.y};
     }
 
-    vec2 BoxCollider2D::getUpLeft(bool colliderOnly) const
+    vec2 BoxCollider2D::getUpLeft(const bool colliderOnly) const
     {
         if (colliderOnly)
             return upLeft;
@@ -65,6 +66,9 @@ namespace ToToEng
         
         if (onCollisionCallback)
             onCollisionCallback(other);
+
+        if (isStatic)
+            return;
         
         vec2 dir = transform->getPos() - transform->getPrevPos();
 
@@ -118,8 +122,13 @@ namespace ToToEng
         return isTrigger;
     }
 
-    void BoxCollider2D::setTrigger(bool isTrigger)
+    void BoxCollider2D::setTrigger(const bool isTrigger)
     {
         this->isTrigger = isTrigger;
+    }
+
+    void BoxCollider2D::setStatic(const bool isStatic)
+    {
+        this->isStatic = isStatic;
     }
 }

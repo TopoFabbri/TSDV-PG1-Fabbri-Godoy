@@ -15,6 +15,7 @@ namespace ToToEng
         vec2 downRight;
         
         bool isTrigger;
+        bool isStatic;
 
         std::function<void(BoxCollider2D*)> onCollisionCallback;
         std::function<void(BoxCollider2D*)> onTriggerCallback;
@@ -35,5 +36,6 @@ namespace ToToEng
         void setOnTrigger(const std::function<void(BoxCollider2D*)>& callback);
 
         void setTrigger(bool isTrigger);
+        void setStatic(bool isStatic);
     };
 }

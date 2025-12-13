@@ -6,87 +6,85 @@
 
 namespace ToToEng
 {
-	BaseGame::BaseGame(bool is3D, int width, int height, const char* title)
-	{
-		camera = new Camera();
-		window = new Window(width, height, title);
-		renderer = new Renderer(window, camera, is3D);
-		collisionManager = new CollisionManager();
-		tileMap = nullptr;
+    BaseGame::BaseGame(bool is3D, int width, int height, const char* title)
+    {
+        camera = new Camera();
+        window = new Window(width, height, title);
+        renderer = new Renderer(window, camera, is3D);
+        collisionManager = new CollisionManager();
+        tileMap = nullptr;
 
-		camera->transform.setPos({ 0, 0, 1 });
+        camera->transform.setPos({0, 0, 1});
 
-		GameTime::resetTime();
-	}
+        GameTime::resetTime();
+    }
 
-	BaseGame::~BaseGame()
-	{
-		delete renderer;
-		delete window;
-		delete camera;
-		delete collisionManager;
+    BaseGame::~BaseGame()
+    {
+        delete renderer;
+        delete window;
+        delete camera;
+        delete collisionManager;
 
-		const int size = static_cast<int>(entities.size());
-		
-		for (int i = 0; i < size; i++)
-		{
-			const Entity* tmp = entities.front();
-			entities.pop_front();
-			delete tmp;
-		}
+        const int size = static_cast<int>(entities.size());
 
-		entities.clear();
-	}
+        for (int i = 0; i < size; i++)
+        {
+            const Entity* tmp = entities.front();
+            entities.pop_front();
+            delete tmp;
+        }
 
-	void BaseGame::run()
-	{
-		while (!window->shouldClose())
-		{
-			GameTime::update();
+        entities.clear();
+    }
 
-			std::string newTitle = "Fps: " + std::to_string(1 / GameTime::getDelta()) + "  |  Frame Time: " + std::to_string(GameTime::getDelta());
-			window->setTitle(newTitle.c_str());
-			
-			renderer->setView(lookAt(camera->transform.getPos(), camera->transform.getPos() + camera->transform.forward(), camera->transform.up()));
-			
-			for (Entity* entity : entities)
-				entity->update();
-			update();
+    void BaseGame::run()
+    {
+        while (!window->shouldClose())
+        {
+            GameTime::update();
 
-			for (Entity* entityOne : entities)
-			{
-				bool newCollider = false;
-				
-				for (Entity* entityTwo : entities)
-				{
-					if (entityOne == entityTwo)
-					{
-						newCollider = true;
-						continue;
-					}
+            std::string newTitle = "Fps: " + std::to_string(1 / GameTime::getDelta()) + "  |  Frame Time: " + std::to_string(GameTime::getDelta());
+            window->setTitle(newTitle.c_str());
 
-					if (!newCollider)
-						continue;
+            renderer->setView(lookAt(camera->transform.getPos(), camera->transform.getPos() + camera->transform.forward(), camera->transform.up()));
 
-					BoxCollider2D* colliderOne = dynamic_cast<Entity2D*>(entityOne)->collider;
-					BoxCollider2D* colliderTwo = dynamic_cast<Entity2D*>(entityTwo)->collider;
+            for (Entity* entity : entities) entity->update();
+            update();
 
-					if (colliderOne && colliderTwo)
-						CollisionManager::checkCollision(colliderOne, colliderTwo);
-				}
-			}
+            for (Entity* entityOne : entities)
+            {
+                bool newCollider = false;
+                BoxCollider2D* colliderOne = dynamic_cast<Entity2D*>(entityOne)->collider;
 
-			renderer->beginDraw();
+                for (Entity* entityTwo : entities)
+                {
+                    if (entityOne == entityTwo)
+                    {
+                        newCollider = true;
+                        continue;
+                    }
 
-			if (tileMap)
-				tileMap->draw();
+                    if (!newCollider) continue;
 
-			for (Entity* entity : entities)
-				entity->draw();
+                    BoxCollider2D* colliderTwo = dynamic_cast<Entity2D*>(entityTwo)->collider;
 
-			renderer->endDraw();
+                    if (colliderOne && colliderTwo) CollisionManager::checkCollision(colliderOne, colliderTwo);
+                }
 
-			glfwPollEvents();
-		}
-	}
+                if (colliderOne)
+                    tileMap->checkCollision(colliderOne);
+            }
+
+            renderer->beginDraw();
+
+            if (tileMap) tileMap->draw();
+
+            for (Entity* entity : entities) entity->draw();
+
+            renderer->endDraw();
+
+            glfwPollEvents();
+        }
+    }
 }

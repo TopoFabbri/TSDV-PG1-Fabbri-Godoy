@@ -17,7 +17,8 @@ Character::Character(Renderer* renderer) : Sprite(renderer)
     rotSpeed = 400.f;
 
     transform.setPos(vec3(0.f, 100.f, 0.f));
-
+    transform.setScale(vec3(100.f, 100.f, 100.f));
+    
     addAnimation(1.f, 8, 8, "../res/textures/dragon.png", 0, 4);
     setTrigger(false);
 }

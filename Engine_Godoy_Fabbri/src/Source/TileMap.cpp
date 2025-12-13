@@ -57,12 +57,13 @@ namespace ToToEng
 
     void TileMap::setMapTileId(int layer, unsigned int uiCol, unsigned int uiRow, unsigned int uiId)
     {
-        Tile tileOfId = tile(uiId);
+        const Tile tileOfId = tile(uiId);
         
         tileMapGrid[layer][uiCol][uiRow].setId(uiId);
         tileMapGrid[layer][uiCol][uiRow].setOffset(tileOfId.uvOffset);
         tileMapGrid[layer][uiCol][uiRow].setScale(tileOfId.uvScale);
         tileMapGrid[layer][uiCol][uiRow].setTexture(texture, imageWidth, imageHeight);
+        tileMapGrid[layer][uiCol][uiRow].setWalkable(tileOfId.isWalkable());
     }
 
     void TileMap::setTile(const Tile& rkTile)
@@ -148,7 +149,7 @@ namespace ToToEng
             {
                 for (uint x = 0; x < width; x++)
                 {
-                    if (tileMapGrid[i][y][x].getId() == NULL) continue;
+                    if (tileMapGrid[i][y][x].getId() == NULL || tileMapGrid[i][y][x].collider == nullptr) continue;
                     
                     CollisionManager::checkCollision(collider, tileMapGrid[i][y][x].collider);
                 }
@@ -285,8 +286,8 @@ namespace ToToEng
             uint id = pTile->IntAttribute("id");
             tinyxml2::XMLElement* pProperty = pTile->FirstChildElement("properties")->FirstChildElement("property");
             std::string propertyName = pProperty->Attribute("value");
-            if (propertyName == "false") tiles[id].walkability(false);
-            else tiles[id].walkability(true);
+            if (propertyName == "false") tiles[id].setWalkable(false);
+            else tiles[id].setWalkable(true);
 
             pTile = pTile->NextSiblingElement("tile");
         }

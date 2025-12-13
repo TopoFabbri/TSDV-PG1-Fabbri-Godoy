@@ -8,8 +8,8 @@ namespace ToToEng
         walkable = true;
         pos = {0.f, 0.f};
         collider = new BoxCollider2D({0.f, 0.f}, {1.f, 1.f}, &transform, false);
+        collider->setStatic(true);
     }
-
 
     Tile::Tile(Renderer* renderer) : Sprite(renderer)
     {
@@ -17,6 +17,7 @@ namespace ToToEng
         walkable = false;
         pos = {0.f, 0.f};
         collider = new BoxCollider2D({0.f, 0.f}, {1.f, 1.f}, &transform, false);
+        collider->setStatic(true);
     }
 
     Tile::Tile(const Tile& other) : Sprite(other.renderer)
@@ -24,13 +25,17 @@ namespace ToToEng
         id = other.id;
         walkable = other.walkable;
         pos = other.pos;
-        collider = new BoxCollider2D(other.collider->getPos(), other.collider->getSize(), &transform, false);
         texture = other.texture;
         texWidth = other.texWidth;
         texHeight = other.texHeight;
+        
+        if (other.collider)
+            collider = new BoxCollider2D(other.collider->getPos(), other.collider->getSize(), &transform, false);
 
         setOffset(other.uvOffset);
         setScale(other.uvScale);
+        
+        collider->setStatic(true);
     }
 
     Tile::~Tile() = default;
@@ -40,9 +45,15 @@ namespace ToToEng
         return walkable;
     }
 
-    void Tile::walkability(const bool bWalkable)
+    void Tile::setWalkable(const bool bWalkable)
     {
         walkable = bWalkable;
+        
+        if (bWalkable)
+        {
+            delete collider;
+            collider = nullptr;
+        }
     }
 
     unsigned int Tile::getId() const

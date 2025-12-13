@@ -14,7 +14,7 @@ namespace ToToEng
         ~Tile() override;
 
         bool isWalkable() const;
-        void walkability(bool bWalkable);
+        void setWalkable(bool bWalkable);
 
         unsigned int getId() const;
         void setId(unsigned int id);
