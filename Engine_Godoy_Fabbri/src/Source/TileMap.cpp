@@ -173,6 +173,7 @@ namespace ToToEng
         imageHeight = pTileset->FirstChildElement("image")->IntAttribute("height");
 
         tiles.clear();
+        tiles.reserve(tileCount);
 
         float tileX = 0.0f, tileY = 0.0f;
         int id = 1;
@@ -210,7 +211,9 @@ namespace ToToEng
 
             initializeLayer(layerCount);
 
-            while (pData)
+            for (tinyxml2::XMLElement* pData = pLayer->FirstChildElement("data"); 
+                 pData != nullptr; 
+                 pData = pData->NextSiblingElement("data"))
             {
                 std::vector<int> tileGids;
 
@@ -222,15 +225,11 @@ namespace ToToEng
                     handleEmbeddedTileImport(pData, tileGids);
 
                 if (tileGids.empty())
-                {
-                    pData = pData->NextSiblingElement("data");
                     continue;
-                }
 
                 setTiles(layerCount, tileGids);
-
-                pData = pData->NextSiblingElement("data");
             }
+            
             layerCount++;
             pLayer = pLayer->NextSiblingElement("layer");
         }
