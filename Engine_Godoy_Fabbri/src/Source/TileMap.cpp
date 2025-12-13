@@ -45,14 +45,23 @@ namespace ToToEng
     {
         Tile* noTile = nullptr;
 
-        for (const auto& tile : tiles) if (uiId == tile.getId()) return tile;
+        for (const Tile& tile : tiles)
+        {
+            if (uiId == tile.getId())
+                return tile;
+        }
 
         return *noTile;
     }
 
     void TileMap::setMapTileId(int layer, unsigned int uiCol, unsigned int uiRow, unsigned int uiId)
     {
-        tileMapGrid[layer][uiCol][uiRow] = tile(uiId);
+        Tile tileOfId = tile(uiId);
+        
+        tileMapGrid[layer][uiCol][uiRow].setId(uiId);
+        tileMapGrid[layer][uiCol][uiRow].setOffset(tileOfId.uvOffset);
+        tileMapGrid[layer][uiCol][uiRow].setScale(tileOfId.uvScale);
+        tileMapGrid[layer][uiCol][uiRow].setTexture(texture, imageWidth, imageHeight);
     }
 
     void TileMap::setTile(const Tile& rkTile)
@@ -100,12 +109,11 @@ namespace ToToEng
             {
                 for (uint x = 0; x < width; x++)
                 {
-                    if (tileMapGrid[i][y][x].getId() != NULL)
-                    {
-                        tileMapGrid[i][y][x].setPosX(mapWidth + tileWidth * static_cast<float>(x));
-                        tileMapGrid[i][y][x].setPosY(mapHeight - tileHeight * static_cast<float>(y));
-                        tileMapGrid[i][y][x].draw();
-                    }
+                    if (tileMapGrid[i][y][x].getId() == NULL) continue;
+                    
+                    tileMapGrid[i][y][x].setPosX(mapWidth + tileWidth * static_cast<float>(x));
+                    tileMapGrid[i][y][x].setPosY(mapHeight - tileHeight * static_cast<float>(y));
+                    tileMapGrid[i][y][x].draw();
                 }
             }
         }
@@ -176,9 +184,9 @@ namespace ToToEng
 
                 newTile.setId(id);
                 newTile.setTexture(texture, imageWidth, imageHeight);
-                newTile.setScale({tileWidth, tileHeight});
+                newTile.setScale({tileWidth / static_cast<float>(imageWidth), tileHeight / static_cast<float>(imageHeight)});
 
-                newTile.setOffset({tileX, tileY});
+                newTile.setOffset({tileX / static_cast<float>(imageWidth), tileY / static_cast<float>(imageHeight)});
 
                 tileX += tileWidth;
                 setTile(newTile);
@@ -247,7 +255,7 @@ namespace ToToEng
 
     void TileMap::initializeLayer(int layerCount)
     {
-        if (layerCount > 0)
+        if (layerCount >= 0)
         {
             Tile** tileMap;
             tileMap = new Tile*[height];

@@ -9,11 +9,10 @@ namespace ToToEng
 	class TOTO_API Entity2D :
 		public Entity
 	{
-	private:
+	public:
 		vec2 uvOffset;
 		vec2 uvScale;
-	
-	public:
+		
 		bool getIsTrigger();
 		Entity2D(const Entity2D& other);
 		

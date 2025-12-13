@@ -10,11 +10,11 @@
   <component name="ChangeListManager">
     <list default="true" id="59b83834-1b16-455b-92bb-7e2412bbcbcc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine_Godoy_Fabbri/Engine_Godoy_Fabbri.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Engine_Godoy_Fabbri/Engine_Godoy_Fabbri.vcxproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/res/maps/TilemapTest1.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/res/maps/TilemapTest1.tmx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/GameTime.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/GameTime.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/GameTime.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/GameTime.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/TextureImporter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/TextureImporter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Headers/Entity2D.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/Entity2D.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Headers/Tile.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/Tile.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Tile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Tile.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/TileMap.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/TileMap.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +40,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="cidr-memory-view://11" root0="FORCE_HIGHLIGHTING" />
+    <setting file="cidr-memory-view://66" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/glew.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/glfw3.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/glm/detail/setup.hpp" root0="SKIP_HIGHLIGHTING" />
@@ -52,8 +52,6 @@
     <setting file="file://$PROJECT_DIR$/packages/boost.1.87.0/lib/native/include/boost/stacktrace/stacktrace.hpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/packages/boost.1.87.0/lib/native/include/boost/stacktrace/stacktrace_fwd.hpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Headers/stb_image.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Administrator/Documents/Rider/TSDV-PG1-Fabbri-Godoy/Engine_Godoy_Fabbri/src/Source/Debug.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Administrator/Documents/Rider/TSDV-PG1-Fabbri-Godoy/Engine_Godoy_Fabbri/src/Source/Debug.cpp" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
   <component name="ProblemsViewState">
@@ -73,7 +71,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "C/C++ Project.Engine_Godoy_Fabbri.executor": "Run",
-    "C/C++ Project.TestProject.executor": "Run",
+    "C/C++ Project.TestProject.executor": "Debug",
     "RunOnceActivity.CodyProjectSettingsMigration": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -370,5 +368,11 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="CppProject">
+        <watch expression="tileMapGrid[layer][uiCol][uiRow]" language="C++" />
+        <watch expression="tileMapGrid[i][y][x]" language="C++" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

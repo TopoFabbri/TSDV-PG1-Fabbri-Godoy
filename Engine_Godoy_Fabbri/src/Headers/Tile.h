@@ -5,10 +5,11 @@
 
 namespace ToToEng
 {
-    class Tile : public Sprite
+    class Tile sealed : public Sprite
     {
     public:
         Tile();
+        Tile(const Tile& other);
         Tile(Renderer* renderer);
         ~Tile() override;
 
