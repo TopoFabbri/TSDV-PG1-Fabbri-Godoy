@@ -30,6 +30,82 @@
     <ClCompile Include="..\src\Source\GameTime.cpp" />
     <ClCompile Include="..\src\Source\Input.cpp" />
     <ClCompile Include="..\src\Source\Renderer.cpp" />
+    <ClCompile Include="..\src\Source\Settings.cpp">
+      <AssemblerOutput>NoListing</AssemblerOutput>
+      <AssemblerListingLocation>C:\Users\Administrator\Documents\Rider\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\obj\</AssemblerListingLocation>
+      <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+      <BrowseInformation>false</BrowseInformation>
+      <BrowseInformationFile>C:\Users\Administrator\Documents\Rider\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\obj\</BrowseInformationFile>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <CompileAs>Default</CompileAs>
+      <ConformanceMode>true</ConformanceMode>
+      <DiagnosticsFormat>Column</DiagnosticsFormat>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <ErrorReporting>Prompt</ErrorReporting>
+      <ExpandAttributedSource>false</ExpandAttributedSource>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <EnableASAN>false</EnableASAN>
+      <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <GenerateModuleDependencies>false</GenerateModuleDependencies>
+      <GenerateSourceDependencies>false</GenerateSourceDependencies>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+      <LanguageStandard>Default</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ModuleDependenciesFile>C:\Users\Administrator\Documents\Rider\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\obj\</ModuleDependenciesFile>
+      <ModuleOutputFile>C:\Users\Administrator\Documents\Rider\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\obj\</ModuleOutputFile>
+      <OmitDefaultLibName>false</OmitDefaultLibName>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <Optimization>MaxSpeed</Optimization>
+      <ObjectFileName>C:\Users\Administrator\Documents\Rider\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\obj\</ObjectFileName>
+      <CallingConvention>Cdecl</CallingConvention>
+      <ProgramDataBaseFileName>C:\Users\Administrator\Documents\Rider\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\obj\vc142.pdb</ProgramDataBaseFileName>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>C:\Users\Administrator\Documents\Rider\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\obj\Engine_Godoy_Fabbri.pch</PrecompiledHeaderOutputFile>
+      <PreprocessToFile>false</PreprocessToFile>
+      <PreprocessKeepComments>false</PreprocessKeepComments>
+      <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+      <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDll</RuntimeLibrary>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <ShowIncludes>false</ShowIncludes>
+      <SourceDependenciesFile>C:\Users\Administrator\Documents\Rider\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\obj\</SourceDependenciesFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <SmallerTypeCheck>false</SmallerTypeCheck>
+      <SpectreMitigation>false</SpectreMitigation>
+      <StructMemberAlignment>Default</StructMemberAlignment>
+      <SupportJustMyCode>false</SupportJustMyCode>
+      <TrackerLogDirectory>C:\Users\Administrator\Documents\Rider\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\obj\Engine_G.4dfaa669.tlog\</TrackerLogDirectory>
+      <TranslateIncludes>false</TranslateIncludes>
+      <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <UseFullPaths>true</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <XMLDocumentationFileName>C:\Users\Administrator\Documents\Rider\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\obj\</XMLDocumentationFileName>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <IntelJCCErratum>false</IntelJCCErratum>
+      <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+      <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+      <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+      <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+      <PreprocessorDefinitions>GLEW_STATIC;WIN32;EXPORTS;NDEBUG;_CONSOLE;_WINDLL;_UNICODE;UNICODE;</PreprocessorDefinitions>
+      <EnablePREfast>false</EnablePREfast>
+      <OmitFramePointers>false</OmitFramePointers>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\Administrator\Documents\Rider\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\packages\boost.1.87.0\build\..\lib\native\include\;C:\Users\Administrator\Documents\Rider\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\lib;C:\Users\Administrator\Documents\Rider\TSDV-PG1-Fabbri-Godoy\Engine_Godoy_Fabbri\src\Headers</AdditionalIncludeDirectories>
+      <LinkCompiled>true</LinkCompiled>
+    </ClCompile>
     <ClCompile Include="..\src\Source\Shader.cpp" />
     <ClCompile Include="..\src\Source\Shape.cpp" />
     <ClCompile Include="..\src\Source\Sprite.cpp" />
@@ -55,6 +131,7 @@
     <ClInclude Include="..\src\Headers\GameTime.h" />
     <ClInclude Include="..\src\Headers\Input.h" />
     <ClInclude Include="..\src\Headers\Renderer.h" />
+    <ClInclude Include="..\src\Headers\Settings.h" />
     <ClInclude Include="..\src\Headers\Shader.h" />
     <ClInclude Include="..\src\Headers\Shape.h" />
     <ClInclude Include="..\src\Headers\Sprite.h" />

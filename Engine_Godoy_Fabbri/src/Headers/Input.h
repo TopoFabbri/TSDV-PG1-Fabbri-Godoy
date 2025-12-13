@@ -48,6 +48,7 @@ namespace ToToEng
 			right = GLFW_KEY_RIGHT,
 			up = GLFW_KEY_UP,
 			down = GLFW_KEY_DOWN,
+			space = GLFW_KEY_SPACE
 		};
 
 		enum Action

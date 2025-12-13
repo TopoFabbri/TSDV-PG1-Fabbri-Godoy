@@ -55,6 +55,8 @@ namespace ToToEng
 		void deleteBuffers(unsigned int& VBO, unsigned int& IBO, unsigned int& EBO, unsigned int id);
 		void drawEntity2D(unsigned int& VAO, unsigned int indexQty, vec4 color, mat4 trans, unsigned int texture);
 		void drawShape(unsigned int& VAO, unsigned int indexQty, vec4 color, mat4 trans);
+		// Draw a single line segment between two 3D points using the shape shader
+		void drawLine(const vec3& a, const vec3& b, const vec4& color, float width, const mat4& trans);
 		void setProjection(mat4 projection);
 		void setView(mat4 view);
 		unsigned int loadTexture(const char* filePath);

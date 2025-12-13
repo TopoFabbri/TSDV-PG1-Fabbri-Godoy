@@ -129,6 +129,48 @@ namespace ToToEng
         glCall(glUseProgram(0));
     }
 
+    void Renderer::drawLine(const vec3& a, const vec3& b, const vec4& color, float width, const mat4& trans)
+    {
+        // Prepare transform
+        mat4 pvm = projection * view * trans;
+
+        // Two vertices: position(vec4) + color(vec4)
+        float vertices[16] = {
+            a.x, a.y, a.z, 1.0f,  1.0f, 1.0f, 1.0f, 1.0f,
+            b.x, b.y, b.z, 1.0f,  1.0f, 1.0f, 1.0f, 1.0f
+        };
+
+        unsigned int vao = 0, vbo = 0;
+        glGenVertexArrays(1, &vao);
+        glGenBuffers(1, &vbo);
+
+        glBindVertexArray(vao);
+        glBindBuffer(GL_ARRAY_BUFFER, vbo);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+        // Layout matches Shape.shader: location 0 -> vec4 position, location 1 -> vec4 color
+        glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+        glEnableVertexAttribArray(0);
+        glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(4 * sizeof(float)));
+        glEnableVertexAttribArray(1);
+
+        glCall(glUseProgram(shapeShader));
+        glCall(u_ColorLocation = glGetUniformLocation(shapeShader, "u_Color"));
+        glCall(glUniform4f(u_ColorLocation, color.x, color.y, color.z, color.w));
+        glCall(glUniformMatrix4fv(u_ShapeTransformLocation, 1, GL_FALSE, glm::value_ptr(pvm)));
+
+        glLineWidth(width);
+        glDrawArrays(GL_LINES, 0, 2);
+
+        // Cleanup
+        glBindVertexArray(0);
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
+        glUseProgram(0);
+
+        glDeleteBuffers(1, &vbo);
+        glDeleteVertexArrays(1, &vao);
+    }
+
     void Renderer::setProjection(mat4 projection)
     {
         this->projection = projection;
@@ -167,9 +209,9 @@ namespace ToToEng
 
     unsigned int Renderer::createShader(const char* vShader, const char* fShader)
     {
-        glCall(unsigned int program = glCreateProgram());
-        glCall(unsigned int vs = compileShader(GL_VERTEX_SHADER, vShader));
-        glCall(unsigned int fs = compileShader(GL_FRAGMENT_SHADER, fShader));
+        unsigned int program = glCreateProgram();
+        unsigned int vs = compileShader(GL_VERTEX_SHADER, vShader);
+        unsigned int fs = compileShader(GL_FRAGMENT_SHADER, fShader);
 
         glCall(glAttachShader(program, vs));
         glCall(glAttachShader(program, fs));
