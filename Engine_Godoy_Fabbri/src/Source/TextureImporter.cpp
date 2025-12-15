@@ -1,8 +1,6 @@
 #include "TextureImporter.h"
 
 #include <glew.h>
-#include <iostream>
-#include <sstream>
 
 #include "Debug.h"
 #include "gl/GL.h"
@@ -16,13 +14,13 @@ ToToEng::TextureImporter::~TextureImporter()
 {
 }
 
-unsigned int ToToEng::TextureImporter::loadTexture(const char* filePath)
+unsigned int ToToEng::TextureImporter::loadTexture(const char* filePath, const Filtering filtering)
 {
     int width, height;
-    return loadTexture(filePath, width, height);
+    return loadTexture(filePath, width, height, filtering);
 }
 
-unsigned int ToToEng::TextureImporter::loadTexture(const char* filePath, int& width, int& height)
+unsigned int ToToEng::TextureImporter::loadTexture(const char* filePath, int& width, int& height, const Filtering filtering)
 {
     unsigned int texture;
 
@@ -36,7 +34,17 @@ unsigned int ToToEng::TextureImporter::loadTexture(const char* filePath, int& wi
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    switch (filtering)
+    {
+    case Nearest:
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        break;
+
+    case Linear:
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        break;
+    }
 
     int nrChannels;
 

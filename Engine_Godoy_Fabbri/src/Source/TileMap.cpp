@@ -235,7 +235,9 @@ namespace ToToEng
         int rows = tileCount / columns;
 
         imagePath = pTileset->FirstChildElement("image")->Attribute("source"); // Loading Textures
-        setTexture(TextureImporter::loadTexture(imagePath.c_str()));
+        
+        int imWidth, imHeight;
+        setTexture(TextureImporter::loadTexture(imagePath.c_str(), imWidth, imHeight, TextureImporter::Nearest));
 
         imageWidth = pTileset->FirstChildElement("image")->IntAttribute("width");
         imageHeight = pTileset->FirstChildElement("image")->IntAttribute("height");
