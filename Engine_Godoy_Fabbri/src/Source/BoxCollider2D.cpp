@@ -1,6 +1,7 @@
 #include "BoxCollider2D.h"
 
 #include <iostream>
+#include <functional>
 
 namespace ToToEng
 {
@@ -70,34 +71,29 @@ namespace ToToEng
         if (isStatic)
             return;
         
-        vec2 dir = transform->getPos() - transform->getPrevPos();
+        const vec2 aPos = getPos();
+        const vec2 bPos = other->getPos();
+        const vec2 aSize = getSize();
+        const vec2 bSize = other->getSize();
 
-        if (dir.x == 0.f && dir.y == 0.f)
+        const vec2 delta = aPos - bPos;
+        const float overlapX = aSize.x / 2.f + bSize.x / 2.f - abs(delta.x);
+        const float overlapY = aSize.y / 2.f + bSize.y / 2.f - abs(delta.y);
+
+        if (overlapX <= 0.f || overlapY <= 0.f)
             return;
 
-        if (abs(transform->getPrevPos().x - other->getPos().x) > abs(transform->getPrevPos().y - other->getPos().y))
+        const vec3 pos = transform->getPos();
+
+        if (overlapX < overlapY)
         {
-            dir.x = dir.x > 0 ? 1.f : -1.f;
-
-            vec3 pos = transform->getPos();
-            vec2 otherPos = other->getPos();
-            vec2 size = getSize();
-            vec2 otherSize = other->getSize();
-
-            transform->setPos(vec3(otherPos.x - dir.x * (size.x / 2.f + otherSize.x / 2.f + 1.f), pos.y,
-                                   pos.z));
+            const float signX = delta.x >= 0.f ? 1.f : -1.f;
+            transform->setPos(vec3(pos.x + signX * overlapX, pos.y, pos.z));
         }
         else
         {
-            dir.y = dir.y > 0 ? 1.f : -1.f;
-
-            vec3 pos = transform->getPos();
-            vec2 otherPos = other->getPos();
-            vec2 size = getSize();
-            vec2 otherSize = other->getSize();
-
-            transform->setPos(vec3(pos.x, otherPos.y - dir.y * (size.y / 2.f + otherSize.y / 2.f + 1.f),
-                                   pos.z));
+            const float signY = delta.y >= 0.f ? 1.f : -1.f;
+            transform->setPos(vec3(pos.x, pos.y + signY * overlapY, pos.z));
         }
     }
 

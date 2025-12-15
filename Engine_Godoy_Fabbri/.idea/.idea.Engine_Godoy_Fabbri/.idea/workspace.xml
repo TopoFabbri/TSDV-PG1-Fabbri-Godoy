@@ -10,12 +10,7 @@
   <component name="ChangeListManager">
     <list default="true" id="59b83834-1b16-455b-92bb-7e2412bbcbcc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Engine_Godoy_Fabbri/Engine_Godoy_Fabbri.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Engine_Godoy_Fabbri/Engine_Godoy_Fabbri.vcxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestProject/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/Game.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/Input.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/Input.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/Renderer.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/Renderer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/Renderer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Renderer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/Sprite.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Sprite.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/BoxCollider2D.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/BoxCollider2D.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +36,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="cidr-memory-view://8" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/glew.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/glfw3.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/glm/detail/setup.hpp" root0="SKIP_HIGHLIGHTING" />
@@ -53,6 +47,8 @@
     <setting file="file://$PROJECT_DIR$/packages/boost.1.87.0/lib/native/include/boost/stacktrace/stacktrace.hpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/packages/boost.1.87.0/lib/native/include/boost/stacktrace/stacktrace_fwd.hpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Headers/stb_image.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Administrator/Documents/Rider/TSDV-PG1-Fabbri-Godoy/Engine_Godoy_Fabbri/src/Source/BoxCollider2D.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Administrator/Documents/Rider/TSDV-PG1-Fabbri-Godoy/Engine_Godoy_Fabbri/src/Source/BoxCollider2D.cpp" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
   <component name="ProblemsViewState">
@@ -72,14 +68,14 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "C/C++ Project.Engine_Godoy_Fabbri.executor": "Run",
-    "C/C++ Project.TestProject.executor": "Debug",
+    "C/C++ Project.TestProject.executor": "Run",
     "RunOnceActivity.CodyProjectSettingsMigration": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "tinyxml2-tilemap",
+    "git-widget-placeholder": "WIP",
     "junie.onboarding.icon.badge.shown": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
