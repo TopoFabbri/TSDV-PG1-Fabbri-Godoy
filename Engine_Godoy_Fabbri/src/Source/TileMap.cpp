@@ -143,15 +143,45 @@ namespace ToToEng
 
     void TileMap::checkCollision(BoxCollider2D* collider) const
     {
-        for (uint i = 0; i < tileMapGrid.size(); i++)
+        if (tileMapGrid.empty() || collider == nullptr)
+            return;
+
+        vec2 tileScale = tileMapGrid[0][0][0].transform.getScale();
+        
+        if (tileMapGrid[0][0][0].collider)
+            tileScale = tileMapGrid[0][0][0].collider->getSize();
+        
+        const float tileSizeX = tileScale.x;
+        const float tileSizeY = tileScale.y;
+
+        const float halfW = static_cast<float>(width) / 2.f;
+        const float halfH = static_cast<float>(height) / 2.f;
+
+        const vec2 upLeft = collider->getUpLeft();
+        const vec2 downRight = collider->getDownRight();
+
+        int minX = static_cast<int>(round(upLeft.x / tileSizeX + halfW));
+        int maxX = static_cast<int>(round(downRight.x / tileSizeX + halfW));
+        int minY = static_cast<int>(round(halfH - downRight.y / tileSizeY));
+        int maxY = static_cast<int>(round(halfH - upLeft.y / tileSizeY));
+
+        minX = std::max(minX, 0);
+        minY = std::max(minY, 0);
+        maxX = std::min(maxX, static_cast<int>(width) - 1);
+        maxY = std::min(maxY, static_cast<int>(height) - 1);
+
+        if (minX > maxX || minY > maxY)
+            return;
+
+        for (Tile** const tile : tileMapGrid)
         {
-            for (uint y = 0; y < height; y++)
+            for (int y = minY; y <= maxY; y++)
             {
-                for (uint x = 0; x < width; x++)
+                for (int x = minX; x <= maxX; x++)
                 {
-                    if (tileMapGrid[i][y][x].getId() == NULL || tileMapGrid[i][y][x].collider == nullptr) continue;
-                    
-                    CollisionManager::checkCollision(collider, tileMapGrid[i][y][x].collider);
+                    if (tile[y][x].getId() == NULL || tile[y][x].collider == nullptr) continue;
+
+                    CollisionManager::checkCollision(collider, tile[y][x].collider);
                 }
             }
         }

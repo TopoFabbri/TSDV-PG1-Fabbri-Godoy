@@ -10,7 +10,10 @@
   <component name="ChangeListManager">
     <list default="true" id="59b83834-1b16-455b-92bb-7e2412bbcbcc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Headers/Sprite.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/Sprite.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Source/BoxCollider2D.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/BoxCollider2D.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Sprite.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/Sprite.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/TileMap.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/TileMap.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +39,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///dummy.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="cidr-memory-view://2" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/glew.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/glfw3.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/glm/detail/setup.hpp" root0="SKIP_HIGHLIGHTING" />
@@ -49,6 +54,14 @@
     <setting file="file://$PROJECT_DIR$/src/Headers/stb_image.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Administrator/Documents/Rider/TSDV-PG1-Fabbri-Godoy/Engine_Godoy_Fabbri/src/Source/BoxCollider2D.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Administrator/Documents/Rider/TSDV-PG1-Fabbri-Godoy/Engine_Godoy_Fabbri/src/Source/BoxCollider2D.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Administrator/Documents/Rider/TSDV-PG1-Fabbri-Godoy/Engine_Godoy_Fabbri/src/Source/BoxCollider2D.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Administrator/Documents/Rider/TSDV-PG1-Fabbri-Godoy/Engine_Godoy_Fabbri/src/Source/BoxCollider2D.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Administrator/Documents/Rider/TSDV-PG1-Fabbri-Godoy/Engine_Godoy_Fabbri/src/Source/BoxCollider2D.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Administrator/Documents/Rider/TSDV-PG1-Fabbri-Godoy/Engine_Godoy_Fabbri/src/Source/BoxCollider2D.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Administrator/Documents/Rider/TSDV-PG1-Fabbri-Godoy/Engine_Godoy_Fabbri/src/Source/BoxCollider2D.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Administrator/Documents/Rider/TSDV-PG1-Fabbri-Godoy/Engine_Godoy_Fabbri/src/Source/BoxCollider2D.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Administrator/Documents/Rider/TSDV-PG1-Fabbri-Godoy/Engine_Godoy_Fabbri/src/Source/TileMap.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Administrator/Documents/Rider/TSDV-PG1-Fabbri-Godoy/Engine_Godoy_Fabbri/src/Source/TileMap.cpp" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="false" />
   <component name="ProblemsViewState">
@@ -377,10 +390,5 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="CppProject">
-        <watch expression="tileMapGrid[i][y][x]" language="C++" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>

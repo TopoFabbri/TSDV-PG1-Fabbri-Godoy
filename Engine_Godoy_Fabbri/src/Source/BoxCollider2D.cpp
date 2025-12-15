@@ -1,7 +1,6 @@
 #include "BoxCollider2D.h"
 
 #include <iostream>
-#include <functional>
 
 namespace ToToEng
 {

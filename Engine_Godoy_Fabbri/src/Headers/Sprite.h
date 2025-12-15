@@ -21,7 +21,8 @@ namespace ToToEng
         
         Sprite(Renderer* renderer);
         ~Sprite() override;
-        
+        void drawCollider() const;
+
         void draw() override;
         void loadTexture(const char* filePath);
         void addAnimation(float duration, int frameQty, int animQty, const char* filePath);

@@ -65,22 +65,29 @@ void ToToEng::Sprite::draw()
 {
     renderer->drawEntity2D(VAO, indexQty, color, transform.getTransformMatrix(), texture);
     
-    if (collider && Settings::getDebugMode())
+    if (Settings::getDebugMode())
     {
-        constexpr vec4 color = {0.f, 1.f, 0.f, 1.f};
-        constexpr mat4 idMat = mat4(1.f);
-        const vec3 corners[4] = {
-            {collider->getUpLeft(), -.5f},
-            {collider->getDownRight().x, collider->getUpLeft().y, -.5f},
-            {collider->getUpLeft().x, collider->getDownRight().y, -.5f},
-            {collider->getDownRight(), -.5f},
-        };
-        
-        renderer->drawLine(corners[0], corners[1], color, 1.f, idMat);
-        renderer->drawLine(corners[1], corners[3], color, 1.f, idMat);
-        renderer->drawLine(corners[0], corners[2], color, 1.f, idMat);
-        renderer->drawLine(corners[2], corners[3], color, 1.f, idMat);
+        drawCollider();
     }
+}
+
+void ToToEng::Sprite::drawCollider() const
+{
+    if (!collider) return;
+    
+    constexpr vec4 color = {0.f, 1.f, 0.f, 1.f};
+    constexpr mat4 idMat = mat4(1.f);
+    const vec3 corners[4] = {
+        {collider->getUpLeft(), -.5f},
+        {collider->getDownRight().x, collider->getUpLeft().y, -.5f},
+        {collider->getUpLeft().x, collider->getDownRight().y, -.5f},
+        {collider->getDownRight(), -.5f},
+    };
+        
+    renderer->drawLine(corners[0], corners[1], color, 1.f, idMat);
+    renderer->drawLine(corners[1], corners[3], color, 1.f, idMat);
+    renderer->drawLine(corners[0], corners[2], color, 1.f, idMat);
+    renderer->drawLine(corners[2], corners[3], color, 1.f, idMat);
 }
 
 void ToToEng::Sprite::loadTexture(const char* filePath)
