@@ -64,7 +64,7 @@ Animation::Animation(float duration, int frameQty, glm::vec2 offset, glm::vec2 f
 {
     this->duration = duration;
     this->frameQty = frameQty;
-    this->frameSize = frameSize / static_cast<float>(texWidth);
+    this->frameSize = {frameSize.x / static_cast<float>(texWidth), frameSize.y / static_cast<float>(texHeight)};
     this->texWidth = texWidth;
     this->texHeight = texHeight;
     

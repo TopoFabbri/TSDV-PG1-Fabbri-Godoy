@@ -11,6 +11,8 @@ Game::Game(bool is3D, int width, int height, const char* title) : BaseGame(is3D,
     
     tileMap = new TileMap(renderer);
     tileMap->importTileMap("../res/maps/BattleCity.tmx");
+    
+    camera->transform.setPos({-450.f, -300.f, 10.f});
 }
 
 Game::~Game()
@@ -19,8 +21,6 @@ Game::~Game()
 
 void Game::update()
 {
-    camera->transform.setPos(character->transform.getPos() + vec3{-400.f, -300.f, 10.f});
-    
     if (Input::getKey(Input::space, Input::Pressed))
         Settings::setDebugMode(!Settings::getDebugMode());
 }

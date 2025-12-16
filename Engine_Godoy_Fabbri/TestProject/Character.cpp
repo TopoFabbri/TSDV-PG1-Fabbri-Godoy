@@ -16,10 +16,9 @@ Character::Character(Renderer* renderer) : Sprite(renderer)
     friction = .1f;
     rotSpeed = 400.f;
 
-    transform.setPos(vec3(0.f, 100.f, 0.f));
-    // transform.setScale(vec3(75.f, 75.f, 75.f));
+    transform.setPos(vec3(0.f, 20.f, 0.f));
     
-    addAnimation(1.f, 8, 8, "../res/textures/dragon.png", 0, 4);
+    addAnimation(.5f, 2, {0, 16.f * 7}, {16.f, 16.f}, "../res/maps/Battle City Atlas.png");
     setTrigger(false);
 }
 
@@ -64,9 +63,6 @@ void Character::update()
         transform.rotateZ(rotSpeed * GameTime::getDelta());
     if (Input::getKey(Input::right, Input::Repeated))
         transform.rotateZ(-rotSpeed * GameTime::getDelta());
-
-    if (Input::getKey(Input::f, Input::Pressed))
-        animation->setAnimByIndex(animation->getAnimIndex() >= 7 ? 0 : animation->getAnimIndex() + 1);
     
     move();
 }
