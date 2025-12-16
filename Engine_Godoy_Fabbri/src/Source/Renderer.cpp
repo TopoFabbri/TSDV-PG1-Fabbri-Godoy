@@ -22,6 +22,8 @@ namespace ToToEng
         glCall(u_ShapeTransformLocation = glGetUniformLocation(shapeShader, "u_Transform"));
         _ASSERT(u_TransformLocation != -1);
 
+        glCall(glEnable(GL_DEPTH_TEST));
+        
         if (is3D)
         {
             setProjection(perspective(radians(45.f), static_cast<float>(window->getWidth()) / static_cast<float>(window->getHeight()), 0.1f, 100.f));
@@ -34,6 +36,10 @@ namespace ToToEng
         }
 
         view = lookAt(cameraPos, {0, 0, 0}, {0, 1, 0});
+
+        // Enable depth testing so fragments respect depth values
+        glEnable(GL_DEPTH_TEST);
+        glDepthFunc(GL_LESS);
     }
 
     Renderer::~Renderer()
@@ -43,7 +49,7 @@ namespace ToToEng
 
     void Renderer::beginDraw()
     {
-        glCall(glClear(GL_COLOR_BUFFER_BIT));
+        glCall(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
     }
 
     void Renderer::endDraw()

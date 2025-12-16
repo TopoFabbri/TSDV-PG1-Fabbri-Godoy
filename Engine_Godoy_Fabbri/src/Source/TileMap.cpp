@@ -117,7 +117,7 @@ namespace ToToEng
                     
                     tileMapGrid[i][y][x].setPosX((static_cast<float>(x) + mapHalfWidth) * tileScale.x);
                     tileMapGrid[i][y][x].setPosY((-static_cast<float>(y) + mapHalfHeight) * tileScale.y);
-                    tileMapGrid[i][y][x].setPosZ(static_cast<float>(i) * 10);
+                    tileMapGrid[i][y][x].setPosZ(static_cast<float>(i));
                 }
             }
         }

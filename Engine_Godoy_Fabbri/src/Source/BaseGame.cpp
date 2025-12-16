@@ -78,9 +78,9 @@ namespace ToToEng
 
             renderer->beginDraw();
 
-            for (Entity* entity : entities) entity->draw();
-
             if (tileMap) tileMap->draw();
+
+            for (Entity* entity : entities) entity->draw();
 
             renderer->endDraw();
 

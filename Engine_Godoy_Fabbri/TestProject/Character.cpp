@@ -16,7 +16,7 @@ Character::Character(Renderer* renderer) : Sprite(renderer)
     friction = .1f;
     rotSpeed = 400.f;
 
-    transform.setPos(vec3(0.f, 20.f, 0.f));
+    transform.setPos(vec3(0.f, 20.f, .5f));
     
     addAnimation(.5f, 2, {0, 16.f * 7}, {16.f, 16.f}, "../res/maps/Battle City Atlas.png");
     setTrigger(false);

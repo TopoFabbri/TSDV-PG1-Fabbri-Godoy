@@ -23,6 +23,8 @@ namespace ToToEng
 		if (!glfwInit())
 			return;
 
+		glfwWindowHint(GLFW_DEPTH_BITS, 24);
+
 		window = glfwCreateWindow(width, height, "Example game", NULL, NULL);
 
 		if (!window)
@@ -52,6 +54,8 @@ namespace ToToEng
 
 		if (!glfwInit())
 			return;
+
+		glfwWindowHint(GLFW_DEPTH_BITS, 24);
 
 		window = glfwCreateWindow(width, height, title, NULL, NULL);
 
