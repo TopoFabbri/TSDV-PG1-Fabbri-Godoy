@@ -20,6 +20,7 @@ namespace ToToEng
         void setId(unsigned int id);
         void setPosX(float x);
         void setPosY(float y);
+        void setPosZ(float z);
         void setTexture(uint texture, int texWidth, int texHeight);
 
     private:

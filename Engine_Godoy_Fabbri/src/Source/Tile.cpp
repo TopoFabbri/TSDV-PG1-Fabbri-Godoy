@@ -80,6 +80,11 @@ namespace ToToEng
         transform.setPos({pos.x, pos.y, transform.getPos().z});
     }
 
+    void Tile::setPosZ(const float z)
+    {
+        transform.setPos({pos.x, pos.y, z});
+    }
+
     void Tile::setTexture(const uint texture, const int texWidth, const int texHeight)
     {
         this->texture = texture;
