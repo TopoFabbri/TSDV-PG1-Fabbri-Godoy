@@ -115,3 +115,11 @@ void ToToEng::Sprite::addAnimation(float duration, int frameQty, vec2 offset, ve
     animation = new Animation(duration, frameQty, offset, frameSize, texWidth, texHeight);
     setScale(animation->getFrameSize());
 }
+
+void ToToEng::Sprite::setAnimation(float duration, int frameQty, vec2 offset, vec2 frameSize)
+{
+    delete animation;
+    
+    animation = new Animation(duration, frameQty, offset, frameSize, texWidth, texHeight);
+    setScale(animation->getFrameSize());
+}

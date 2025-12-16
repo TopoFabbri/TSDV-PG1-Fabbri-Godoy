@@ -1,4 +1,6 @@
 #pragma once
+#include <vector>
+
 #include "Headers/Sprite.h"
 
 class Character :
@@ -12,6 +14,8 @@ private:
     float rotSpeed;
     
     bool hasAccelerated;
+    
+    std::vector<vec2> animOffsets;
 
 public:
     explicit Character(ToToEng::Renderer* renderer);

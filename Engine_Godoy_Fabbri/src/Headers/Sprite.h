@@ -28,5 +28,7 @@ namespace ToToEng
         void addAnimation(float duration, int frameQty, int animQty, const char* filePath);
         void addAnimation(float duration, int frameQty, int animQty, const char* filePath, int frameStart, int frameEnd);
         void addAnimation(float duration, int frameQty, vec2 offset, vec2 frameSize, const char* filePath);
+        
+        void setAnimation(float duration, int frameQty, vec2 offset, vec2 frameSize);
     };
 }

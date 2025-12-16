@@ -17,6 +17,11 @@ Character::Character(Renderer* renderer) : Sprite(renderer)
     rotSpeed = 400.f;
 
     transform.setPos(vec3(0.f, 20.f, .5f));
+
+    animOffsets.emplace_back(0, 16.f * 7);
+    animOffsets.emplace_back(16.f * 2, 16.f * 7);
+    animOffsets.emplace_back(16.f * 4, 16.f * 7);
+    animOffsets.emplace_back(16.f * 6, 16.f * 7);
     
     addAnimation(.5f, 2, {0, 16.f * 7}, {16.f, 16.f}, "../res/maps/Battle City Atlas.png");
     setTrigger(false);
@@ -77,4 +82,19 @@ void Character::accelerateInDir(vec3 dir)
 
     if (length(vel) > maxSpeed)
         vel = normalize(vel) * maxSpeed;
+    
+    if (abs(vel.x) > abs(vel.y))
+    {
+        if (vel.x >= 0)
+            setAnimation(.5f, 2, animOffsets[3], {16.f, 16.f});
+        else
+            setAnimation(.5f, 2, animOffsets[1], {16.f, 16.f});
+    }
+    else
+    {
+        if (vel.y >= 0)
+            setAnimation(.5f, 2, animOffsets[0], {16.f, 16.f});
+        else
+            setAnimation(.5f, 2, animOffsets[2], {16.f, 16.f});
+    }
 }
