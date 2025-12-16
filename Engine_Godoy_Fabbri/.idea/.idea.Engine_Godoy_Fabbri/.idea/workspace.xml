@@ -10,9 +10,9 @@
   <component name="ChangeListManager">
     <list default="true" id="59b83834-1b16-455b-92bb-7e2412bbcbcc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Engine_Godoy_Fabbri/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Headers/TextureImporter.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/Headers/TextureImporter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/TextureImporter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/TextureImporter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Source/TileMap.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Source/TileMap.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Engine_Godoy_Fabbri/Engine_Godoy_Fabbri.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/Engine_Godoy_Fabbri/Engine_Godoy_Fabbri.vcxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestProject/Game.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/TestProject/Game.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Source/Settings.cpp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,20 +80,21 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "C/C++ Project.Engine_Godoy_Fabbri.executor": "Run",
-    "C/C++ Project.TestProject.executor": "Debug",
+    "C/C++ Project.TestProject.executor": "Run",
     "RunOnceActivity.CodyProjectSettingsMigration": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "WIP",
+    "git-widget-placeholder": "FabbriMateo-Final",
     "junie.onboarding.icon.badge.shown": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.sourceCode.C++",
+    "settings.editor.selected.configurable": "settings.sync",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -276,6 +277,7 @@
       <workItem from="1700571139289" duration="1062000" />
       <workItem from="1700581359215" duration="9191000" />
       <workItem from="1701175915541" duration="3725000" />
+      <workItem from="1765889802604" duration="275000" />
     </task>
     <task id="LOCAL-00001" summary="Re-do singleton input">
       <option name="closed" value="true" />

@@ -10,7 +10,7 @@ Game::Game(bool is3D, int width, int height, const char* title) : BaseGame(is3D,
     character = dynamic_cast<Character*>(entities.back());
     
     tileMap = new TileMap(renderer);
-    tileMap->importTileMap("../res/maps/TilemapTest1.tmx");
+    tileMap->importTileMap("../res/maps/BattleCity.tmx");
 }
 
 Game::~Game()
